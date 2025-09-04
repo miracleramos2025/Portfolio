@@ -1,6 +1,6 @@
 # Miracle Ramos – Project Portfolio
 
-Welcome to my portfolio! This repo highlights projects I’ve worked on in data science, web development, and analytics.  
+Welcome to my portfolio! I’m a Computer Science major with a Data Science minor at Northwestern University, passionate about consulting, analytics, and storytelling with data. This portfolio is a collection of my favorite academic projects and highlights my work in programming, data science, web development, and analytics.  
 
 Each project includes either a GitHub repo link or a YouTube presentation.
 
@@ -37,7 +37,5 @@ Each project includes either a GitHub repo link or a YouTube presentation.
 
 ---
 
-## 📄 About Me
-I’m a Computer Science major with a Data Science minor at Northwestern University, passionate about consulting, analytics, and storytelling with data. This portfolio is a collection of my favorite academic and personal projects.
-
+## 📄 Contact Me
 Feel free to contact me at miracleramos2025@u.northwestern.edu and connect with me on [Linkedin](https://www.linkedin.com/in/miracle-ramos/)
