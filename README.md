@@ -7,8 +7,8 @@ Each project includes either a GitHub repo link or a YouTube presentation.
 ---
 
 ## 📈 Disney Box Office Analysis – STAT 302 (Winter 2025)
-- [View Project](https://miracleramos2025.github.io/disney-boxoffice-analysis/ramos_miracle_final_project.html)
-- [GitHub Repository]()
+- [View Final Report (HTML)](https://miracleramos2025.github.io/disney-boxoffice-analysis/ramos_miracle_final_project.html)
+- [GitHub Repository](https://github.com/miracleramos2025/disney-boxoffice-analysis.git)
 
 ## 🎥 Parallelism in Real Life: How Pixar Renders Movies – COMP_SCI 358 (Spring 2025)
 - [Watch Presentation on YouTube](https://youtu.be/toNq7nj4ROk?si=Nm7qq6OWZ9hb3Vwz)
