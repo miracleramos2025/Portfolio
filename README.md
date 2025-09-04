@@ -35,6 +35,7 @@ Each project includes either a rendered report, GitHub repo link, or a YouTube p
 - [GitHub Repository](https://github.com/miracleramos2025/final-project-1-site)
 
 
+
 ### Final Project 2 – STAT 301-2 (Winter 2025)
 **Summary:** Built a supervised machine learning pipeline with tidymodels to compare regularized linear models (lasso, elastic net) and tree-based methods (random forest, boosted trees). I framed the problem and evaluation criteria, performed cross-validation and hyperparameter tuning, interpreted variable importance, and designed reader-friendly visuals and layout with UI/UX principles to communicate findings clearly.
 
