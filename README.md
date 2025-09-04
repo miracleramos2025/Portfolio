@@ -20,6 +20,9 @@ Each project includes either a GitHub repo link or a YouTube presentation.
 ## 📊 Data Science Year-Long Sequence
 
 ### Final Project 1 – STAT 301-1 (Fall 2024)
+**Summary:** I analyzed U.S. college salary outcomes by cleaning and joining WSJ/Kaggle and College Scorecard data, converting privacy-suppressed values, engineering ROI and 1–3 year earnings growth metrics, and communicating insights with clear ggplot2 visualizations and summary tables. The report is fully reproducible in Quarto and version-controlled with Git and GitHub Pages.
+
+**Skills and tools:** R, tidyverse (dplyr, tidyr, readr), ggplot2, data cleaning, joins, feature engineering, exploratory data analysis, descriptive statistics, Quarto, Git, GitHub Pages.
 - [Final Report (HTML)](https://miracleramos2025.github.io/final-project-1-site/ramos_miracle_final_report.html)
 - [GitHub Repository](https://github.com/miracleramos2025/final-project-1-site)
 
