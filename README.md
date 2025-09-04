@@ -24,15 +24,12 @@ Each project includes either a GitHub repo link or a YouTube presentation.
 - [GitHub Repository](https://github.com/miracleramos2025/final-project-1-site)
 
 ### Final Project 2 – STAT 301-2 (Winter 2025)
-- [GitHub Repository](https://github.com/stat301-2-2025-winter/final-project-2-miracleramos2025.git)
-
-### Final Project 3 – STAT 301-3 (Spring 2025)
-- [GitHub Repository]()
+- [Final Report (HTML)](https://miracleramos2025.github.io/final-project-2-site/Ramos_Miracle_final_report.html)
+- [GitHub Repository](https://github.com/miracleramos2025/final-project-2-site)
 
 ---
 
-## 🌐 Other Projects
-### Northwestern Navigator – COMP_SCI 396 (Summer 2024)
+## 🌐 Northwestern Navigator – COMP_SCI 396 (Summer 2024)
 - [GitHub Repository](https://github.com/miracleramos2025/northwestern_navigator.git)
 - [Watch Presentation on YouTube]()
 
