@@ -20,6 +20,7 @@ Each project includes either a GitHub repo link or a YouTube presentation.
 ## 📊 Data Science Year-Long Sequence
 
 ### Final Project 1 – STAT 301-1 (Fall 2024)
+- [Final Report (HTML](https://stat301-1-2024-fall.github.io/final-project-1-miracleramos2025/)
 - [GitHub Repository](https://github.com/stat301-1-2024-fall/final-project-1-miracleramos2025.git)
 
 ### Final Project 2 – STAT 301-2 (Winter 2025)
