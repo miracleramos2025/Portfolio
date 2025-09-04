@@ -1,11 +1,15 @@
 # Miracle Ramos – Project Portfolio
 
 Welcome to my portfolio! This repo highlights projects I’ve worked on in data science, web development, and analytics.  
+
 Each project includes either a GitHub repo link or a YouTube presentation.
 
 ---
 
-## 🎥 Disney Box Office Analysis
+## 📈 Disney Box Office Analysis – STAT 302 (Winter 2025)
+- [GitHub Repository]()
+
+## 🎥 Parallelism in Real Life: How Pixar Renders Movies – COMP_SCI 358 (Spring 2025)
 - [Watch Presentation on YouTube](https://youtu.be/toNq7nj4ROk?si=Nm7qq6OWZ9hb3Vwz)
 
 ---
@@ -24,8 +28,9 @@ Each project includes either a GitHub repo link or a YouTube presentation.
 ---
 
 ## 🌐 Other Projects
-### Northwestern Navigator
+### Northwestern Navigator – COMP_SCI 396 (Summer 2024)
 - [GitHub Repository](https://github.com/miracleramos2025/northwestern_navigator.git)
+- [Watch Presentation on YouTube]()
 
 ---
 
