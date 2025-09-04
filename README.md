@@ -21,7 +21,7 @@ Each project includes either a GitHub repo link or a YouTube presentation.
 
 ### Final Project 1 – STAT 301-1 (Fall 2024)
 - [Final Report (HTML)](https://miracleramos2025.github.io/final-project-1-site/ramos_miracle_final_report.html)
-- [GitHub Repository](https://github.com/stat301-1-2024-fall/final-project-1-miracleramos2025.git)
+- [GitHub Repository](https://github.com/miracleramos2025/final-project-1-site)
 
 ### Final Project 2 – STAT 301-2 (Winter 2025)
 - [GitHub Repository](https://github.com/stat301-2-2025-winter/final-project-2-miracleramos2025.git)
