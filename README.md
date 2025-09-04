@@ -23,7 +23,7 @@ Each project includes either a GitHub repo link or a YouTube presentation.
 - [GitHub Repository](https://github.com/stat301-2-2025-winter/final-project-2-miracleramos2025.git)
 
 ### Final Project 3 – STAT 301-3 (Spring 2025)
-- [GitHub Repository](https://github.com/miracleramos2025/northwestern_navigator.git)
+- [GitHub Repository]()
 
 ---
 
@@ -35,7 +35,6 @@ Each project includes either a GitHub repo link or a YouTube presentation.
 ---
 
 ## 📄 About Me
-I’m a Computer Science major with a Data Science minor at Northwestern University, passionate about consulting, analytics, and storytelling with data.  
-This portfolio is a collection of my favorite academic and personal projects.
+I’m a Computer Science major with a Data Science minor at Northwestern University, passionate about consulting, analytics, and storytelling with data. This portfolio is a collection of my favorite academic and personal projects.
 
 Feel free to contact me at miracleramos2025@u.northwestern.edu and connect with me on [Linkedin](www.linkedin.com/in/miracle-ramos)
