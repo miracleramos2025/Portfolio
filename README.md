@@ -7,10 +7,12 @@ Each project includes either a GitHub repo link or a YouTube presentation.
 ---
 
 ## 📈 Disney Box Office Analysis – STAT 302 (Winter 2025)
+**Summary:** I analyze Disney’s box-office history to quantify the impact of the Pixar (2006), Marvel (2009), and Lucasfilm (2012) acquisitions and compare genre profitability—finding superhero and animation dominate.
 - [View Final Report (HTML)](https://miracleramos2025.github.io/disney-boxoffice-analysis/ramos_miracle_final_project.html)
 - [GitHub Repository](https://github.com/miracleramos2025/disney-boxoffice-analysis.git)
 
 ## 🎥 Parallelism in Real Life: How Pixar Renders Movies – COMP_SCI 358 (Spring 2025)
+**Summary:** A fast, visual overview of how Pixar renders films using parallelism—splitting frames and shots across many CPU/GPU cores, scheduling workloads, and recombining results into movie-quality images.
 - [Watch Presentation on YouTube](https://youtu.be/toNq7nj4ROk?si=Nm7qq6OWZ9hb3Vwz)
 
 ---
