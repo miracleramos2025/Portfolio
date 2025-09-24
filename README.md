@@ -14,6 +14,10 @@ Each project includes either a rendered report, GitHub repo link, or a YouTube p
 - [View Final Report (HTML)](https://miracleramos2025.github.io/disney-boxoffice-analysis/ramos_miracle_final_project.html)
 - [GitHub Repository](https://github.com/miracleramos2025/disney-boxoffice-analysis)
 
+- <a href="https://miracleramos2025.github.io/disney-boxoffice-analysis/ramos_miracle_final_project.html" target="_blank">View Final Report (HTML)</a>
+- <a href="https://github.com/miracleramos2025/disney-boxoffice-analysis" target="_blank">GitHub Repository</a>
+
+
 
 ## 🎥 Parallelism in Real Life: How Pixar Renders Movies – COMP_SCI 358 (Spring 2025)
 **Summary:** A fast, visual overview of how Pixar renders films using parallel computing, splitting frames and shots across many CPU and GPU cores, scheduling workloads, and recombining results into movie-quality images.
