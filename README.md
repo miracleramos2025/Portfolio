@@ -51,8 +51,8 @@ Each project includes either a rendered report, GitHub repo link, or a YouTube p
 
 **Skills and tools:** HTML5, CSS3, JavaScript, UI/UX design (wireframing, information architecture, content strategy), React, accessibility/semantic markup, content organization, Git/GitHub, GitHub Pages.
 
-- [GitHub Repository](https://github.com/miracleramos2025/northwestern_navigator.git)
 - [Watch Presentation on YouTube](https://youtu.be/pn5t4ZIiq1Y)
+- [GitHub Repository](https://github.com/miracleramos2025/northwestern_navigator.git)
 
 ---
 
