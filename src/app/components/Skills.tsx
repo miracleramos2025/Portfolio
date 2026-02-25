@@ -5,12 +5,12 @@ export function Skills() {
       skills: ["UI/UX Design", "User Research", "User Testing", "Prototyping", "Human-Centered Design", "Wireframing", "Product Development"]
     },
     {
-      title: "Development",
-      skills: ["Frontend Development", "API Integration", "High Performance Computing", "Docker", "Git/GitHub", "Python", "C/C++", "AWS/Azure"]
+      title: "Data",
+      skills: ["R", "Machine Learning", "Data Visualization", "SQL", "Exploratory Analysis", "Databases", "Data Mapping/Importing"]
     },
     {
-      title: "Data & Tools",
-      skills: ["R", "Machine Learning", "Data Visualization", "SQL", "Exploratory Analysis", "Databases", "Data Mapping/Importing"]
+      title: "Development",
+      skills: ["Frontend Development", "API Integration", "High Performance Computing", "Docker", "Git/GitHub", "Python", "C/C++", "AWS/Azure"]
     }
   ];
 
@@ -53,16 +53,19 @@ export function Skills() {
           {skillCategories.map((category, categoryIndex) => (
             <div key={categoryIndex} className="flex flex-col items-center">
               {/* Category box */}
-              <div className="border-4 border-[#87D3F8] bg-[#1a2e4a] px-18 py-5 rounded-lg mb-6 w-64 h-18 flex items-center justify-center">
-                <h4 className="text-[#87D3F8] text-[24px] font-semibold whitespace-nowrap">{category.title}</h4>
-              </div>
+              <div 
+  className="border-4 border-[#87D3F8] bg-[#87D3F8] px-18 py-5 rounded-lg mb-6 w-64 h-18 flex items-center justify-center"
+  style={{ boxShadow: 'inset 0 0 0 3px #0F2656' }}
+>
+  <h4 className="text-[#0F2656] text-[24px] font-semibold whitespace-nowrap">{category.title}</h4>
+</div>
               
               {/* Skills as bigger interactive tags */}
               <div className="flex flex-wrap gap-3 justify-center max-w-sm">
                 {category.skills.map((skill, skillIndex) => (
                   <span
                     key={skillIndex}
-                    className="border border-[#87D3F8]/90 bg-[#1a2e4a]/50 text-[#87D3F8] text-[16px] px-5 py-2.5 rounded hover:bg-[#87D3F8]/10 transition-colors cursor-default"
+                    className="border border-[#87D3F8]/90 bg-[]/50 text-[#87D3F8] text-[16px] px-5 py-2.5 rounded hover:bg-[#87D3F8]/10 transition-colors cursor-default"
                   >
                     {skill}
                   </span>
