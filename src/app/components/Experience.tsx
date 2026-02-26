@@ -20,7 +20,7 @@ export function Experience() {
   ];
 
   return (
-    <section id="experience" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "100px" }}>
+    <section id="experience" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "70px" }}>
       <h2 className="text-white text-5xl font-bold text-center mb-13">Experience</h2>
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {cards.map((card, i) => (

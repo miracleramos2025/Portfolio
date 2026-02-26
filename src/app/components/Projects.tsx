@@ -226,7 +226,7 @@ export function Projects() {
   const activeProjects = projects[activeTab as keyof ProjectsData];
 
   return (
-    <section id="projects" className="bg-[#0F2656] py-16 px-8">
+    <section id="projects" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "60px" }}>
       {selectedProject && (
         <Modal project={selectedProject} onClose={() => setSelectedProject(null)} />
       )}

@@ -15,7 +15,7 @@ export function Skills() {
   ];
 
   return (
-    <section id="skills" className="bg-[#0F2656] py-16 px-8">
+    <section id="skills" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "70px" }}>
       <h2 className="text-[#FFFFFF] text-5xl font-bold text-center mb-5">Skills</h2>
       
       <div className="max-w-7xl mx-auto">
