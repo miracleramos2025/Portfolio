@@ -1,66 +1,109 @@
+import huron from "../../assets/huron.jpg";
+import mudd from "../../assets/nuit.jpg";
+import { useNavigate } from "react-router-dom";
+
 export function Experience() {
-  const experiences = [
+  const navigate = useNavigate();
+  const cards = [
     {
-      date: "May 2024 - February 2025",
-      title: "Technical Consultant",
-      company: "Northwestern IT",
-      department: "IT Media & Technological Innovation",
-      location: "Evanston, IL",
-      description: "Advised and assisted faculty on AV/IT tools in 150+ educational spaces to support effective teaching. Applied problem-solving and critical thinking to identify technical issues, recommend solutions, and maintain a smooth learning environment. Collaborated to ensure consistent support across campus facilities."
+      image: huron,
+      href: "/huron",
+      title: "Huron Consulting Group",
+      roles: ["Digital Consulting Analyst", "Digital Consulting Intern"],
     },
     {
-      date: "February 2025 - July 2026",
-      title: "Team Lead",
-      company: "Northwestern IT",
-      department: "IT Media & Technological Innovation",
-      location: "Evanston, IL",
-      description: "Lead and mentor a team of 30 consultants through training, scheduling, and professional development. Oversee weekly operations to ensure smooth classroom support across Northwestern's campus. Dedicate 35 hours per week to operational and team leadership while enrolled as a full-time undergraduate student."
+      image: mudd,
+      href: "/northwestern",
+      title: "Northwestern IT",
+      roles: ["Team Lead", "Technical Consultant"],
     },
-    {
-      date: "June 2025 - August 2025",
-      title: "Digital Consulting Intern",
-      company: "Huron Consulting Group",
-      department: "Data Management & Analytics",
-      location: "Chicago, IL",
-      description: "Supported data strategy and cloud implementation across three client projects, contributing to database importing, mapping, and cloud environment setup. Delivered functional and technical consulting by collaborating with internal teams and engaging with client needs to support long-term data solutions."
-    },
-    {
-      date: "July 2026 - Present",
-      title: "Digital Consulting Analyst",
-      company: "Huron Consulting Group",
-      department: "Financial Crimes Compliance",
-      location: "Chicago, IL",
-      description: "Develop and implement anti-money laundering (AML) solutions for financial institutions to detect and prevent fraudulent activities. Contribute to cloud migration projects in Oracle Cloud Infrastructure and apply data analysis to enhance detection capabilities and streamline financial crimes prevention."
-    }
   ];
 
   return (
-    <section id="experience" className="bg-[#0F2656] py-16 px-8">
+    <section id="experience" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "100px" }}>
       <h2 className="text-white text-5xl font-bold text-center mb-13">Experience</h2>
-      
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {experiences.map((exp, index) => (
-          <div key={index} className="flex flex-col">
-            {/* Date and Title */}
-            <div className="mb-4">
-              <p className="text-[#87D3F8] text-sm mb-2">{exp.date}</p>
-              <h3 className="text-white font-bold text-lg">{exp.title}</h3>
-              <div className="mt-2">
-                <div className="h-0.5 bg-[#87D3F8] w-full rounded-full"></div>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        {cards.map((card, i) => (
+          <div
+            key={i}
+            onClick={() => navigate(card.href)}
+            className="relative overflow-hidden rounded-lg block group cursor-pointer"
+            style={{ height: "425px", border: "3px solid #87D3F8" }}
+          >
+            <img
+              src={card.image}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            {/* Base overlay */}
+            <div
+              className="absolute inset-0 transition-opacity duration-300"
+              style={{ backgroundColor: "rgba(15, 38, 86, 0.65)" }}
+            />
+            {/* Hover overlay */}
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{ backgroundColor: "rgba(15, 38, 86, 0.45)" }}
+            />
+            {/* Hover border */}
+            <div className="absolute inset-0 rounded-lg border-2 border-transparent group-hover:border-white group-hover:border-opacity-30 transition-all duration-300" />
+
+            {/* Title — top left */}
+            <div className="absolute top-8 left-0 p-8">
+              <h3
+                className="text-white font-bold text-3xl"
+                style={{ letterSpacing: "0.1em" }}
+              >
+                {card.title}
+              </h3>
+            </div>
+
+            {/* Progression — bottom left */}
+            <div className="absolute bottom-43 left-0 p-8 flex items-center gap-4">
+              <div className="flex flex-col items-center">
+                {card.roles.map((_, j) => (
+                  <div key={j} className="flex flex-col items-center">
+                    <div
+                      className="rounded-full"
+                      style={{
+                        width: "10px",
+                        height: "10px",
+                        backgroundColor: j === card.roles.length - 1 ? "#fff" : "#87D3F8",
+                        border: "1px solid #fff",
+                      }}
+                    />
+                    {j < card.roles.length - 1 && (
+                      <div className="w-px bg-white opacity-90" style={{ height: "51px" }} />
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col">
+                {card.roles.map((role, j) => (
+                  <div
+                    key={j}
+                    style={{ height: j < card.roles.length - 1 ? "56px" : "auto" }}
+                    className="flex items-start"
+                  >
+                    <span
+                      className="text-white font-semibold text-lg"
+                      style={{ opacity: j === card.roles.length - 1 ? 0.67 : 1 }}
+                    >
+                      {role}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Company Info */}
-            <div className="mb-4">
-              <h4 className="text-[#87D3F8] font-bold text-lg">{exp.company}</h4>
-              <p className="text-white text-sm">{exp.department}</p>
-              <p className="text-[#87D3F8] text-sm">{exp.location}</p>
+            {/* Learn More button — bottom center */}
+            <div className="absolute bottom-0 left-0 flex justify-center p-8">
+              <span
+                className="text-[#0F2656] bg-white text-sm font-semibold px-10 py-2 rounded-full border border-white opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                Learn More
+              </span>
             </div>
-
-            {/* Description */}
-            <p className="text-white text-sm leading-relaxed">
-              {exp.description}
-            </p>
           </div>
         ))}
       </div>
