@@ -1,22 +1,22 @@
 export function Skills() {
   const skillCategories = [
     {
-      title: "Design",
-      skills: ["UI/UX Design", "User Research", "User Testing", "Prototyping", "Human-Centered Design", "Wireframing", "Product Development"]
-    },
-    {
       title: "Data",
       skills: ["R", "Machine Learning", "Data Visualization", "SQL", "Exploratory Analysis", "Databases", "Data Mapping/Importing"]
     },
     {
       title: "Development",
       skills: ["Frontend Development", "API Integration", "High Performance Computing", "Docker", "Git/GitHub", "Python", "C/C++", "AWS/Azure"]
-    }
+    },
+    {
+      title: "Design",
+      skills: ["UI/UX Design", "User Research", "User Testing", "Prototyping", "Human-Centered Design", "Wireframing", "Product Development"]
+    },
   ];
 
   return (
     <section id="skills" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "70px" }}>
-      <h2 className="text-[#FFFFFF] text-5xl font-bold text-center mb-5">Skills</h2>
+      <h2 className="text-[#FFFFFF] text-4xl font-bold text-center mb-5" style={{ letterSpacing: "0.04em" }}>Skills</h2>
       
       <div className="max-w-7xl mx-auto">
         {/* Main vertical line */}

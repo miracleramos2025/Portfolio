@@ -26,7 +26,7 @@ export function Hero() {
         />
         <div className="absolute inset-0 flex flex-col items-start justify-start text-left pt-[4%] pl-[41%]">
           <p style={{ color: "#0F2656" }} className="text-2xl font-light mb-2">
-            Hey, I'm
+            Hey, I'm 
           </p>
           <h2 style={{ color: "#0F2656" }} className="text-5xl font-bold mb-4">
             Miracle Ramos

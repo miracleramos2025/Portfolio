@@ -5,7 +5,7 @@ export function About() {
   return (
     <section id="about" className="bg-[#0F2656] py-16 px-8 flex flex-col items-center justify-center" style={{ scrollMarginTop: "60px" }}>
       <div className="max-w-6xl w-full">
-        <h2 className="text-white text-5xl font-bold text-center mb-12">About Me</h2>
+        <h2 className="text-white text-4xl font-bold text-center mb-10" style={{ letterSpacing: "0.04em" }}>About Me</h2>
         
         <div className="flex gap-12 items-start">
           {/* Profile Image with Border */}

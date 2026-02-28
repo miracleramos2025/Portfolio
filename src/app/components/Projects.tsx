@@ -27,9 +27,9 @@ type Project = {
 };
 
 const tabs = [
-  { key: "design", label: "Design" },
   { key: "data", label: "Data" },
   { key: "development", label: "Development" },
+  { key: "design", label: "Design" },
 ];
 
 const projects: ProjectsData = {
@@ -221,7 +221,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
 }
 
 export function Projects() {
-  const [activeTab, setActiveTab] = useState("design");
+  const [activeTab, setActiveTab] = useState("data");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const activeProjects = projects[activeTab as keyof ProjectsData];
 
@@ -232,7 +232,7 @@ export function Projects() {
       )}
 
         <div className="max-w-[1300px] mx-auto px-16">
-        <h2 className="text-5xl font-bold text-white mb-10 text-center">Projects</h2>
+        <h2 className="text-4xl font-bold text-white mb-6 text-center" style={{ letterSpacing: "0.04em" }}>Projects</h2>
 
         <div className="flex justify-center gap-2 mb-10">
           {tabs.map((tab) => (

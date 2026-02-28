@@ -21,14 +21,14 @@ export function Experience() {
 
   return (
     <section id="experience" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "70px" }}>
-      <h2 className="text-white text-5xl font-bold text-center mb-13">Experience</h2>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <h2 className="text-white text-4xl font-bold text-center mb-12" style={{ letterSpacing: "0.04em" }}>Experience</h2>
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
         {cards.map((card, i) => (
           <div
             key={i}
             onClick={() => navigate(card.href)}
             className="relative overflow-hidden rounded-lg block group cursor-pointer"
-            style={{ height: "425px", border: "3px solid #87D3F8" }}
+            style={{ height: "400px", border: "3px solid #87D3F8" }}
           >
             <img
               src={card.image}
@@ -45,13 +45,11 @@ export function Experience() {
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               style={{ backgroundColor: "rgba(15, 38, 86, 0.45)" }}
             />
-            {/* Hover border */}
-            <div className="absolute inset-0 rounded-lg border-2 border-transparent group-hover:border-white group-hover:border-opacity-30 transition-all duration-300" />
 
             {/* Title — top left */}
             <div className="absolute top-8 left-0 p-8">
               <h3
-                className="text-white font-bold text-3xl"
+                className="text-white font-bold text-2xl"
                 style={{ letterSpacing: "0.1em" }}
               >
                 {card.title}
@@ -59,7 +57,7 @@ export function Experience() {
             </div>
 
             {/* Progression — bottom left */}
-            <div className="absolute bottom-43 left-0 p-8 flex items-center gap-4">
+            <div className="absolute bottom-39 left-0 p-8 flex items-center gap-4">
               <div className="flex flex-col items-center">
                 {card.roles.map((_, j) => (
                   <div key={j} className="flex flex-col items-center">
