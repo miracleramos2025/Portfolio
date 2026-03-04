@@ -1,5 +1,8 @@
 import nuitLogo from "../../assets/nuit5.png";
 import { ExperienceDetail } from "./ExperienceDetail";
+import seniors from "../../assets/seniors.jpg";
+import mic from "../../assets/mic.jpg";
+import cables from "../../assets/cables.jpg";
 
 export function NUITDetail() {
   return (
@@ -10,24 +13,55 @@ export function NUITDetail() {
         {
           title: "Technical Consultant",
           timeline: "May 2024 – Feb 2025",
-          description: "Advised and assisted faculty on AV/IT tools in 150+ educational spaces to support effective teaching. Applied problem-solving to identify technical issues and maintain a smooth learning environment.",
+          description: "Advised and assisted faculty on AV/IT tools across Northwestern's Evanston campus to support effective teaching. Applied problem-solving to identify technical issues and maintain a smooth learning environment.",
         },
         {
           title: "Team Lead",
           timeline: "Feb 2025 – July 2026",
-          description: "Lead and mentor a team of 30 consultants through training, scheduling, and professional development. Oversee weekly operations to ensure smooth classroom support across Northwestern's campus.",
+          description: "Promoted to lead daily operations, training, and scheduling while guiding a team of consultants through technical skill-building and professional development. Served as a primary point of contact for escalated technical issues and classroom support.",
         },
       ]}
-      team="Placeholder — describe your team here."
-      stats={[
-        { value: "30", label: "Consultants Led" },
-        { value: "150+", label: "Educational Spaces" },
-        { value: "35", label: "Hours/Week" },
-        { value: "2", label: "Roles Held" },
+      teams={[
+        {
+          title: "Mentorship",
+          description: "Met weekly 1-on-1 with 5 student consultants each quarter, providing guidance on technical skills, professional development, and navigating their roles.",
+        },
+        {
+          title: "Team Leadership",
+          description: "Met weekly with fellow Team Leads to discuss performance, operational updates, upcoming events, and scheduling across the consultant team.",
+        },
+        {
+          title: "Weekly Trainings",
+          description: "Led weekly training sessions for all student consultants to build technical skills and foster a sense of community within the team.",
+        },
       ]}
-      tools={["AV/IT Tools", "Team Leadership", "Scheduling", "Training & Development", "Problem Solving"]}
-      photos={[]}
-      reflection="Placeholder — your reflections here."
+      stats={[
+        { value: "9", label: "Consecutive Quarters" },
+        { value: "35", label: "Hrs/Week as a Full-Time Student" },
+        { value: "30", label: "Consultants Led" },
+        { value: "150+", label: "Spaces Supported" },
+      ]}
+      tools={["Training & Development", "Scheduling & Operations","TeamDynamix", "OvrC", "Zoom Rooms", "Crestron"]}
+      photos={[mic, cables, seniors]}
+      photoPositions={["50% 20%", "center 75%", "center 47%"]}
+      reflections={[
+        {
+          title: "Leadership vs. Authority",
+          description: "A title grants authority, but not leadership. Real leadership lives in the daily tasks and what you choose to do with the influence you're given, not the position you hold.",
+        },
+        {
+          title: "Accountability Sets the Standard",
+          description: "Strong teams don’t happen by accident. They are built when leaders model responsibility, establishing trust as the foundation.",
+        },
+        {
+          title: "Communication Under Pressure",
+          description: "In tense moments with frustrated professors, struggling mentees, and colleagues needing direction, how you communicate matters more than the fix itself.",
+        },
+        {
+          title: "Building Up Others",
+          description: "Great teams aren't built on dependency, they're built on growth. The best leaders don't just lead, they build more leaders.",
+        },
+      ]}
       coverContent={
         <div
           className="bg-white rounded-2xl px-6 flex items-center justify-center"

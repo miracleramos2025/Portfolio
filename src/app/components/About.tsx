@@ -1,5 +1,5 @@
 import React from "react";
-import aboutImage from "@/assets/headshot.jpeg";
+import aboutImage from "@/assets/headshot.jpg";
 
 export function About() {
   return (
@@ -7,21 +7,22 @@ export function About() {
       <div className="max-w-6xl w-full">
         <h2 className="text-white text-4xl font-bold text-center mb-10" style={{ letterSpacing: "0.04em" }}>About Me</h2>
         
-        <div className="flex gap-12 items-start">
-          {/* Profile Image with Border */}
-          <div className="flex-shrink-0">
-            <div className="bg-[#87D3F8] p-1 rounded-lg">
-              <img 
-                src={aboutImage} 
-                alt="Miracle Ramos" 
-                className="w-[320px] h-[430px] object-cover rounded-lg scale-101"
-                style={{ objectPosition: '50% 20%' }}
-              />
-            </div>
-          </div>
+        <div className="flex flex-col md:flex-row gap-12 items-start">
+
+  {/* Profile Image with Border */}
+  <div className="flex-shrink-0 flex justify-center w-full md:w-auto">
+    <div className="bg-[#87D3F8] p-1 rounded-lg">
+      <img 
+        src={aboutImage} 
+        alt="Miracle Ramos" 
+        className="w-[320px] h-[430px] object-cover rounded-lg scale-101"
+        style={{ objectPosition: '50% 20%' }}
+      />
+    </div>
+  </div>
 
           {/* About Text */}
-          <div className="flex-1 text-white space-y-5 text-lg leading-7 max-w-[730px]">
+          <div className="flex-1 text-white space-y-5 text-lg leading-7 max-w-[730px] text-center md:text-left">
             <p>
               I'm driven by <span className="text-[#87D3F8] font-semibold">bringing imaginative ideas to life</span>, and I believe the best 
               work happens when technical problem-solving meets creative storytelling.

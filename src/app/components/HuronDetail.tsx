@@ -1,4 +1,7 @@
 import huronLogo from "../../assets/huronlogo.svg";
+import group from "../../assets/groupphoto.jpg";
+import fincrime from "../../assets/fincrime.jpg";
+import dma from "../../assets/dma.jpg";
 import { ExperienceDetail } from "./ExperienceDetail";
 
 export function HuronDetail() {
@@ -10,24 +13,56 @@ export function HuronDetail() {
         {
           title: "Digital Consulting Intern",
           timeline: "June 2025 – Aug 2025",
-          description: "Placeholder — describe your internship experience here.",
+          description: "Contributed to data strategy and cloud implementation across multiple client engagements. Supported database migration and environment setup to deliver scalable, long-term data solutions.",
         },
         {
           title: "Digital Consulting Analyst",
           timeline: "Summer 2026 – Present",
-          description: "Returning as a full-time Analyst in Huron's Financial Crimes Compliance practice. Details to come.",
+          description: "Returning as a full-time Digital Consulting Analyst in Huron's Data Management & Analytics practice.",
         },
       ]}
-      team="Placeholder — describe your team here."
-      stats={[
-        { value: "3", label: "Client Projects" },
-        { value: "X", label: "Placeholder Stat" },
-        { value: "X", label: "Placeholder Stat" },
-        { value: "X", label: "Placeholder Stat" },
+      teams={[
+        {
+          title: "Data Management & Analytics",
+          description: "My primary team for the summer. Supported client engagements, presented key deliverables, and deepened my expertise in data analytics and database systems.",
+        },
+        {
+          title: "Financial Crimes & Compliance",
+          description: "Invited to split my time with this team to broaden my exposure. Gained insight into AML, KYC, SAR reporting, blockchain, and Oracle Cloud vs. on-premise solutions.",
+        },
+        {
+          title: "Intern Case Competition",
+          description: "Collaborated with two interns to develop and present a case solution to Huron leadership. Covered internal research, implementation strategy, pricing, change management, and client alignment.",
+        },
       ]}
-      tools={["Oracle Cloud", "Data Analytics", "AML", "Placeholder"]}
-      photos={[]}
-      reflection="Placeholder — your reflections here."
+      stats={[
+        { value: "10", label: "Weeks" },
+        { value: "3", label: "Client Projects" },
+        { value: "30", label: "Coffee Chats" },
+        { value: "2", label: "Certifications" },
+      ]}
+      tools={["Oracle Cloud", "Data Mapping", "AML/KYC", "Azure", "SQL", "SSMS", "Git", "Excel", "Smartsheet"] } 
+      photos={[fincrime, group, dma]}
+      photoPositions={["50% 40%", "center 64%", "center 47%"]}
+      reflections={[
+        {
+          title: "Intellectual Curiosity",
+          description: "Curiosity doesn’t clock out. It shows up in studying emerging technologies, engaging in meaningful conversations with mentors, and continuously sharpening my skill set.",
+        },
+        {
+          title: "Humility",
+          description: "Confidence and humility can coexist. The willingness to learn, admit what I don’t know, and seek feedback is what transforms early experience into long-term growth."
+
+        },
+        {
+          title: "Critical Thinking in the Age of AI",
+          description: "Information is abundant; judgment is rare. Real value comes from asking sharper questions and focusing on what truly matters beneath the surface.",
+        },
+        {
+          title: "Taking Initiative",
+          description: "Growth doesn’t wait to be assigned. It comes from stepping forward, scheduling coffee chats, volunteering for stretch work, and taking ownership beyond what’s expected.",
+        },
+      ]}
       coverContent={
         <div
           className="bg-white rounded-2xl px-12 flex items-center justify-center"
@@ -38,7 +73,7 @@ export function HuronDetail() {
         >
           <img
             src={huronLogo}
-            alt="Northwestern IT"
+            alt="Huron Consulting Group"
             style={{ height: "90px" }}
           />
         </div>

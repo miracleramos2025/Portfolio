@@ -38,7 +38,7 @@ export function Experience() {
             {/* Base overlay */}
             <div
               className="absolute inset-0 transition-opacity duration-300"
-              style={{ backgroundColor: "rgba(15, 38, 86, 0.65)" }}
+              style={{ backgroundColor: "rgba(15, 38, 86, 0.60)" }}
             />
             {/* Hover overlay */}
             <div

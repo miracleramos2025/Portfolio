@@ -12,7 +12,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "strict": true,
-    "typeRoots": ["./node_modules/@types", "./src/assets"]
+    "typeRoots": ["./node_modules/@types"]
   },
   "include": ["src"]
 }
