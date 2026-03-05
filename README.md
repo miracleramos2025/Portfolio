@@ -1,11 +1,39 @@
+# Miracle Ramos — Personal Portfolio
 
-  # Replicate Existing Website
+A personal portfolio website showcasing my projects, skills, and background as a computer scientist with expertise in data science, software development, and design.
 
-  This is a code bundle for Replicate Existing Website. The original project is available at https://www.figma.com/design/ppElBv330AUwlUoaKZgGAX/Replicate-Existing-Website.
+## About
 
-  ## Running the code
+This portfolio highlights my work across three disciplines — data, development, and design — including machine learning pipelines, technical research presentations, and human-centered design projects. It was built to reflect both my technical abilities and my approach to creative, impactful work.
 
-  Run `npm i` to install the dependencies.
+## Tech Stack
 
-  Run `npm run dev` to start the development server.
-  
+- **React** with **TypeScript**
+- **Tailwind CSS** for styling
+- **Vite** for development and bundling
+
+## Features
+
+- Project gallery with 6 of my strongest projects
+- Interactive project modals with embedded iframes and video previews
+- About section with hover-image "Things I Love" pills
+- Skills section organized by discipline
+- Fully responsive layout
+
+## Getting Started
+
+Install dependencies:
+
+```bash
+npm i
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+## Contact
+
+Feel free to reach out or connect via the Contact section of the site.
