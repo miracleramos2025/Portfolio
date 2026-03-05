@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HashLink } from "react-router-hash-link";
-
+import { useNavigate } from "react-router-dom";
 
 interface Stat {
   value: string;
@@ -67,49 +66,50 @@ export function ExperienceDetail({
     }, 0);
   }, []);
 
-  const paddedReflections = reflections
-  ? [...reflections, ...Array(Math.max(0, 4 - reflections.length)).fill(null)]
-  : [];
+  const navigate = useNavigate();
+  const goHomeTo = (id: string) => {
+    navigate("/", { state: { scrollTo: id } });
+  };
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#0F2656]">
       <nav className="sticky top-0 z-50 bg-white py-6 px-8 flex items-center justify-between border-b border-gray-200">
-  <HashLink to="/">
-    <h1 className="text-[#0F2656] text-2xl font-bold">Miracle Ramos</h1>
-  </HashLink>
+        <button onClick={() => goHomeTo("top")} className="text-left">
+          <h1 className="text-[#0F2656] text-2xl font-bold">Miracle Ramos</h1>
+        </button>
 
-  {/* Desktop links */}
-  <div className="hidden md:flex gap-8">
-    <HashLink to="/#experience" scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Experience</HashLink>
-    <HashLink to="/#projects" scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Projects</HashLink>
-    <HashLink to="/#about" scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">About Me</HashLink>
-    <HashLink to="/#skills" scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Skills</HashLink>
-    <HashLink to="/#contact" scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Contact</HashLink>
-  </div>
+        {/* Desktop links */}
+        <div className="hidden md:flex gap-8">
+          <button onClick={() => goHomeTo("experience")} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Experience</button>
+          <button onClick={() => goHomeTo("projects")} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Projects</button>
+          <button onClick={() => goHomeTo("about")} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">About Me</button>
+          <button onClick={() => goHomeTo("skills")} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Skills</button>
+          <button onClick={() => goHomeTo("contact")} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Contact</button>
+        </div>
 
-  {/* Hamburger button */}
-  <button
-    className="md:hidden flex flex-col gap-1.5 p-2"
-    onClick={() => setMenuOpen(!menuOpen)}
-  >
-    <span className={`block w-6 h-0.5 bg-[#0F2656] transition-all ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-    <span className={`block w-6 h-0.5 bg-[#0F2656] transition-all ${menuOpen ? "opacity-0" : ""}`} />
-    <span className={`block w-6 h-0.5 bg-[#0F2656] transition-all ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-  </button>
-</nav>
+        {/* Hamburger button */}
+        <button
+          className="md:hidden flex flex-col gap-1.5 p-2"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span className={`block w-6 h-0.5 bg-[#0F2656] transition-all ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[#0F2656] transition-all ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[#0F2656] transition-all ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+        </button>
+      </nav>
 
-{/* Mobile dropdown */}
-{menuOpen && (
-  <div className="md:hidden sticky top-[73px] z-40 bg-white border-b border-gray-200 flex flex-col px-8 py-4 gap-4">
-    <HashLink to="/#experience" onClick={() => setMenuOpen(false)} scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Experience</HashLink>
-    <HashLink to="/#projects" onClick={() => setMenuOpen(false)} scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Projects</HashLink>
-    <HashLink to="/#about" onClick={() => setMenuOpen(false)} scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">About Me</HashLink>
-    <HashLink to="/#skills" onClick={() => setMenuOpen(false)} scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Skills</HashLink>
-    <HashLink to="/#contact" onClick={() => setMenuOpen(false)} scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Contact</HashLink>
-  </div>
-)}
-      
+      {/* Mobile dropdown */}
+      {menuOpen && (
+        <div className="md:hidden sticky top-[73px] z-40 bg-white border-b border-gray-200 flex flex-col px-8 py-4 gap-4">
+          <button onClick={() => { setMenuOpen(false); goHomeTo("experience"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Experience</button>
+          <button onClick={() => { setMenuOpen(false); goHomeTo("projects"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Projects</button>
+          <button onClick={() => { setMenuOpen(false); goHomeTo("about"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">About Me</button>
+          <button onClick={() => { setMenuOpen(false); goHomeTo("skills"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Skills</button>
+          <button onClick={() => { setMenuOpen(false); goHomeTo("contact"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Contact</button>
+        </div>
+      )}
 
       {/* Cover photo */}
       <div className="relative w-full" style={{ height: "220px" }}>
@@ -138,7 +138,15 @@ export function ExperienceDetail({
         {/* 1. My Role */}
         {roles && roles.length > 0 ? (
           <div>
-            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-3">Experience</h3>
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest">Experience</h3>
+              <button
+                onClick={() => goHomeTo("experience")}
+                className="flex items-center gap-2 text-white font-semibold hover:text-[#87D3F8] transition-colors text-sm"
+              >
+                ← Back
+              </button>
+            </div>
             <div className="h-px bg-white opacity-20 mb-5" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {roles.map((r, i) => (
@@ -216,7 +224,7 @@ export function ExperienceDetail({
         <div>
           <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Tools & Skills</h3>
           <div className="h-px bg-white opacity-20 mb-6" />
-          <div className="flex flex-wrap gap-3 justify-center shadow-[0_10px_30px_rgba(0,0,0,0.25)">
+          <div className="flex flex-wrap gap-3 justify-center">
             {tools.map((tool, i) => (
               <span
                 key={i}
@@ -258,7 +266,7 @@ export function ExperienceDetail({
                     </span>
 
                     <div className="flex flex-col gap-2 pt-1" style={{ maxWidth: "440px" }}>
-                    <h4 className="text-white font-semibold text-lg tracking-wide">
+                      <h4 className="text-white font-semibold text-lg tracking-wide">
                         {r.title}
                       </h4>
                       <p className="text-white/90 text-sm leading-7">
@@ -319,6 +327,17 @@ export function ExperienceDetail({
             )}
           </div>
         </div>
+
+        {/* Back Button */}
+        <div className="flex justify-center pt-4">
+          <button
+            onClick={() => goHomeTo("experience")}
+            className="flex items-center gap-2 text-white font-semibold hover:text-[#87D3F8] transition-colors"
+          >
+            ← Back
+          </button>
+        </div>
+
       </div>
     </div>
   );

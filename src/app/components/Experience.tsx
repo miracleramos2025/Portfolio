@@ -97,9 +97,9 @@ export function Experience() {
             {/* CTA button — bottom center */}
             <div className="absolute bottom-6 left-0 p-8">
   <span
-    className="text-white text-sm font-semibold px-6 py-2 rounded-full
-    bg-white/25 border border-white/25 backdrop-blur-md
-    hover:bg-white hover:text-[#0F2656] hover:border-white
+    className="text-[#0F2656] text-sm font-semibold px-6 py-2 rounded-full
+    bg-white border border-white/25 backdrop-blur-md
+    hover:bg-[#87D3F8] hover:text-[#0F2656] hover:border-[#0F2656]
     transition-all duration-200"
   >
     View My Impact

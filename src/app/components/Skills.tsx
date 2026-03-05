@@ -56,7 +56,7 @@ export function Skills() {
                 {category.skills.map((skill, skillIndex) => (
                   <span
                     key={skillIndex}
-                    className="bg-[#002147] border border-[#87D3F8]/90 text-[#87D3F8] text-[16px] px-5 py-2.5 rounded hover:bg-[#87D3F8]/10 transition-colors cursor-default"
+                    className="bg-[#002147] border border-[#87D3F8]/90 text-[#87D3F8] text-[16px] px-4 py-2.5 rounded"
                   >
                     {skill}
                   </span>

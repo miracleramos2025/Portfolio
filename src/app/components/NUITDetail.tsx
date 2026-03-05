@@ -24,7 +24,7 @@ export function NUITDetail() {
       teams={[
         {
           title: "Mentorship",
-          description: "Met weekly 1-on-1 with 5 student consultants each quarter, providing guidance on technical skills, professional development, and navigating their roles.",
+          description: "Conducted weekly 1-on-1s with 5 student consultants each quarter, providing guidance on technical skills, professional development, and navigating their roles.",
         },
         {
           title: "Team Leadership",
@@ -59,7 +59,7 @@ export function NUITDetail() {
         },
         {
           title: "Building Up Others",
-          description: "Great teams aren't built on dependency, they're built on growth. The best leaders don't just lead, they build more leaders by creating opportunities for others to step up.",
+          description: "Great teams aren't built on dependency, they're built on growth. The best leaders don't just lead; they develop the people around them, creating opportunities for others to step up.",
         },
       ]}
       coverContent={

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import presentationImg from "../../assets/presentation1.png";
 import presentationImg2 from "../../assets/presentation2.png";
@@ -10,14 +11,9 @@ type Project = {
   title: string;
   thumbnail?: string;
   description: string;
-  details: string;
-  link: string;
-  linkLabel: string;
-  repoUrl?: string;
-  image: string;
   tags: string[];
-  gallery?: string[];
-  videoUrl?: string;
+  image: string;
+  route: string;
 };
 
 type ProjectsData = {
@@ -38,149 +34,54 @@ const projects: ProjectsData = {
     {
       title: "NYC Airbnb Price Prediction",
       description: "Supervised machine learning pipeline comparing 6 models to predict NYC Airbnb rental prices using tidymodels in R.",
-      details: "Built a supervised machine learning pipeline with tidymodels to compare regularized linear models (lasso, elastic net) and tree-based methods (random forest, boosted trees) for predicting NYC Airbnb prices. The linear model achieved the best RMSE of 188.7, outperforming more complex models — suggesting Airbnb pricing is largely driven by structured factors like location and room type. Included cross-validation, hyperparameter tuning, feature engineering, and model interpretability analysis.",
-      link: "https://github.com/miracleramos2025/final-project-2-site.git",
-      linkLabel: "View GitHub Repo",
       thumbnail: airbnbImg,
       image: "",
       tags: ["R", "Machine Learning", "tidymodels", "Random Forest", "Predictive Modeling", "Data Science"],
-      videoUrl: "/Ramos_Miracle_final_report.html",
+      route: "/projects/airbnb",
     },
     {
       title: "Disney Box Office Analysis",
       description: "Statistical analysis of Disney's box office history, quantifying how Pixar, Marvel, and Lucasfilm acquisitions reshaped revenue.",
-      details: "An exploratory analysis of Disney's box office history using R and the tidyverse. Key findings: Pixar, Marvel, and Lucasfilm acquisitions significantly boosted revenue; superhero and animated films are Disney's most profitable genres; and each acquisition eventually surpassed its initial cost in box office earnings. Built with Quarto and published via GitHub Pages.",
-      link: "#",
-      linkLabel: "",
       thumbnail: presentationImg2,
       image: "",
       tags: ["R", "Exploratory Data Analysis", "Data Visualization", "Quarto", "Statistical Analysis"],
-      videoUrl: "/ramos_miracle_final_project.html",
+      route: "/projects/disney",
     },
   ],
   development: [
     {
       title: "Pixar & Parallel Computing",
       description: "A technical deep-dive into how Pixar uses high-performance computing and parallel processing to render feature films.",
-      details: "This presentation explores how Pixar leverages parallel computing across their entire rendering pipeline. Topics covered include frame-level parallelism using HPC clusters, intra-frame tile and ray-level parallelism, path tracing with GPU acceleration, Pixar's RenderMan rendering engine, and real-world case studies from Finding Dory, Coco, and Inside Out.",
-      link: "#",
-      linkLabel: "",
       thumbnail: presentationImg,
       image: "",
       tags: ["Parallel Computing", "GPU Architecture", "HPC", "RenderMan", "Research", "Presentation"],
-      videoUrl: "https://www.youtube.com/embed/toNq7nj4ROk",
+      route: "/projects/pixar",
     },
     {
       title: "CTA Bus Tracker",
       description: "Data science presentation created using R.",
-      details: "A slide deck presentation created in R using R Markdown and presentation packages, summarizing data findings for an audience.",
-      link: "#",
-      linkLabel: "View Slides",
       image: "",
       tags: ["R", "Data Science", "R Markdown", "Presentation", "Data Visualization"],
+      route: "/projects/cta",
     },
   ],
   design: [
     {
       title: "Compost & Carry",
       description: "Designed a compact vermicompost bin for urban living with a drawer mechanism for easy harvesting and transport.",
-      details: "Coming soon.",
-      link: "#",
-      linkLabel: "View Project",
       image: dtc,
       tags: ["Product Design", "Client Project", "Prototyping", "Human-Centered Design", "Iterative Testing"],
+      route: "/projects/compost",
     },
     {
       title: "Campus Connect",
       description: "Led UX research and design for a campus app consolidating scattered resources into one platform.",
-      details: "Coming soon.",
-      link: "#",
-      linkLabel: "View Project",
       image: campusconnect,
       tags: ["UI/UX", "User Testing", "Figma", "Prototyping", "User Research"],
+      route: "/projects/campus-connect",
     },
   ],
 };
-
-function Modal({ project, onClose }: { project: Project; onClose: () => void }) {
-  const images = project.gallery || (project.image ? [project.image] : []);
-
-  return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ backgroundColor: "rgba(0,0,0,0.7)" }}
-      onClick={onClose}
-    >
-      <div
-        className="bg-white rounded-2xl overflow-hidden max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {images.length === 0 && !project.videoUrl && (
-          <div className="h-32 bg-[#2a5a7a] flex items-center justify-center">
-            <span className="text-white opacity-40 text-sm tracking-widest uppercase">Preview</span>
-          </div>
-        )}
-        {images.length > 0 && (
-          <div className="flex flex-row gap-2 p-4 bg-gray-50 overflow-x-auto">
-            {images.map((img, i) => (
-              <img
-                key={i}
-                src={img}
-                alt={project.title + " " + (i + 1)}
-                className="w-full object-contain rounded-lg"
-                style={{ maxHeight: "300px" }}
-              />
-            ))}
-          </div>
-        )}
-        {project.videoUrl && (
-          <div className="w-full" style={{ height: "500px" }}>
-            <div className="bg-gray-100 px-4 py-2 text-sm text-gray-500 text-center">
-              {project.videoUrl?.includes("youtu")
-                ? "Press play to start the presentation"
-                : project.videoUrl?.includes("ramos_miracle_final_project")
-                ? "Click the presentation, then use ← → arrow keys to navigate slides"
-                : "Scroll to navigate the report"}
-            </div>
-            <iframe
-              src={project.videoUrl}
-              className="w-full"
-              style={{ height: "460px" }}
-              allowFullScreen
-            />
-          </div>
-        )}
-        <div className="p-8">
-          <div className="flex items-start justify-between mb-4">
-            <h3 className="text-xl font-bold text-[#1a3552] pr-4">{project.title}</h3>
-            <button
-              onClick={onClose}
-              className="text-gray-400 hover:text-gray-600 text-2xl font-light flex-shrink-0"
-            >
-              x
-            </button>
-          </div>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {project.tags.map((tag) => (
-              <span key={tag} className="bg-[#1a3552] text-white text-xs font-semibold px-3 py-1 rounded-full">
-                {tag}
-              </span>
-            ))}
-          </div>
-          <p className="text-gray-700 leading-relaxed mb-6">{project.details}</p>
-          {project.link !== "#" && (
-            <button
-              onClick={() => window.open(project.link, "_blank")}
-              className="bg-[#5ab0d4] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#1a3552] transition-colors"
-            >
-              {project.linkLabel}
-            </button>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function ProjectCard({ project, onClick }: { project: Project; onClick: () => void }) {
   return (
@@ -207,9 +108,13 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
       </div>
       <div className="px-4 pb-4 flex flex-col gap-3">
         <h3 className="text-xl font-bold text-white text-center">{project.title}</h3>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 justify-center">
           {project.tags.map((tag) => (
-            <span key={tag} className="text-xs px-3 py-1.5 rounded-full font-medium" style={{ backgroundColor: "transparent", color: "#ffffff", border: "1px solid #87D3F8" }}>
+            <span
+              key={tag}
+              className="text-xs px-3 py-1.5 rounded-full font-medium transition-colors hover:bg-[#87D3F8]/10"
+              style={{ backgroundColor: "transparent", color: "#ffffff", border: "1px solid #87D3F8" }}
+            >
               {tag}
             </span>
           ))}
@@ -221,7 +126,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
 
 export function Projects() {
   const [activeTab, setActiveTab] = useState("all");
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const navigate = useNavigate();
 
   const allProjects = [
     projects.development[0],
@@ -239,9 +144,6 @@ export function Projects() {
 
   return (
     <section id="projects" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "60px" }}>
-      {selectedProject && (
-        <Modal project={selectedProject} onClose={() => setSelectedProject(null)} />
-      )}
       <div className="max-w-[1300px] mx-auto px-4 md:px-16">
         <h2 className="text-4xl font-bold text-white mb-6 text-center" style={{ letterSpacing: "0.04em" }}>Projects</h2>
         <div className="flex justify-center gap-2 mb-10">
@@ -262,7 +164,10 @@ export function Projects() {
         }`}>
           {activeProjects.map((project, index) => (
             <div key={index} className="flex w-full">
-              <ProjectCard project={project} onClick={() => setSelectedProject(project)} />
+              <ProjectCard
+                project={project}
+                onClick={() => navigate(project.route)}
+              />
             </div>
           ))}
         </div>
