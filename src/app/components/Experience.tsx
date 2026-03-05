@@ -27,7 +27,7 @@ export function Experience() {
           <div
             key={i}
             onClick={() => navigate(card.href)}
-            className="relative overflow-hidden rounded-lg block group cursor-pointer"
+            className="relative overflow-hidden rounded-xl block group cursor-pointer shadow-[0_12px_30px_rgba(0,0,0,0.25)]"
             style={{ height: "400px", border: "3px solid #87D3F8" }}
           >
             <img
@@ -49,7 +49,7 @@ export function Experience() {
             {/* Title — top left */}
             <div className="absolute top-8 left-0 p-8">
               <h3
-                className="text-white font-bold text-2xl"
+                className="text-white font-bold text-2xl mb-6 tracking-wide"
                 style={{ letterSpacing: "0.1em" }}
               >
                 {card.title}
@@ -76,7 +76,7 @@ export function Experience() {
                   </div>
                 ))}
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col ">
                 {card.roles.map((role, j) => (
                   <div
                     key={j}
@@ -94,14 +94,17 @@ export function Experience() {
               </div>
             </div>
 
-            {/* Learn More button — bottom center */}
-            <div className="absolute bottom-0 left-0 flex justify-center p-8">
-              <span
-                className="text-[#0F2656] bg-white text-sm font-semibold px-10 py-2 rounded-full border border-white opacity-90 group-hover:opacity-100 transition-opacity duration-300"
-              >
-                Learn More
-              </span>
-            </div>
+            {/* CTA button — bottom center */}
+            <div className="absolute bottom-6 left-0 p-8">
+  <span
+    className="text-white text-sm font-semibold px-6 py-2 rounded-full
+    bg-white/25 border border-white/25 backdrop-blur-md
+    hover:bg-white hover:text-[#0F2656] hover:border-white
+    transition-all duration-200"
+  >
+    View My Impact
+  </span>
+</div>
           </div>
         ))}
       </div>

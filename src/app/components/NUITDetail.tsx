@@ -51,7 +51,7 @@ export function NUITDetail() {
         },
         {
           title: "Accountability Sets the Standard",
-          description: "Strong teams don’t happen by accident. They are built when leaders model responsibility, establishing trust as the foundation.",
+          description: "Strong teams don't happen by accident. They are built when leaders model responsibility and establish trust as the foundation. When accountability starts at the top, it becomes the culture.",
         },
         {
           title: "Communication Under Pressure",
@@ -59,7 +59,7 @@ export function NUITDetail() {
         },
         {
           title: "Building Up Others",
-          description: "Great teams aren't built on dependency, they're built on growth. The best leaders don't just lead, they build more leaders.",
+          description: "Great teams aren't built on dependency, they're built on growth. The best leaders don't just lead, they build more leaders by creating opportunities for others to step up.",
         },
       ]}
       coverContent={
@@ -67,13 +67,13 @@ export function NUITDetail() {
           className="bg-white rounded-2xl px-6 flex items-center justify-center"
           style={{ 
             boxShadow: "0 8px 32px rgba(0,0,0,0.10)", 
-            height: "120px",
+            height: "100px",
           }}
         >
           <img
             src={nuitLogo}
             alt="Northwestern IT"
-            style={{ height: "190px" }}
+            style={{ height: "150px" }}
           />
         </div>
       }

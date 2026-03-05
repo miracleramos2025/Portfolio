@@ -138,16 +138,16 @@ export function ExperienceDetail({
         {/* 1. My Role */}
         {roles && roles.length > 0 ? (
           <div>
-            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-2">Experience</h3>
+            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-3">Experience</h3>
             <div className="h-px bg-white opacity-20 mb-5" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {roles.map((r, i) => (
                 <div
                   key={i}
-                  className="rounded-xl p-4 flex flex-col gap-3"
+                  className="rounded-xl p-4 flex flex-col gap-2 shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
                   style={{ backgroundColor: "#002147", border: "1px solid #87D3F8" }}
                 >
-                  <div className="flex items-center gap-2 flex-wrap">
+                  <div className="flex items-center gap-2 flex-wrap mb-2">
                     <span
                       className="text-xs font-bold px-3 py-1 rounded-full"
                       style={{ backgroundColor: "#87D3F8", color: "#0F2656" }}
@@ -156,7 +156,7 @@ export function ExperienceDetail({
                     </span>
                   </div>
                   <h4 className="text-white font-bold text-lg">{r.title}</h4>
-                  <p className="text-white text-sm leading-relaxed opacity-90">{r.description}</p>
+                  <p className="text-white text-sm leading-7 opacity-90">{r.description}</p>
                 </div>
               ))}
             </div>
@@ -199,10 +199,10 @@ export function ExperienceDetail({
               {teams.map((t, i) => (
                 <div
                   key={i}
-                  className="rounded-xl p-4 flex flex-col gap-3"
-                  style={{ border: "1px solid #87D3F8" }}
+                  className="rounded-xl p-4 flex flex-col gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
+                  style={{ backgroundColor: "#002147", border: "1px solid #87D3F8" }}
                 >
-                  <h4 className="text-white font-bold text-lg">{t.title}</h4>
+                  <h4 className="text-white font-semibold text-lg tracking-wide">{t.title}</h4>
                   <p className="text-white text-sm leading-relaxed opacity-90">{t.description}</p>
                 </div>
               ))}
@@ -216,7 +216,7 @@ export function ExperienceDetail({
         <div>
           <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Tools & Skills</h3>
           <div className="h-px bg-white opacity-20 mb-6" />
-          <div className="flex flex-wrap gap-3 justify-center">
+          <div className="flex flex-wrap gap-3 justify-center shadow-[0_10px_30px_rgba(0,0,0,0.25)">
             {tools.map((tool, i) => (
               <span
                 key={i}
@@ -231,40 +231,61 @@ export function ExperienceDetail({
 
         {/* 5. Reflections & Takeaways */}
         <div>
-          <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Reflections & Takeaways</h3>
+          <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">
+            Reflections & Takeaways
+          </h3>
           <div className="h-px bg-white opacity-20 mb-10" />
+
           <div className="flex gap-12 items-start">
             {/* Left: Reflections */}
-            <div className="flex flex-col gap-14 flex-1">
-              {reflections && reflections.map((r, i) => (
-                <div key={i} className="flex gap-8 items-start">
-                  <span
-                    className="font-bold shrink-0 leading-none"
-                    style={{ fontSize: "4rem", color: "#87D3F8", opacity: 0.2, lineHeight: 1, width: "60px", minWidth: "80px", textAlign: "right" }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="flex flex-col gap-2 pt-1" style={{ maxWidth: "440px" }}>
-                    <h4 className="text-white font-bold text-lg">{r.title}</h4>
-                    <p className="text-white text-sm leading-relaxed" >{r.description}</p>
+            <div className="flex flex-col gap-8 flex-1">
+              {reflections && reflections.length > 0 ? (
+                reflections.map((r, i) => (
+                  <div key={i} className="flex gap-8 items-start">
+                    <span
+                      className="font-bold shrink-0 leading-none"
+                      style={{
+                        fontSize: "4rem",
+                        color: "#87D3F8",
+                        opacity: 0.25,
+                        lineHeight: 1,
+                        width: "70px",
+                        minWidth: "70px",
+                        textAlign: "right",
+                      }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
+                    <div className="flex flex-col gap-2 pt-1" style={{ maxWidth: "440px" }}>
+                    <h4 className="text-white font-semibold text-lg tracking-wide">
+                        {r.title}
+                      </h4>
+                      <p className="text-white/90 text-sm leading-7">
+                        {r.description}
+                      </p>
+                      <div className="h-px bg-white/10 mt-4" />
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))
+              ) : (
+                <p className="text-white text-lg leading-relaxed">{reflection}</p>
+              )}
             </div>
 
             {/* Right: Photos — hidden on mobile */}
             <div className="hidden md:flex flex-col gap-4 shrink-0" style={{ width: "380px" }}>
               {photos.slice(0, 3).map((photo, i) => (
                 <img
-                key={i}
-                src={typeof photo === "string" ? photo : URL.createObjectURL(photo)}
-                alt={`photo-${i}`}
-                className="w-full rounded-xl object-cover"
-                style={{ 
-                  height: i === 0 ? "190px" : i === 1 ? "200px" : "180px",
-                  objectPosition: photoPositions[i] ?? "center center"
-                }}
-              />
+                  key={i}
+                  src={photo}
+                  alt={`photo-${i}`}
+                  className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition-transform duration-200 hover:scale-[1.01]"
+                  style={{
+                    height: i === 0 ? "250px" : i === 1 ? "220px" : "190px",
+                    objectPosition: photoPositions[i] ?? "center center",
+                  }}
+                />
               ))}
             </div>
           </div>
@@ -272,19 +293,32 @@ export function ExperienceDetail({
 
         {/* 6. Photos — mobile only */}
         <div className="md:hidden">
-          <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Photos</h3>
+          <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">
+            Photos
+          </h3>
           <div className="h-px bg-white opacity-20 mb-6" />
           <div className="grid grid-cols-1 gap-4">
-            {photos.length > 0 ? photos.map((photo, i) => (
-              <img key={i} src={photo} alt="" className="w-full h-64 object-cover rounded-lg" />
-            )) : (
+            {photos.length > 0 ? (
+              photos.map((photo, i) => (
+                <img
+                  key={i}
+                  src={photo}
+                  alt=""
+                  className="w-full h-64 object-cover rounded-2xl border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)]"
+                  style={{ objectPosition: photoPositions[i] ?? "center center" }}
+                />
+              ))
+            ) : (
               [1, 2, 3].map((_, i) => (
-                <div key={i} className="w-full h-48 rounded-lg" style={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+                <div
+                  key={i}
+                  className="w-full h-48 rounded-2xl border border-white/10"
+                  style={{ backgroundColor: "rgba(255,255,255,0.06)" }}
+                />
               ))
             )}
           </div>
         </div>
-
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ export function Hero() {
       style={{ objectPosition: "70% center" }}
     />
     <div className="absolute inset-0 flex flex-col items-start justify-start text-left pt-[8%] pl-[6%] md:pt-[4%] md:pl-[41%]">
-      <p style={{ color: "#0F2656" }} className="text-2xl font-light mt-10 mb-3">
+      <p style={{ color: "#0F2656" }} className="text-2xl font-light mt-8 mb-3">
         Hey, I'm
       </p>
       <h2 style={{ color: "#0F2656" }} className="text-5xl font-bold mb-3">

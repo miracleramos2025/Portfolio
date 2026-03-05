@@ -27,7 +27,7 @@ export function HuronDetail() {
           description: "My primary team for the summer. Supported client engagements, presented key deliverables, and deepened my expertise in data analytics and database systems.",
         },
         {
-          title: "Financial Crimes & Compliance",
+          title: "Financial Crimes",
           description: "Invited to split my time with this team to broaden my exposure. Gained insight into AML, KYC, SAR reporting, blockchain, and Oracle Cloud vs. on-premise solutions.",
         },
         {
@@ -43,8 +43,12 @@ export function HuronDetail() {
       ]}
       tools={["Oracle Cloud", "Data Mapping", "AML/KYC", "Azure", "SQL", "SSMS", "Git", "Excel", "Smartsheet"] } 
       photos={[fincrime, group, dma]}
-      photoPositions={["50% 40%", "center 64%", "center 47%"]}
+      photoPositions={["50% 10%", "center 64%", "center 47%"]}
       reflections={[
+        {
+          title: "Critical Thinking in the Age of AI",
+          description: "Information is abundant; judgment is rare. Real value comes from asking sharper questions and focusing on what truly matters beneath the surface.",
+        },
         {
           title: "Intellectual Curiosity",
           description: "Curiosity doesn’t clock out. It shows up in studying emerging technologies, engaging in meaningful conversations with mentors, and continuously sharpening my skill set.",
@@ -53,10 +57,6 @@ export function HuronDetail() {
           title: "Humility",
           description: "Confidence and humility can coexist. The willingness to learn, admit what I don’t know, and seek feedback is what transforms early experience into long-term growth."
 
-        },
-        {
-          title: "Critical Thinking in the Age of AI",
-          description: "Information is abundant; judgment is rare. Real value comes from asking sharper questions and focusing on what truly matters beneath the surface.",
         },
         {
           title: "Taking Initiative",
@@ -68,13 +68,13 @@ export function HuronDetail() {
           className="bg-white rounded-2xl px-12 flex items-center justify-center"
           style={{ 
             boxShadow: "0 8px 32px rgba(0,0,0,0.10)", 
-            height: "120px",
+            height: "100px",
           }}
         >
           <img
             src={huronLogo}
             alt="Huron Consulting Group"
-            style={{ height: "90px" }}
+            style={{ height: "70px" }}
           />
         </div>
       }

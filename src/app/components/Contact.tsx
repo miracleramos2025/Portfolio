@@ -48,7 +48,7 @@ export function Contact() {
 
   return (
     <section id="contact" className="bg-[#0F2656] py-16 px-8 pb-40 flex flex-col items-center justify-center">
-      <h2 className="text-white text-4xl font-bold text-center mb-12" style={{ letterSpacing: "0.04em" }}>Contact</h2>
+      <h2 className="text-white text-4xl font-bold text-center mb-14" style={{ letterSpacing: "0.04em" }}>Contact</h2>
 
       <div className="max-w-3xl w-full grid grid-cols-4 md:grid-cols-4 gap-12">
         {contactMethods.map((method, index) => (
