@@ -7,13 +7,13 @@ export function Experience() {
   const cards = [
     {
       image: huron,
-      href: "/huron",
+      href: "/experience/huron",
       title: "Huron Consulting Group",
       roles: ["Digital Consulting Analyst", "Digital Consulting Intern"],
     },
     {
       image: mudd,
-      href: "/northwestern",
+      href: "/experience/northwestern",
       title: "Northwestern IT",
       roles: ["Team Lead", "Technical Consultant"],
     },

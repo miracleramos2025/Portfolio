@@ -37,7 +37,7 @@ const projects: ProjectsData = {
       thumbnail: airbnbImg,
       image: "",
       tags: ["R", "Machine Learning", "tidymodels", "Random Forest", "Predictive Modeling", "Data Science"],
-      route: "/projects/airbnb",
+      route: "/projects/nyc-airbnb-price-prediction",
     },
     {
       title: "Disney Box Office Analysis",
@@ -45,7 +45,7 @@ const projects: ProjectsData = {
       thumbnail: presentationImg2,
       image: "",
       tags: ["R", "Exploratory Data Analysis", "Data Visualization", "Quarto", "Statistical Analysis"],
-      route: "/projects/disney",
+      route: "/projects/disney-box-office-analysis",
     },
   ],
   development: [
@@ -54,15 +54,15 @@ const projects: ProjectsData = {
       description: "A technical deep-dive into how Pixar uses high-performance computing and parallel processing to render feature films.",
       thumbnail: presentationImg,
       image: "",
-      tags: ["Parallel Computing", "GPU Architecture", "HPC", "RenderMan", "Research", "Presentation"],
-      route: "/projects/pixar",
+      tags: ["Parallel Computing", "HPC", "Path Tracing", "RenderMan", "Frame-Level Parallelism", "GPU Architecture", "Research", "Presentation"],
+      route: "/projects/pixar-parallel-computing",
     },
     {
       title: "CTA Bus Tracker",
       description: "Data science presentation created using R.",
       image: "",
       tags: ["R", "Data Science", "R Markdown", "Presentation", "Data Visualization"],
-      route: "/projects/cta",
+      route: "/projects/cta-bus-tracker",
     },
   ],
   design: [

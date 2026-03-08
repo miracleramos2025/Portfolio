@@ -21,7 +21,7 @@ export function Contact() {
       ),
       label: "Resume",
       color: "text-white",
-      href: "resume",
+      href: "/contact/resume",
     },
     {
       icon: (

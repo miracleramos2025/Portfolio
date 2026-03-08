@@ -92,13 +92,13 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/huron" element={<HuronDetail />} />
-        <Route path="/northwestern" element={<NUITDetail />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/projects/pixar" element={<PixarProjectDetail />} />
-        {<Route path="/projects/airbnb" element={<AirbnbProjectDetail />} />}
-        {<Route path="/projects/disney" element={<DisneyProjectDetail />} />}
-        {<Route path="/projects/cta" element={<CTAProjectDetail />} />}
+        <Route path="/experience/huron" element={<HuronDetail />} />
+        <Route path="/experience/northwestern-it" element={<NUITDetail />} />
+        <Route path="/contact/resume" element={<Resume />} />
+        <Route path="/projects/pixar-parallel-computing" element={<PixarProjectDetail />} />
+        {<Route path="/projects/nyc-airbnb-price-prediction" element={<AirbnbProjectDetail />} />}
+        {<Route path="/projects/disney-box-office-analysis" element={<DisneyProjectDetail />} />}
+        {<Route path="/projects/cta-bus-tracker" element={<CTAProjectDetail />} />}
         {/* <Route path="/projects/compost" element={<CompostProjectDetail />} /> */}
         {<Route path="/projects/campus-connect" element={<CampusConnectProjectDetail />} />}
         <Route path="/" element={<Home />} />

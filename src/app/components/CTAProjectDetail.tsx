@@ -5,10 +5,10 @@ export function CTAProjectDetail() {
   return (
     <ProjectDetail
       coverPhoto={ctaImg}
-      coverPosition="center 50%"
+      coverPosition="center 95%"
       title="CTA Transit Analysis"
-      className=""
-      quarter=""
+      className="COMP_SCI 310: Scalable Software Architectures"
+      quarter="Fall 2024"
       overview=""
       tools={[]}
       process={[]}

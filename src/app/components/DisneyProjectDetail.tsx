@@ -7,8 +7,8 @@ export function DisneyProjectDetail() {
       coverPhoto={disneyImg}
       coverPosition="center 31%"
       title="Disney Box Office Analysis"
-      className="STAT 301-2: Data Science II"
-      quarter="Fall 2024"
+      className="STAT 302: Data Visualization"
+      quarter="Winter 2025"
       overview=""
       tools={[]}
       process={[]}

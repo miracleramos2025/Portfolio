@@ -7,8 +7,8 @@ export function CampusConnectProjectDetail() {
       coverPhoto={campusConnectImg}
       coverPosition="center 58%"
       title="Campus Connect"
-      className=""
-      quarter=""
+      className="COMP_SCI 314: Technology & Human Interaction"
+      quarter="Winter 2025"
       overview=""
       tools={[]}
       process={[]}

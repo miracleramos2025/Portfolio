@@ -7,7 +7,7 @@ export function AirbnbProjectDetail() {
       coverPhoto={airbnbImg}
       coverPosition="center 57%"
       title="NYC Airbnb Price Prediction"
-      className="STAT 301-3: Data Science II"
+      className="STAT 301-2: Data Science II"
       quarter="Winter 2025"
       overview="Built a supervised machine learning pipeline using tidymodels in R to predict NYC Airbnb rental prices. Compared six models including regularized linear models (lasso, elastic net) and tree-based methods (random forest, boosted trees). The lasso model achieved the best RMSE of 188.7 — outperforming more complex models and suggesting that Airbnb pricing is largely driven by structured factors like location and room type."
       githubUrl="https://github.com/miracleramos2025/final-project-2-site.git"

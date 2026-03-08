@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HashLink } from "react-router-hash-link";
+import { useNavigate } from "react-router-dom";
 
 interface ProjectImage {
   src: string;
@@ -52,21 +52,26 @@ export function ProjectDetail({
     }, 0);
   }, []);
 
+  const navigate = useNavigate();
+  const goHomeTo = (id: string) => {
+    navigate("/", { state: { scrollTo: id } });
+  };
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#0F2656]">
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-white py-6 px-8 flex items-center justify-between border-b border-gray-200">
-        <HashLink to="/">
+        <button onClick={() => goHomeTo("top")} className="text-left">
           <h1 className="text-[#0F2656] text-2xl font-bold">Miracle Ramos</h1>
-        </HashLink>
+        </button>
         <div className="hidden md:flex gap-8">
-          <HashLink to="/#experience" scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Experience</HashLink>
-          <HashLink to="/#projects" scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Projects</HashLink>
-          <HashLink to="/#about" scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">About Me</HashLink>
-          <HashLink to="/#skills" scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Skills</HashLink>
-          <HashLink to="/#contact" scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Contact</HashLink>
+          <button onClick={() => goHomeTo("experience")} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Experience</button>
+          <button onClick={() => goHomeTo("projects")} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Projects</button>
+          <button onClick={() => goHomeTo("about")} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">About Me</button>
+          <button onClick={() => goHomeTo("skills")} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Skills</button>
+          <button onClick={() => goHomeTo("contact")} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Contact</button>
         </div>
         <button
           className="md:hidden flex flex-col gap-1.5 p-2"
@@ -80,11 +85,11 @@ export function ProjectDetail({
 
       {menuOpen && (
         <div className="md:hidden sticky top-[73px] z-40 bg-white border-b border-gray-200 flex flex-col px-8 py-4 gap-4">
-          <HashLink to="/#experience" onClick={() => setMenuOpen(false)} scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Experience</HashLink>
-          <HashLink to="/#projects" onClick={() => setMenuOpen(false)} scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Projects</HashLink>
-          <HashLink to="/#about" onClick={() => setMenuOpen(false)} scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">About Me</HashLink>
-          <HashLink to="/#skills" onClick={() => setMenuOpen(false)} scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Skills</HashLink>
-          <HashLink to="/#contact" onClick={() => setMenuOpen(false)} scroll={(el) => el.scrollIntoView({ behavior: "instant" })} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Contact</HashLink>
+          <button onClick={() => { setMenuOpen(false); goHomeTo("experience"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Experience</button>
+          <button onClick={() => { setMenuOpen(false); goHomeTo("projects"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Projects</button>
+          <button onClick={() => { setMenuOpen(false); goHomeTo("about"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">About Me</button>
+          <button onClick={() => { setMenuOpen(false); goHomeTo("skills"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Skills</button>
+          <button onClick={() => { setMenuOpen(false); goHomeTo("contact"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Contact</button>
         </div>
       )}
 
@@ -98,11 +103,12 @@ export function ProjectDetail({
         />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(15, 38, 86, 0.48)" }} />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-        <h2 className="text-white font-bold text-5xl text-center px-4" style={{ letterSpacing: "0.06em", textShadow: "0 2px 12px rgba(0,0,0,0.7)" }}>{title}</h2>{(className || quarter) && (
-        <p className="text-[#87D3F8] text-lg font-semibold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
-            {[className, quarter].filter(Boolean).join(" · ")}
+          <h2 className="text-white font-bold text-5xl text-center px-4" style={{ letterSpacing: "0.06em", textShadow: "0 2px 12px rgba(0,0,0,0.7)" }}>{title}</h2>
+          {(className || quarter) && (
+            <p className="text-[#87D3F8] text-lg font-semibold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
+              {[className, quarter].filter(Boolean).join(" · ")}
             </p>
-            )}
+          )}
         </div>
       </div>
 
@@ -111,7 +117,15 @@ export function ProjectDetail({
 
         {/* 1. Overview */}
         <div>
-          <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Overview</h3>
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest">Overview</h3>
+            <button
+              onClick={() => goHomeTo("projects")}
+              className="flex items-center gap-2 text-white font-semibold hover:text-[#87D3F8] transition-colors text-sm"
+            >
+              ← Back
+            </button>
+          </div>
           <div className="h-px bg-white opacity-20 mb-8" />
           <div className="flex flex-col md:flex-row gap-10 items-start">
             <div className="flex-1">
@@ -260,6 +274,16 @@ export function ProjectDetail({
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Back Button */}
+        <div className="flex justify-center pt-4">
+          <button
+            onClick={() => goHomeTo("projects")}
+            className="flex items-center gap-2 text-white font-semibold hover:text-[#87D3F8] transition-colors"
+          >
+            ← Back
+          </button>
         </div>
 
       </div>
