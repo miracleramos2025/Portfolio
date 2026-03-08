@@ -12,9 +12,9 @@ import { NUITDetail } from "./components/NUITDetail";
 import { PixarProjectDetail } from "./components/PixarProjectDetail";
 import { AirbnbProjectDetail } from "./components/AirbnbProjectDetail";
 import { DisneyProjectDetail } from "./components/DisneyProjectDetail";
-// import { CTAProjectDetail } from "./components/CTAProjectDetail";
+import { CTAProjectDetail } from "./components/CTAProjectDetail";
 // import { CompostProjectDetail } from "./components/CompostProjectDetail";
-// import { CampusConnectProjectDetail } from "./components/CampusConnectProjectDetail";
+import { CampusConnectProjectDetail } from "./components/CampusConnectProjectDetail";
 
 function Home() {
   const location = useLocation();
@@ -98,9 +98,9 @@ export default function App() {
         <Route path="/projects/pixar" element={<PixarProjectDetail />} />
         {<Route path="/projects/airbnb" element={<AirbnbProjectDetail />} />}
         {<Route path="/projects/disney" element={<DisneyProjectDetail />} />}
-        {/* <Route path="/projects/cta" element={<CTAProjectDetail />} /> */}
+        {<Route path="/projects/cta" element={<CTAProjectDetail />} />}
         {/* <Route path="/projects/compost" element={<CompostProjectDetail />} /> */}
-        {/* <Route path="/projects/campus-connect" element={<CampusConnectProjectDetail />} /> */}
+        {<Route path="/projects/campus-connect" element={<CampusConnectProjectDetail />} />}
         <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>

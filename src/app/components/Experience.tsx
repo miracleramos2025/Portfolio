@@ -50,7 +50,6 @@ export function Experience() {
             <div className="absolute top-8 left-0 p-8">
               <h3
                 className="text-white font-bold text-2xl mb-6 tracking-wide"
-                style={{ letterSpacing: "0.1em" }}
               >
                 {card.title}
               </h3>
