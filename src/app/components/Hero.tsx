@@ -35,12 +35,12 @@ export function Hero() {
       <p style={{ color: "#0F2656" }} className="text-2xl font-light">
         I'm a <span ref={typedRef}></span>
       </p>
-      <a
-        href="#experience"
-        className="mt-5 text-white bg-[#0F2656] text-sm font-semibold px-6 py-2 rounded-full border border-[#0F2656] hover:bg-white hover:text-[#0F2656] transition-colors duration-200"
-      >
-        View My Work
-      </a>
+      <button
+  onClick={() => document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" })}
+  className="mt-5 text-white bg-[#0F2656] text-sm font-semibold px-6 py-2 rounded-full border border-[#0F2656] hover:bg-white hover:text-[#0F2656] transition-colors duration-200"
+>
+  View My Work
+</button>
     </div>
   </div>
 </section>
