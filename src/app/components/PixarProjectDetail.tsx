@@ -17,7 +17,7 @@ function PipelineDiagram() {
       return (
         <div className="w-full py-2">
           <div className="px-1 mt-0 mb-2">
-          <p className="text-white text-base font-semibold tracking-wide text-center md:text-left">
+          <p className="text-white text-base font-semibold tracking-wide text-left">
   From Scene to Screen
 </p>
           </div>
@@ -197,7 +197,7 @@ export function PixarProjectDetail() {
         {
           title: "Research",
           description:
-            "Reviewed Pixar papers, SIGGRAPH talks, and RenderMan documentation to understand how parallelism appears across the rendering pipeline.",
+            "Reviewed Pixar papers, SIGGRAPH talks, and RenderMan documentation to understand where parallelism appears in the rendering pipeline.",
         },
         {
           title: "Pipeline Breakdown",
@@ -207,7 +207,7 @@ export function PixarProjectDetail() {
         {
           title: "Parallelism Analysis",
           description:
-            "Examined frame-, tile-, and ray-level parallelism and how each contributes to large-scale rendering performance.",
+            "Examined frame, tile, and ray-level parallelism and how each contributes to large-scale rendering performance.",
         },
         {
           title: "Case Study Comparison",
@@ -216,11 +216,7 @@ export function PixarProjectDetail() {
         },
       ]}
       images={[]}
-      outcomes={[
-        "Delivered a comprehensive technical presentation connecting Pixar's rendering pipeline to core parallel computing concepts including SIMT, data parallelism, task distribution, and Amdahl's law.",
-        "Demonstrated how three levels of parallelism -- frame, tile, and ray -- work together to make feature-length photorealistic animation possible at scale.",
-        "Showed through real case studies that some frames in Coco required 90 hours of compute time, illustrating why HPC clusters with thousands of nodes are essential to Pixar's production schedule.",
-      ]}
+      outcomes={[]}
       reflections={[]}
     />
   );

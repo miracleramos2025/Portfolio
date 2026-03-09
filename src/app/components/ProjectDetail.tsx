@@ -69,6 +69,7 @@ export function ProjectDetail({
 
   return (
     <div className="min-h-screen bg-[#0F2656]">
+
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-white py-6 px-8 flex items-center justify-between border-b border-gray-200">
         <button onClick={() => goHomeTo("top")} className="text-left">
@@ -111,9 +112,14 @@ export function ProjectDetail({
         />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(15, 38, 86, 0.48)" }} />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-          <h2 className="text-white font-bold text-5xl text-center px-4" style={{ letterSpacing: "0.06em", textShadow: "0 2px 12px rgba(0,0,0,0.7)" }}>{title}</h2>
+        <h2
+        className="text-white font-bold text-3xl md:text-5xl text-center px-4"
+        style={{ letterSpacing: "0.06em", textShadow: "0 2px 12px rgba(0,0,0,0.7)" }}
+        >
+            {title}
+          </h2>
           {(className || quarter) && (
-            <p className="text-[#87D3F8] text-lg font-semibold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
+            <p className="text-[#87D3F8] text-sm md:text-lg font-semibold px-4 text-center" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
               {[className, quarter].filter(Boolean).join(" · ")}
             </p>
           )}
@@ -121,7 +127,7 @@ export function ProjectDetail({
       </div>
 
       {/* Content */}
-      <div className="max-w-5xl mx-auto px-8 py-12 flex flex-col gap-9 pb-28">
+      <div className="max-w-5xl mx-auto px-8 py-12 flex flex-col gap-10 pb-28">
 
         {/* 1. Overview */}
         <div>
@@ -135,12 +141,12 @@ export function ProjectDetail({
             </button>
           </div>
           <div className="h-px bg-white opacity-20 mb-8" />
-          <div className="flex flex-col md:flex-row gap-11 items-start">
-            <div className="flex-1 max-w-[628px]">
+          <div className="flex flex-col md:flex-row gap-10 items-start">
+            <div className="flex-1 max-w-[600px]">
               <p className="text-white text-lg leading-relaxed">{overview}</p>
             </div>
             {(presentationUrl || reportUrl || githubUrl || slidesUrl) && (
-              <div className="shrink-0 md:w-56">
+              <div className="w-full md:w-56 shrink-0">
                 <p className="text-[#87D3F8] text-sm font-semibold tracking-widest mb-3">PROJECT LINKS</p>
                 <div className="flex flex-col gap-3">
                   {presentationUrl && (
@@ -220,25 +226,25 @@ export function ProjectDetail({
           </div>
         </div>
 
-        {/* Custom Highlights */}
-{customHighlights && (
-  <div>
-    <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Project Highlights</h3>
-    <div className="h-px bg-white opacity-20 mb-8" />
-    {customHighlights}
-  </div>
-)}
+        {/* 2. Pipeline Diagram */}
+        {pipelineDiagram && (
+          <div>
+            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Animation Pipeline</h3>
+            <div className="h-px bg-white opacity-20 mb-8" />
+            {pipelineDiagram}
+          </div>
+        )}
 
-{/* Pipeline Diagram */}
-{pipelineDiagram && (
-  <div>
-    <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-2">Animation Pipeline</h3>
-    <div className="h-px bg-white opacity-20 mb-3" />
-    {pipelineDiagram}
-  </div>
-)}
+        {/* 3. Project Highlights */}
+        {customHighlights && (
+          <div>
+            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Project Highlights</h3>
+            <div className="h-px bg-white opacity-20 mb-8" />
+            {customHighlights}
+          </div>
+        )}
 
-        {/* Images (default grid, used when customHighlights is not provided) */}
+        {/* Default images grid */}
         {images.length > 0 && (
           <div>
             <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Project Highlights</h3>
@@ -259,55 +265,55 @@ export function ProjectDetail({
           </div>
         )}
 
-        {/* Process / Methodology */}
-{process.length > 0 && (
-  <div>
-    <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-3">Process & Methodology</h3>
-    <div className="h-px bg-white opacity-20 mb-10" />
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-      {process.slice(0, 4).map((step, i) => (
-        <div key={i} className="flex flex-col gap-2">
-          <span
-            className="font-bold flex-col gap-1"
-            style={{ fontSize: "3rem", color: "#87D3F8", opacity: 0.25, lineHeight: 1 }}
-          >
-            {String(i + 1).padStart(2, "0")}
-          </span>
-          <h4 className="text-white font-semibold text-base tracking-wide min-h-[24px]">{step.title}</h4>
-          <div className="h-px bg-white/20 my-1" />
-          <p className="text-white/75 text-sm leading-6">{step.description}</p>
-        </div>
-      ))}
+        {/* 4. Process & Methodology */}
+        {process.length > 0 && (
+          <div>
+            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Process & Methodology</h3>
+            <div className="h-px bg-white opacity-20 mb-10" />
+            <div className="flex flex-col md:grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+  {process.slice(0, 4).map((step, i) => (
+    <div key={i} className="flex md:flex-col gap-6 md:gap-2 items-start">
+      <span
+        className="font-bold shrink-0 leading-none"
+        style={{ fontSize: "3rem", color: "#87D3F8", opacity: 0.25, lineHeight: 1, minWidth: "60px", textAlign: "right" }}
+      >
+        {String(i + 1).padStart(2, "0")}
+      </span>
+      <div className="flex flex-col gap-2 flex-1">
+        <h4 className="text-white font-semibold text-base tracking-wide">{step.title}</h4>
+        <p className="text-white/75 text-sm leading-6">{step.description}</p>
+      </div>
     </div>
-  </div>
-)}
+  ))}
+</div>
+          </div>
+        )}
 
-        
-        {/* Outcomes */}
-{outcomes.length > 0 && (
-  <div>
-    <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">
-      Outcomes
-    </h3>
-    <div className="h-px bg-white opacity-20 mb-8" />
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-      {outcomes.map((outcome, i) => (
-        <div
-          key={i}
-          className="rounded-2xl border border-white/10 p-5"
-          style={{ backgroundColor: "#001233" }}
-        >
-          <p className="text-[#87D3F8] text-sm font-semibold tracking-wide mb-2">
-            {String(i + 1).padStart(2, "0")}
-          </p>
-          <p className="text-white/75 text-sm leading-6">{outcome}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-)}
+        {/* 5. Outcomes */}
+        {outcomes.length > 0 && (
+          <div>
+            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Outcomes</h3>
+            <div className="h-px bg-white opacity-20 mb-10" />
+            <div className="flex flex-col gap-8">
+              {outcomes.map((outcome, i) => (
+                <div key={i} className="flex gap-8 items-start">
+                  <span
+                    className="font-bold shrink-0 leading-none"
+                    style={{ fontSize: "4rem", color: "#87D3F8", opacity: 0.25, lineHeight: 1, width: "70px", minWidth: "70px", textAlign: "right" }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex flex-col gap-2 pt-1 flex-1">
+                    <p className="text-white/90 text-sm leading-7">{outcome}</p>
+                    <div className="h-px bg-white/10 mt-4" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
-        {/* Reflections & Takeaways */}
+        {/* 6. Reflections */}
         {reflections.length > 0 && (
           <div>
             <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Reflections & Takeaways</h3>

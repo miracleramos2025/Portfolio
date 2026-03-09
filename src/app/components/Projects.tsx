@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import presentationImg from "../../assets/presentation1.png";
-import presentationImg2 from "../../assets/presentation2.png";
-import airbnbImg from "../../assets/airbnb.png";
+import presentationImg from "../../assets/cs358/renderfarm.webp";
+import presentationImg2 from "../../assets/stat301-2/nyc.jpg";
+import airbnbImg from "../../assets/stat301-2/newyork.jpg";
 import dtc from "../../assets/dtc.jpeg";
 import campusconnect from "../../assets/campusconnect.jpeg";
 
@@ -96,7 +96,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
             <img
               src={project.thumbnail || project.image}
               alt={project.title}
-              className="w-full object-contain bg-white"
+              className="w-full object-cover bg-white"
               style={{ height: "210px" }}
             />
           ) : (
