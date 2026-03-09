@@ -17,8 +17,8 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen bg-white flex flex-col">
-  <div className="relative flex-1 min-h-screen">
+    <section id="home" className="bg-white flex flex-col">
+  <div className="relative h-screen">
     <img
       src={heroImage}
       alt="Miracle Ramos overlooking Chicago skyline"

@@ -1,8 +1,8 @@
-import nuitLogo from "../../assets/nuit5.png";
+import nuitLogo from "../../assets/nuit/nuit5.png";
 import { ExperienceDetail } from "./ExperienceDetail";
-import seniors from "../../assets/seniors.jpg";
-import mic from "../../assets/mic.jpg";
-import cables from "../../assets/cables.jpg";
+import seniors from "../../assets/nuit/seniors.jpg";
+import mic from "../../assets/nuit/mic.jpg";
+import cables from "../../assets/nuit/cables.jpg";
 
 export function NUITDetail() {
   return (
@@ -64,18 +64,15 @@ export function NUITDetail() {
       ]}
       coverContent={
         <div
-          className="bg-white rounded-2xl px-6 flex items-center justify-center"
-          style={{ 
-            boxShadow: "0 8px 32px rgba(0,0,0,0.10)", 
-            height: "100px",
-          }}
-        >
-          <img
-            src={nuitLogo}
-            alt="Northwestern IT"
-            style={{ height: "150px" }}
-          />
-        </div>
+  className="bg-white rounded-2xl px-6 flex items-center justify-center h-[70px] md:h-[100px]"
+  style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.10)" }}
+>
+  <img
+    src={nuitLogo}
+    alt="Northwestern IT"
+    className="h-[100px] md:h-[150px]"
+  />
+</div>
       }
     />
   );

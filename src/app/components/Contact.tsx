@@ -21,7 +21,7 @@ export function Contact() {
       ),
       label: "Resume",
       color: "text-white",
-      href: "/contact/resume",
+      href: "/MiracleRamos_Resume.pdf",
     },
     {
       icon: (
@@ -49,11 +49,11 @@ export function Contact() {
   return (
     <section id="contact" className="bg-[#0F2656] py-16 px-8 pb-40 flex flex-col items-center justify-center">
       <h2 className="text-white text-4xl font-bold text-center mb-4" style={{ letterSpacing: "0.04em" }}>Contact</h2>
-      <p className="text-white/95 text-lg text-center mb-10">
+      <p className="text-white/95 text-sm md:text-lg text-center mb-10">
         Thanks for stopping by — let's build something great together.
       </p>
 
-      <div className="max-w-3xl w-full grid grid-cols-4 md:grid-cols-4 gap-12">
+      <div className="max-w-3xl w-full grid grid-cols-4 md:grid-cols-4 gap-4 md:gap-12 px-4 md:px-0">
         {contactMethods.map((method, index) => (
           <div
             key={index}

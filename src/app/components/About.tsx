@@ -1,15 +1,15 @@
 import React, { useState, useRef } from "react";
-import aboutImage from "../../assets/headshot.jpg";
+import aboutImage from "../../assets/about/headshot.jpg";
 
 // existing
-import legoImg from "../../assets/lego.jpg";
-import bagelsImg from "../../assets/bagels.jpg";
-import musicalImg from "../../assets/musical.JPG";
-import pizzaImg from "../../assets/pizza.jpg";
+import legoImg from "../../assets/about/lego.jpg";
+import bagelsImg from "../../assets/about/bagels.jpg";
+import musicalImg from "../../assets/about/musical.JPG";
+import pizzaImg from "../../assets/about/pizza.jpg";
 
 // placeholders you’ll swap later
-import disneyVideo from "../../assets/disney.MOV"; // TODO: add file
-import runningImg from "../../assets/run.JPG"; // TODO: add file
+import disneyVideo from "../../assets/about/disney.MOV"; // TODO: add file
+import runningImg from "../../assets/about/run.JPG"; // TODO: add file
 
 interface HoverImageProps {
   children: React.ReactNode;
@@ -131,17 +131,17 @@ export function About() {
           {/* Profile Image */}
           <div className="flex-shrink-0 flex justify-center w-full md:w-auto">
             <div className="bg-[#87D3F8] p-1 rounded-xl">
-              <img
-                src={aboutImage}
-                alt="Miracle Ramos"
-                className="w-[320px] h-[430px] object-cover rounded-xl"
-                style={{ objectPosition: "50% 20%" }}
-              />
+            <img
+  src={aboutImage}
+  alt="Miracle Ramos"
+  className="w-[220px] h-[280px] md:w-[320px] md:h-[430px] object-cover rounded-xl"
+  style={{ objectPosition: "50% 20%" }}
+/>
             </div>
           </div>
 
           {/* About Text */}
-          <div className="flex-1 text-white space-y-4 max-w-[570px] text-center leading-relaxed md:text-left">
+          <div className="flex-1 text-white space-y-4 max-w-[570px] text-sm md:text-base text-center leading-relaxed md:text-left px-2 md:px-0">
 
 <p>
 I’m a computer scientist interested in how technology, data, and design come together to create meaningful experiences and solve complex problems. I'm driven by bringing imaginative ideas to life and I believe the best

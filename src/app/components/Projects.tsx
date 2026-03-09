@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import presentationImg from "../../assets/cs358/renderfarm.webp";
-import presentationImg2 from "../../assets/stat301-2/nyc.jpg";
-import airbnbImg from "../../assets/stat301-2/newyork.jpg";
+import cs358 from "../../assets/cs358/renderfarm.webp";
+import stat302 from "../../assets/stat302/disney.jpg";
+import stat301_2 from "../../assets/stat301-2/newyork.jpg";
+import cs314 from "../../assets/cs314/campusconnect.jpeg";
+import cs310 from "../../assets/cs310/cta.JPG";
 import dtc from "../../assets/dtc.jpeg";
-import campusconnect from "../../assets/campusconnect.jpeg";
 
 type Project = {
   title: string;
@@ -34,7 +35,7 @@ const projects: ProjectsData = {
     {
       title: "NYC Airbnb Price Prediction",
       description: "Supervised machine learning pipeline comparing 6 models to predict NYC Airbnb rental prices using tidymodels in R.",
-      thumbnail: airbnbImg,
+      thumbnail: stat301_2,
       image: "",
       tags: ["R", "Machine Learning", "tidymodels", "Random Forest", "Predictive Modeling", "Data Science"],
       route: "/projects/nyc-airbnb-price-prediction",
@@ -42,7 +43,7 @@ const projects: ProjectsData = {
     {
       title: "Disney Box Office Analysis",
       description: "Statistical analysis of Disney's box office history, quantifying how Pixar, Marvel, and Lucasfilm acquisitions reshaped revenue.",
-      thumbnail: presentationImg2,
+      thumbnail: stat302,
       image: "",
       tags: ["R", "Exploratory Data Analysis", "Data Visualization", "Quarto", "Statistical Analysis"],
       route: "/projects/disney-box-office-analysis",
@@ -52,7 +53,7 @@ const projects: ProjectsData = {
     {
       title: "Pixar & Parallel Computing",
       description: "A technical deep-dive into how Pixar uses high-performance computing and parallel processing to render feature films.",
-      thumbnail: presentationImg,
+      thumbnail: cs358,
       image: "",
       tags: ["Parallel Computing", "HPC", "Path Tracing", "RenderMan", "Frame-Level Parallelism", "GPU Architecture", "Research", "Presentation"],
       route: "/projects/pixar-parallel-computing",
@@ -60,7 +61,7 @@ const projects: ProjectsData = {
     {
       title: "CTA Bus Tracker",
       description: "Data science presentation created using R.",
-      image: "",
+      image: cs310,
       tags: ["R", "Data Science", "R Markdown", "Presentation", "Data Visualization"],
       route: "/projects/cta-bus-tracker",
     },
@@ -76,7 +77,7 @@ const projects: ProjectsData = {
     {
       title: "Campus Connect",
       description: "Led UX research and design for a campus app consolidating scattered resources into one platform.",
-      image: campusconnect,
+      image: cs314,
       tags: ["UI/UX", "User Testing", "Figma", "Prototyping", "User Research"],
       route: "/projects/campus-connect",
     },
@@ -94,20 +95,19 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
         <div className="w-full rounded-lg overflow-hidden">
           {(project.thumbnail || project.image) ? (
             <img
-              src={project.thumbnail || project.image}
-              alt={project.title}
-              className="w-full object-cover bg-white"
-              style={{ height: "210px" }}
-            />
+            src={project.thumbnail || project.image}
+            alt={project.title}
+            className="w-full object-cover bg-white h-[140px] md:h-[210px]"
+          />
           ) : (
-            <div className="w-full flex items-center justify-center" style={{ height: "210px", backgroundColor: "rgba(255,255,255,0.06)" }}>
+            <div className="w-full flex items-center justify-center h-[140px] md:h-[210px]" style={{ backgroundColor: "rgba(255,255,255,0.06)" }}>
               <span className="text-white opacity-40 text-sm font-medium tracking-widest uppercase">Preview</span>
             </div>
           )}
         </div>
       </div>
       <div className="px-4 pb-4 flex flex-col gap-3">
-        <h3 className="text-xl font-bold text-white text-center">{project.title}</h3>
+      <h3 className="text-base md:text-xl font-bold text-white text-center">{project.title}</h3>
         <div className="flex flex-wrap gap-2 justify-center">
           {project.tags.map((tag) => (
             <span
@@ -151,7 +151,7 @@ export function Projects() {
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
-              className={"pb-3 px-4 text-[18px] md:text-[22px] font-semibold transition-colors border-b-2 " + (activeTab === tab.key ? "border-white text-[#87D3F8]" : "border-transparent text-[#87D3F8] opacity-60 hover:opacity-100")}
+              className={"pb-3 px-2 md:px-4 text-[14px] md:text-[22px] font-semibold transition-colors border-b-2 " + (activeTab === tab.key ? "border-white text-[#87D3F8]" : "border-transparent text-[#87D3F8] opacity-60 hover:opacity-100")}
             >
               {tab.label}
             </button>

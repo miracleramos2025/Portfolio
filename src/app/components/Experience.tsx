@@ -1,5 +1,5 @@
-import huron from "../../assets/huron.jpg";
-import mudd from "../../assets/nuit.jpg";
+import huron from "../../assets/huron/huron.jpg";
+import mudd from "../../assets/nuit/nuit.jpg";
 import { useNavigate } from "react-router-dom";
 
 export function Experience() {
@@ -27,8 +27,8 @@ export function Experience() {
           <div
             key={i}
             onClick={() => navigate(card.href)}
-            className="relative overflow-hidden rounded-xl block group cursor-pointer shadow-[0_12px_30px_rgba(0,0,0,0.25)]"
-            style={{ height: "400px", border: "3px solid #87D3F8" }}
+            className="relative overflow-hidden rounded-xl block group cursor-pointer shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[260px] md:h-[400px]"
+            style={{ border: "3px solid #87D3F8" }}
           >
             <img
               src={card.image}
@@ -47,16 +47,16 @@ export function Experience() {
             />
 
             {/* Title — top left */}
-            <div className="absolute top-8 left-0 p-8">
-              <h3
-                className="text-white font-bold text-2xl mb-6 tracking-wide"
-              >
+            <div className="absolute top-4 md:top-8 left-0 p-6 md:p-8">
+            <h3
+            className="text-white font-bold text-lg md:text-2xl mb-6 tracking-wide"
+            >
                 {card.title}
               </h3>
             </div>
 
             {/* Progression — bottom left */}
-            <div className="absolute bottom-39 left-0 p-8 flex items-center gap-4">
+            <div className="absolute bottom-16 md:bottom-39 left-0 p-6 md:p-8 flex items-center gap-4">
               <div className="flex flex-col items-center">
                 {card.roles.map((_, j) => (
                   <div key={j} className="flex flex-col items-center">
@@ -83,8 +83,8 @@ export function Experience() {
                     className="flex items-start"
                   >
                     <span
-                      className="text-white font-semibold text-lg"
-                      style={{ opacity: j === card.roles.length - 1 ? 0.67 : 1 }}
+                    className="text-white font-semibold text-sm md:text-lg"
+                    style={{ opacity: j === card.roles.length - 1 ? 0.67 : 1 }}
                     >
                       {role}
                     </span>
@@ -94,7 +94,7 @@ export function Experience() {
             </div>
 
             {/* CTA button — bottom center */}
-            <div className="absolute bottom-6 left-0 p-8">
+            <div className="absolute bottom-2 md:bottom-6 left-0 p-6 md:p-8">
   <span
     className="text-[#0F2656] text-sm font-semibold px-6 py-2 rounded-full
     bg-white border border-white/25 backdrop-blur-md

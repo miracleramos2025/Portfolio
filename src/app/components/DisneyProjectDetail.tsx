@@ -1,4 +1,4 @@
-import disneyImg from "../../assets/boxoffice.jpg";
+import disneyImg from "../../assets/stat302/boxoffice.jpg";
 import { ProjectDetail } from "./ProjectDetail";
 
 export function DisneyProjectDetail() {

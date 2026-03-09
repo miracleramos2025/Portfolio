@@ -1,4 +1,4 @@
-import campusConnectImg from "../../assets/nu.jpg"; // update with your actual image filename
+import campusConnectImg from "../../assets/cs314/nu.jpg"; // update with your actual image filename
 import { ProjectDetail } from "./ProjectDetail";
 
 export function CampusConnectProjectDetail() {

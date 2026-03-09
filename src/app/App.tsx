@@ -6,7 +6,6 @@ import { Skills } from "./components/Skills";
 import { Experience } from "./components/Experience";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
-import { Resume } from "./components/Resume";
 import { HuronDetail } from "./components/HuronDetail";
 import { NUITDetail } from "./components/NUITDetail";
 import { PixarProjectDetail } from "./components/PixarProjectDetail";
@@ -94,7 +93,6 @@ export default function App() {
       <Routes>
         <Route path="/experience/huron" element={<HuronDetail />} />
         <Route path="/experience/northwestern-it" element={<NUITDetail />} />
-        <Route path="/contact/resume" element={<Resume />} />
         <Route path="/projects/pixar-parallel-computing" element={<PixarProjectDetail />} />
         {<Route path="/projects/nyc-airbnb-price-prediction" element={<AirbnbProjectDetail />} />}
         {<Route path="/projects/disney-box-office-analysis" element={<DisneyProjectDetail />} />}

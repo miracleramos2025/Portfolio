@@ -1,4 +1,4 @@
-import airbnbImg from "../../assets/nyc.jpeg";
+import airbnbImg from "../../assets/stat301-2/nyc.jpeg";
 import { ProjectDetail } from "./ProjectDetail";
 
 export function AirbnbProjectDetail() {

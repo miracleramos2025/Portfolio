@@ -1,7 +1,7 @@
-import huronLogo from "../../assets/huronlogo.svg";
-import group from "../../assets/groupphoto.jpg";
-import fincrime from "../../assets/fincrime.jpg";
-import dma from "../../assets/dma.jpg";
+import huronLogo from "../../assets/huron/huronlogo.svg";
+import group from "../../assets/huron/groupphoto.jpg";
+import fincrime from "../../assets/huron/fincrime.jpg";
+import dma from "../../assets/huron/dma.jpg";
 import { ExperienceDetail } from "./ExperienceDetail";
 
 export function HuronDetail() {
@@ -65,18 +65,19 @@ export function HuronDetail() {
       ]}
       coverContent={
         <div
-          className="bg-white rounded-2xl px-12 flex items-center justify-center"
-          style={{ 
-            boxShadow: "0 8px 32px rgba(0,0,0,0.10)", 
-            height: "100px",
-          }}
-        >
-          <img
-            src={huronLogo}
-            alt="Huron Consulting Group"
-            style={{ height: "70px" }}
-          />
-        </div>
+  className="bg-white rounded-2xl px-6 md:px-12 flex items-center justify-center"
+  style={{ 
+    boxShadow: "0 8px 32px rgba(0,0,0,0.10)", 
+    height: "70px",
+  }}
+  // md height
+>
+  <img
+    src={huronLogo}
+    alt="Huron Consulting Group"
+    className="h-[45px] md:h-[70px]"
+  />
+</div>
       }
     />
   );

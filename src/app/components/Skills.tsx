@@ -15,7 +15,7 @@ export function Skills() {
   ];
 
   return (
-    <section id="skills" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "70px" }}>
+    <section id="skills" className="bg-[#0F2656] py-16 pb-8 px-4 md:px-8" style={{ scrollMarginTop: "70px" }}>
       <h2 className="text-[#FFFFFF] text-4xl font-bold text-center mb-5" style={{ letterSpacing: "0.04em" }}>Skills</h2>
       
       <div className="max-w-7xl mx-auto">
@@ -45,19 +45,19 @@ export function Skills() {
             <div key={categoryIndex} className="flex flex-col items-center">
               {/* Category box */}
               <div
-                className="border-4 border-[#87D3F8] bg-[#87D3F8] px-18 py-5 rounded-lg mb-6 w-64 h-18 flex items-center justify-center"
-                style={{ boxShadow: 'inset 0 0 0 3px #0F2656' }}
+              className="border-4 border-[#87D3F8] bg-[#87D3F8] px-6 md:px-18 py-3 md:py-5 rounded-lg mb-6 w-40 md:w-64 h-14 md:h-18 flex items-center justify-center"
+              style={{ boxShadow: 'inset 0 0 0 3px #0F2656' }}
               >
-                <h4 className="text-[#0F2656] text-[24px] font-semibold whitespace-nowrap">{category.title}</h4>
+                <h4 className="text-[#0F2656] text-lg md:text-[24px] font-semibold whitespace-nowrap">{category.title}</h4>
               </div>
 
               {/* Skills */}
               <div className="flex flex-wrap gap-3 justify-center max-w-sm">
                 {category.skills.map((skill, skillIndex) => (
                   <span
-                    key={skillIndex}
-                    className="bg-[#002147] border border-[#87D3F8]/90 text-[#87D3F8] text-[16px] px-4 py-2.5 rounded"
-                  >
+                  key={skillIndex}
+                  className="bg-[#002147] border border-[#87D3F8]/90 text-[#87D3F8] text-xs md:text-[16px] px-3 md:px-4 py-1.5 md:py-2.5 rounded"
+                >
                     {skill}
                   </span>
                 ))}
