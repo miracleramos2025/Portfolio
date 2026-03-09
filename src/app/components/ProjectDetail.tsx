@@ -71,7 +71,7 @@ export function ProjectDetail({
     <div className="min-h-screen bg-[#0F2656]">
 
       {/* Nav */}
-      <nav className="sticky top-0 z-50 bg-white py-6 px-8 flex items-center justify-between border-b border-gray-200">
+      <nav className="sticky top-0 z-50 bg-white py-3 md:py-6 px-8 flex items-center justify-between border-b border-gray-200">
         <button onClick={() => goHomeTo("top")} className="text-left">
           <h1 className="text-[#0F2656] text-2xl font-bold">Miracle Ramos</h1>
         </button>

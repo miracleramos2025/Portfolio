@@ -112,8 +112,8 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs px-3 py-1.5 rounded-full font-medium transition-colors hover:bg-[#87D3F8]/10"
-              style={{ backgroundColor: "transparent", color: "#ffffff", border: "1px solid #87D3F8" }}
+              className="text-xs px-2.5 py-1 rounded-full font-medium transition-colors hover:bg-[#87D3F8]/10"
+              style={{ backgroundColor: "transparent", color: "rgba(255,255,255,0.85)", border: "1px solid #87D3F8" }}
             >
               {tag}
             </span>
@@ -144,9 +144,9 @@ export function Projects() {
 
   return (
     <section id="projects" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "60px" }}>
-      <div className="max-w-[1300px] mx-auto px-4 md:px-16">
+      <div className="max-w-5xl md:max-w-[1300px] mx-auto px-0 md:px-16">
         <h2 className="text-4xl font-bold text-white mb-6 text-center" style={{ letterSpacing: "0.04em" }}>Projects</h2>
-        <div className="flex justify-center gap-2 mb-10">
+        <div className="flex justify-center gap-2 mb-5 md:mb-8">
           {tabs.map((tab) => (
             <button
               key={tab.key}

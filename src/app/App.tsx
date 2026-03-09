@@ -46,7 +46,7 @@ function Home() {
 
   return (
     <div className="min-h-screen">
-      <nav className="sticky top-0 z-50 bg-white py-6 px-8 flex items-center justify-between border-b border-gray-200">
+      <nav className="sticky top-0 z-50 bg-white py-3 md:py-6 px-8 flex items-center justify-between border-b border-gray-200">
         <button onClick={() => scrollToId("top")} className="text-left">
           <h1 className="text-[#0F2656] text-2xl font-bold">Miracle Ramos</h1>
         </button>

@@ -18,7 +18,7 @@ export function Hero() {
 
   return (
     <section id="home" className="bg-white flex flex-col">
-  <div className="relative h-screen">
+      <div className="relative h-[100dvh]">
     <img
       src={heroImage}
       alt="Miracle Ramos overlooking Chicago skyline"

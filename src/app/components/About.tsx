@@ -141,7 +141,7 @@ export function About() {
           </div>
 
           {/* About Text */}
-          <div className="flex-1 text-white space-y-4 max-w-[570px] text-sm md:text-base text-center leading-relaxed md:text-left px-2 md:px-0">
+          <div className="flex-1 text-white space-y-4 max-w-[570px] text-sm md:text-base text-center leading-relaxed lg:text-left px-2 md:px-0 mx-auto lg:mx-0">
 
 <p>
 I’m a computer scientist interested in how technology, data, and design come together to create meaningful experiences and solve complex problems. I'm driven by bringing imaginative ideas to life and I believe the best
@@ -165,7 +165,7 @@ I’m a computer scientist interested in how technology, data, and design come t
   {/* Things I Love */}
   <div className="mt-4">
   <h3 className="text-white font-semibold tracking-wide mb-3">Things I Love</h3>
-    <div className="flex flex-wrap gap-x-2 gap-y-5 justify-center md:justify-start">
+  <div className="flex flex-wrap gap-x-2 gap-y-5 justify-center lg:justify-start">
       {loveItems.map((item) => (
         <HoverImage
           key={item.label}

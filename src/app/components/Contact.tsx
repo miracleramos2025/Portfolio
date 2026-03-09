@@ -49,7 +49,7 @@ export function Contact() {
   return (
     <section id="contact" className="bg-[#0F2656] py-16 px-8 pb-40 flex flex-col items-center justify-center">
       <h2 className="text-white text-4xl font-bold text-center mb-4" style={{ letterSpacing: "0.04em" }}>Contact</h2>
-      <p className="text-white/95 text-sm md:text-lg text-center mb-10">
+      <p className="text-white/95 text-sm md:text-lg text-center mb-6 md:mb-8">
         Thanks for stopping by — let's build something great together.
       </p>
 
