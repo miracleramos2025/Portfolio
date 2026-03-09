@@ -13,7 +13,7 @@ export function Experience() {
     },
     {
       image: mudd,
-      href: "/experience/northwestern",
+      href: "/experience/northwestern-it",
       title: "Northwestern IT",
       roles: ["Team Lead", "Technical Consultant"],
     },

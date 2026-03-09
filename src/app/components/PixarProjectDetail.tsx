@@ -10,7 +10,8 @@ export function PixarProjectDetail() {
       className="COMP_SCI 358: Intro to Parallel Computing"
       quarter="Spring 2025"
       overview="A technical deep-dive into how Pixar leverages high-performance computing and parallel processing to render feature films. This research presentation explored Pixar's full animation pipeline — from frame-level parallelism on HPC clusters to GPU-accelerated path tracing — with real-world case studies from Finding Dory, Coco, and Inside Out. The goal was to bridge abstract parallel computing concepts with a real-world, creative application."
-      tools={["Parallel Computing", "GPU Architecture", "HPC", "Path Tracing", "RenderMan", "CUDA", "OpenMP", "MPI"]}
+      presentationUrl="https://youtu.be/toNq7nj4ROk?si=b7YwZuh1SCw3139t"
+      slidesUrl="/cs358-finalproject.pdf"
       process={[
         {
           title: "Research & Literature Review",
