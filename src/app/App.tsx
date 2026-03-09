@@ -15,6 +15,7 @@ import { CTAProjectDetail } from "./components/CTAProjectDetail";
 // import { CompostProjectDetail } from "./components/CompostProjectDetail";
 import { CampusConnectProjectDetail } from "./components/CampusConnectProjectDetail";
 
+
 function Home() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -25,7 +26,19 @@ function Home() {
     if (id === "top") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      const el = document.getElementById(id);
+      if (el) {
+        const offsets: Record<string, number> = {
+          experience: window.innerWidth < 768 ? 275 : 81,
+          projects: window.innerWidth < 768 ? 275 : 70,
+          about: window.innerWidth < 768 ? 275 : 81,
+          skills: window.innerWidth < 768 ? 275 : 81,
+          contact: window.innerWidth < 768 ? 275 : 81,
+        };
+        const navHeight = offsets[id] ?? 81;
+        const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
     }
   };
 
@@ -68,7 +81,7 @@ function Home() {
       </nav>
 
       {menuOpen && (
-        <div className="md:hidden sticky top-[73px] z-40 bg-white border-b border-gray-200 flex flex-col px-8 py-4 gap-4">
+        <div className="md:hidden sticky top-[57px] z-40 bg-white border-b border-gray-200 flex flex-col px-8 py-4 gap-4">
           <button onClick={() => { setMenuOpen(false); scrollToId("experience"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Experience</button>
           <button onClick={() => { setMenuOpen(false); scrollToId("projects"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Projects</button>
           <button onClick={() => { setMenuOpen(false); scrollToId("about"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">About Me</button>

@@ -64,13 +64,13 @@ export function NUITDetail() {
       ]}
       coverContent={
         <div
-  className="bg-white rounded-2xl px-6 flex items-center justify-center h-[70px] md:h-[100px]"
+  className="bg-white rounded-2xl px-6 md:px-1 flex items-center justify-center h-[70px] md:h-[90px]"
   style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.10)" }}
 >
   <img
     src={nuitLogo}
     alt="Northwestern IT"
-    className="h-[100px] md:h-[150px]"
+    className="h-[100px] md:h-[130px]"
   />
 </div>
       }

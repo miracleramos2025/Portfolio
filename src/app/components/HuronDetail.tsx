@@ -65,19 +65,15 @@ export function HuronDetail() {
       ]}
       coverContent={
         <div
-  className="bg-white rounded-2xl px-6 md:px-12 flex items-center justify-center"
-  style={{ 
-    boxShadow: "0 8px 32px rgba(0,0,0,0.10)", 
-    height: "70px",
-  }}
-  // md height
->
-  <img
-    src={huronLogo}
-    alt="Huron Consulting Group"
-    className="h-[45px] md:h-[70px]"
-  />
-</div>
+          className="bg-white rounded-2xl px-6 md:px-10 flex items-center justify-center h-[70px] md:h-[85px]"
+          style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.10)" }}
+        >
+          <img
+            src={huronLogo}
+            alt="Huron Consulting Group"
+            className="h-[45px] md:h-[60px]"
+          />
+        </div>
       }
     />
   );
