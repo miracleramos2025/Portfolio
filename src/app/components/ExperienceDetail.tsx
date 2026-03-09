@@ -102,7 +102,7 @@ export function ExperienceDetail({
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="md:hidden sticky top-[50] z-40 bg-white border-b border-gray-200 flex flex-col px-8 py-4 gap-4">
+        <div className="md:hidden sticky top-[50px] z-40 bg-white border-b border-gray-200 flex flex-col px-8 py-4 gap-4">
           <button onClick={() => { setMenuOpen(false); goHomeTo("experience"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Experience</button>
           <button onClick={() => { setMenuOpen(false); goHomeTo("projects"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Projects</button>
           <button onClick={() => { setMenuOpen(false); goHomeTo("about"); }} className="text-left text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">About Me</button>
@@ -116,6 +116,7 @@ export function ExperienceDetail({
         <img
           src={coverPhoto}
           alt={company}
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: coverPosition }}
         />

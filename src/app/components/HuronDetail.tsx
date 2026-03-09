@@ -71,6 +71,7 @@ export function HuronDetail() {
           <img
             src={huronLogo}
             alt="Huron Consulting Group"
+            fetchPriority="high"
             className="h-[45px] md:h-[60px]"
           />
         </div>

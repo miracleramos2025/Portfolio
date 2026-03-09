@@ -70,6 +70,7 @@ export function NUITDetail() {
   <img
     src={nuitLogo}
     alt="Northwestern IT"
+    fetchPriority="high"
     className="h-[100px] md:h-[130px]"
   />
 </div>

@@ -18,6 +18,8 @@ interface HoverImageProps {
   isVideo?: boolean;
 }
 
+
+
 function HoverImage({ children, imageSrc, imageAlt, isVideo = false }: HoverImageProps) {
   const [visible, setVisible] = useState(false);
   const wrapperRef = useRef<HTMLSpanElement | null>(null);
@@ -122,6 +124,12 @@ export function About() {
       className="bg-[#0F2656] py-16 px-8 flex flex-col items-center justify-center"
       style={{ scrollMarginTop: "60px" }}
     >
+      {/* Preload hover images */}
+      <div className="hidden">
+        {loveItems.filter(item => !item.isVideo).map(item => (
+          <img key={item.label} src={item.img} alt="" fetchPriority="high" />
+        ))}
+      </div>
       <div className="max-w-6xl w-full">
         <h2 className="text-white text-4xl font-bold text-center mb-10" style={{ letterSpacing: "0.04em" }}>
           About Me
@@ -174,8 +182,8 @@ I’m a computer scientist interested in how technology, data, and design come t
           isVideo={item.isVideo}
         >
           <span
-  className="bg-[#002147] border border-[#87D3F8]/90 text-[#FFFFFF] text-xs px-3 py-2 rounded-full font-medium hover:bg-[#87D3F8]/10 transition-colors"
->
+          className="bg-[#002147] border border-[#87D3F8]/90 text-[#FFFFFF] text-xs px-3 py-2 rounded-full font-medium hover:bg-[#87D3F8]/10 transition-colors animate-[softPulse_3s_ease-in-out_infinite]"
+          >
             {item.label}
           </span>
         </HoverImage>
