@@ -1,3 +1,5 @@
+// Contact.tsx
+
 export function Contact() {
   const contactMethods = [
     {

@@ -1,3 +1,5 @@
+// About.tsx
+
 import React, { useState, useRef } from "react";
 import aboutImage from "../../assets/about/headshot.jpg";
 

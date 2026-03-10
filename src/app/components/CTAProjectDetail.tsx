@@ -1,3 +1,5 @@
+// CTAProjectDetail.tsx
+
 import ctaImg from "../../assets/cs310/cta.JPG"; // update with your actual image filename
 import { ProjectDetail } from "./ProjectDetail";
 

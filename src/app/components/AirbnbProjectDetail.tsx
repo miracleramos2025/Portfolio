@@ -1,3 +1,5 @@
+// AirbnbProjectDetail.tsx
+
 import React, { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 import airbnbImg from "../../assets/stat301-2/nyc.jpeg";

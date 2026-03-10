@@ -1,3 +1,5 @@
+// Skills.tsx
+
 export function Skills() {
   const skillCategories = [
     {

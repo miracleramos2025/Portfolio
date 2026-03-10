@@ -1,3 +1,5 @@
+// Hero.tsx
+
 import React, { useEffect, useRef } from "react";
 import heroImage from "../../assets/home.png";
 import Typed from "typed.js";

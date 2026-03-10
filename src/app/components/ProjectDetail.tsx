@@ -1,5 +1,8 @@
+// ProjectDetail.tsx
+
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLayoutEffect } from "react";
 
 interface ProjectImage {
   src: string;
@@ -54,10 +57,9 @@ export function ProjectDetail({
   outcomes,
   reflections,
 }: ProjectDetailProps) {
-  useEffect(() => {
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "instant" });
-    }, 0);
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
 
   const navigate = useNavigate();

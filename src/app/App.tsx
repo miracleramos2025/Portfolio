@@ -1,3 +1,5 @@
+// App.tsx
+import { useLayoutEffect } from "react";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { Hero } from "./components/Hero";
@@ -14,6 +16,7 @@ import { DisneyProjectDetail } from "./components/DisneyProjectDetail";
 import { CTAProjectDetail } from "./components/CTAProjectDetail";
 // import { CompostProjectDetail } from "./components/CompostProjectDetail";
 import { CampusConnectProjectDetail } from "./components/CampusConnectProjectDetail";
+
 
 
 function Home() {
@@ -43,17 +46,26 @@ function Home() {
   };
 
   // Instant jump when navigating FROM a detail page
-  useEffect(() => {
+  useLayoutEffect(() => {
     const id = (location.state as any)?.scrollTo as string | undefined;
     if (id) {
-      setTimeout(() => {
-        if (id === "top") {
-          window.scrollTo({ top: 0, behavior: "instant" });
-        } else {
-          document.getElementById(id)?.scrollIntoView({ behavior: "instant" });
+      if (id === "top") {
+        window.scrollTo({ top: 0, behavior: "instant" });
+      } else {
+        const offsets: Record<string, number> = {
+          experience: window.innerWidth < 768 ? 55 : 81,
+          projects: window.innerWidth < 768 ? 55 : 70,
+          about: window.innerWidth < 768 ? 55 : 81,
+          skills: window.innerWidth < 768 ? 55 : 81,
+          contact: window.innerWidth < 768 ? 55 : 81,
+        };
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY - (offsets[id] ?? 81);
+          window.scrollTo({ top, behavior: "instant" });
         }
-        navigate(".", { replace: true, state: {} });
-      }, 0);
+      }
+      navigate(".", { replace: true, state: {} });
     }
   }, [location, navigate]);
 

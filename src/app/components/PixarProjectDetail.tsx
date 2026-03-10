@@ -1,3 +1,5 @@
+// PixarProjecctDetail.tsx
+
 import presentationImg from "../../assets/cs358/renderfarm.webp";
 import denoising from "../../assets/cs358/denoising.png";
 import renderman from "../../assets/cs358/renderman.png";

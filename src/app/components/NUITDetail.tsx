@@ -1,3 +1,5 @@
+// NUITDetail.tsx
+
 import nuitLogo from "../../assets/nuit/nuit5.png";
 import { ExperienceDetail } from "./ExperienceDetail";
 import seniors from "../../assets/nuit/seniors.jpg";

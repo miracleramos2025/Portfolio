@@ -1,3 +1,5 @@
+// HuronDetail.tsx
+
 import huronLogo from "../../assets/huron/huronlogo.svg";
 import group from "../../assets/huron/groupphoto.jpg";
 import fincrime from "../../assets/huron/fincrime.jpg";

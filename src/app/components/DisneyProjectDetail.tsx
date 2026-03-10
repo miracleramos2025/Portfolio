@@ -1,3 +1,5 @@
+// DisneyProjectDetail.tsx
+
 import disneyImg from "../../assets/stat302/boxoffice.jpg";
 import { ProjectDetail } from "./ProjectDetail";
 
