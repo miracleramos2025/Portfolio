@@ -53,11 +53,11 @@ function Home() {
         window.scrollTo({ top: 0, behavior: "instant" });
       } else {
         const offsets: Record<string, number> = {
-          experience: window.innerWidth < 768 ? 55 : 81,
-          projects: window.innerWidth < 768 ? 55 : 70,
-          about: window.innerWidth < 768 ? 55 : 81,
-          skills: window.innerWidth < 768 ? 55 : 81,
-          contact: window.innerWidth < 768 ? 55 : 81,
+          experience: window.innerWidth < 768 ? 42 : 81,
+          projects: window.innerWidth < 768 ? 42 : 70,
+          about: window.innerWidth < 768 ? 42 : 81,
+          skills: window.innerWidth < 768 ? 42 : 81,
+          contact: window.innerWidth < 768 ? 42 : 81,
         };
         const el = document.getElementById(id);
         if (el) {

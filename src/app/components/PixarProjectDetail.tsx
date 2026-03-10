@@ -211,13 +211,22 @@ function PipelineDiagram() {
 
   return (
     <div className="w-full py-2">
+      <style>{`
+        .pipeline-scroll::-webkit-scrollbar { display: none; }
+      `}</style>
+
       <div className="px-1 mt-0 mb-2">
         <p className="text-white text-base font-semibold tracking-wide text-left">
           From Scene to Screen
         </p>
       </div>
 
-      <div className="w-full overflow-x-auto" ref={scrollRef} onScroll={handleScroll}>
+      <div
+        className="w-full overflow-x-auto pipeline-scroll"
+        ref={scrollRef}
+        onScroll={handleScroll}
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+      >
         <div
           className="relative min-w-[760px] rounded-2xl border border-white/8 bg-[#001233] px-8 pt-10 pb-7"
           style={{ boxShadow: "0 14px 34px rgba(0,0,0,0.24)" }}
@@ -261,7 +270,7 @@ function PipelineDiagram() {
                 style={{ transform: `translateX(${scrollPercent * 400}%)` }}
               />
             </div>
-            <span className="text-white/40 text-xs"></span>
+            <span className="text-white/40 text-xs">scroll</span>
           </div>
 
         </div>
