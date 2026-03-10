@@ -269,7 +269,7 @@ function ProjectHighlights() {
             alt="Case study"
             title="Why Parallel Computing Matters"
             description="A 90-minute animated film contains over 130,000 frames. As lighting, physics, and particle effects grow more complex, rendering becomes computationally intensive. Large-scale parallel computing allows studios like Pixar to render thousands of frames simultaneously."
-            heightClassName="h-[280px] md:h-[360px]"
+            heightClassName="h-[210px] md:h-[360px]"
             fit="contain"
             bgColor="#001233"
           />
