@@ -76,7 +76,7 @@ export function ExperienceDetail({
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#0F2656]">
+    <div className="min-h-screen bg-[#0F2656]" style={{ willChange: "transform" }}>
       <nav className="sticky top-0 z-50 bg-white py-3 md:py-6 px-8 flex items-center justify-between border-b border-gray-200">
         <button onClick={() => goHomeTo("top")} className="text-left">
           <h1 className="text-[#0F2656] text-2xl font-bold">Miracle Ramos</h1>
@@ -137,7 +137,7 @@ export function ExperienceDetail({
       </div>
 
       {/* Content */}
-      <div className="max-w-5xl mx-auto px-8 py-8 flex flex-col gap-10 pb-28">
+      <div className="max-w-5xl mx-auto px-8 py-8 flex flex-col gap-10 pb-28" style={{ contain: "paint" }}>
 
         {/* 1. My Role */}
         {roles && roles.length > 0 ? (

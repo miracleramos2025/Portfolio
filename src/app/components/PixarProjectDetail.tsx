@@ -159,7 +159,7 @@ function TerminalBox() {
               `&nbsp;&nbsp;frame.<span style="color:#87D3F8">setPixel</span>(x, y, color);<br/>` +
               `}`
             ],
-            typeSpeed: 22,
+            typeSpeed: 19,
             showCursor: false,
             cursorChar: "▋",
             loop: false,

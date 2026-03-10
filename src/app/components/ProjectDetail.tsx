@@ -70,7 +70,7 @@ export function ProjectDetail({
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#0F2656]">
+    <div className="min-h-screen bg-[#0F2656]" style={{ willChange: "transform" }}>
 
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-white py-3 md:py-6 px-8 flex items-center justify-between border-b border-gray-200">
@@ -131,7 +131,7 @@ export function ProjectDetail({
       </div>
 
       {/* Content */}
-      <div className="max-w-5xl mx-auto px-8 py-8 md:py-12 flex flex-col gap-8 md:gap-10 pb-28">
+      <div className="max-w-5xl mx-auto px-8 py-8 md:py-12 flex flex-col gap-8 md:gap-10 pb-28" style={{ contain: "paint" }}>
 
         {/* 1. Overview */}
         <div>

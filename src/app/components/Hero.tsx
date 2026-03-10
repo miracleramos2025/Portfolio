@@ -25,6 +25,7 @@ export function Hero() {
       src={heroImage}
       alt="Miracle Ramos overlooking Chicago skyline"
       {...{ fetchpriority: "high" }}
+      decoding="sync"
       className="w-full h-full object-cover absolute inset-0"
       style={{ objectPosition: "70% center" }}
     />

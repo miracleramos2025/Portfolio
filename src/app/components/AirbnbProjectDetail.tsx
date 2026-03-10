@@ -39,7 +39,7 @@ function TerminalBox() {
                 `categorical features: <span style="color:#87D3F8">5</span><br/>` +
                 `date features: <span style="color:#87D3F8">1</span>`,
             ],
-            typeSpeed: 20,
+            typeSpeed: 18,
             startDelay: 150,
             showCursor: false,
             cursorChar: "▋",
