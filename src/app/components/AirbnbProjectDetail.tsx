@@ -221,7 +221,7 @@ function ProjectHighlights() {
   alt="Model predictions versus actual Airbnb prices"
   title="Model Predictions vs Actual Prices"
   description="Six regression models were trained and evaluated using cross-validation to determine which approach best predicted Airbnb prices. The model performs well for most listings but struggles to accurately predict very high-priced properties."
-  heightClassName="h-[200px] md:h-[360px]"
+  heightClassName="h-[190px] md:h-[360px]"
   fit="contain"
 />
         </div>
