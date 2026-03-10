@@ -190,74 +190,85 @@ function TerminalBox() {
 }
 
 function PipelineDiagram() {
-    const steps = [
-        { label: "Modeling", desc: "Create 3D characters and environments" },
-        { label: "Animation", desc: "Bring characters to life through motion" },
-        { label: "Lighting", desc: "Add lights, materials, and atmosphere" },
-        { label: "Rendering", desc: "Compute final 2D frames from the scene", highlight: true },
-        { label: "Final Film", desc: "The finished story on screen", final: true },
-      ];
-  
-      return (
-        <div className="w-full py-2">
-          <div className="px-1 mt-0 mb-2">
-          <p className="text-white text-base font-semibold tracking-wide text-left">
-  From Scene to Screen
-</p>
-          </div>
-      
-          <div className="w-full overflow-x-auto">
-            <div
-              className="relative min-w-[760px] rounded-2xl border border-white/8 bg-[#001233] px-8 py-10"
-              style={{ boxShadow: "0 14px 34px rgba(0,0,0,0.24)" }}
-            >
-            <div className="grid grid-cols-5 gap-6 relative z-10">
-              {steps.map((step, i) => (
-                <div key={i} className="relative flex flex-col items-center text-center">
-                  <p className="text-white text-sm font-semibold mb-5">{step.label}</p>
-  
-                  <div className="relative flex items-center justify-center w-full mb-5">
-                    {i < steps.length - 1 && (
-                      <>
-                        <div className="absolute left-1/2 top-1/2 h-px w-full bg-white/40 translate-y-[-50%]" />
-                        <div className="absolute right-[-10px] top-1/2 text-white/55 text-sm translate-y-[-55%]">
-                          →
-                        </div>
-                      </>
-                    )}
-  
-                    <div
-                      className="relative z-10 rounded-full transition-transform duration-200 hover:scale-105"
-                      style={{
-                        width: "24px",
-                        height: "24px",
-                        backgroundColor: step.final
-                          ? "#87D3F8"
-                          : step.highlight
-                          ? "#2563EB"
-                          : "#0F2656",
-                        border:
-                          step.final || step.highlight
-                            ? "2px solid #87D3F8"
-                            : "2px solid rgba(135, 211, 248, 0.85)",
-                        boxShadow: step.highlight
-                          ? "0 0 0 6px rgba(135, 211, 248, 0.12)"
-                          : "none",
-                      }}
-                    />
-                  </div>
-  
-                  <p className="text-white/70 text-xs leading-5 max-w-[120px]">
-                    {step.desc}
-                  </p>
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [scrollPercent, setScrollPercent] = useState(0);
+
+  const handleScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const scrollable = el.scrollWidth - el.clientWidth;
+    const percent = scrollable > 0 ? el.scrollLeft / scrollable : 0;
+    setScrollPercent(percent);
+  };
+
+  const steps = [
+    { label: "Modeling", desc: "Create 3D characters and environments" },
+    { label: "Animation", desc: "Bring characters to life through motion" },
+    { label: "Lighting", desc: "Add lights, materials, and atmosphere" },
+    { label: "Rendering", desc: "Compute final 2D frames from the scene", highlight: true },
+    { label: "Final Film", desc: "The finished story on screen", final: true },
+  ];
+
+  return (
+    <div className="w-full py-2">
+      <div className="px-1 mt-0 mb-2">
+        <p className="text-white text-base font-semibold tracking-wide text-left">
+          From Scene to Screen
+        </p>
+      </div>
+
+      <div className="w-full overflow-x-auto" ref={scrollRef} onScroll={handleScroll}>
+        <div
+          className="relative min-w-[760px] rounded-2xl border border-white/8 bg-[#001233] px-8 pt-10 pb-7"
+          style={{ boxShadow: "0 14px 34px rgba(0,0,0,0.24)" }}
+        >
+          <div className="grid grid-cols-5 gap-6 relative z-10">
+            {steps.map((step, i) => (
+              <div key={i} className="relative flex flex-col items-center text-center">
+                <p className="text-white text-sm font-semibold mb-5">{step.label}</p>
+
+                <div className="relative flex items-center justify-center w-full mb-5">
+                  {i < steps.length - 1 && (
+                    <>
+                      <div className="absolute left-1/2 top-1/2 h-px w-full bg-white/40 translate-y-[-50%]" />
+                      <div className="absolute right-[-10px] top-1/2 text-white/55 text-sm translate-y-[-55%]">
+                        →
+                      </div>
+                    </>
+                  )}
+                  <div
+                    className="relative z-10 rounded-full transition-transform duration-200 hover:scale-105"
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      backgroundColor: step.final ? "#87D3F8" : step.highlight ? "#2563EB" : "#0F2656",
+                      border: step.final || step.highlight ? "2px solid #87D3F8" : "2px solid rgba(135, 211, 248, 0.85)",
+                      boxShadow: step.highlight ? "0 0 0 6px rgba(135, 211, 248, 0.12)" : "none",
+                    }}
+                  />
                 </div>
-              ))}
-            </div>
+
+                <p className="text-white/70 text-xs leading-5 max-w-[120px]">{step.desc}</p>
+              </div>
+            ))}
           </div>
+
+          {/* Scroll hint — mobile only */}
+          <div className="md:hidden absolute bottom-3 left-8 right-8 flex items-center gap-2">
+            <div className="flex-1 h-1 rounded-full bg-white/10 relative overflow-hidden">
+              <div
+                className="absolute top-0 h-full w-1/5 rounded-full bg-[#87D3F8]/60 transition-transform duration-75"
+                style={{ transform: `translateX(${scrollPercent * 400}%)` }}
+              />
+            </div>
+            <span className="text-white/40 text-xs"></span>
+          </div>
+
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
 function ProjectHighlights() {
   return (
