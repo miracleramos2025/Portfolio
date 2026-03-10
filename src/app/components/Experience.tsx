@@ -4,22 +4,34 @@ import huron from "../../assets/huron/huron.jpg";
 import mudd from "../../assets/nuit/nuit.jpg";
 import { useNavigate } from "react-router-dom";
 
+
+
 export function Experience() {
   const navigate = useNavigate();
   const cards = [
     {
       image: huron,
+      coverPhoto: "/chicago.jpg",
       href: "/experience/huron",
       title: "Huron Consulting Group",
       roles: ["Digital Consulting Analyst", "Digital Consulting Intern"],
     },
     {
       image: mudd,
+      coverPhoto: "/campus.png",
       href: "/experience/northwestern-it",
       title: "Northwestern IT",
       roles: ["Team Lead", "Technical Consultant"],
     },
   ];
+
+  const preloadImage = (src: string) => {
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = src;
+    document.head.appendChild(link);
+  };
 
   return (
     <section id="experience" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "81px" }}>
@@ -29,6 +41,8 @@ export function Experience() {
           <div
             key={i}
             onClick={() => navigate(card.href)}
+            onMouseEnter={() => preloadImage(card.coverPhoto)}
+            onTouchStart={() => preloadImage(card.coverPhoto)}
             className="relative overflow-hidden rounded-xl block group cursor-pointer shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[260px] md:h-[400px]"
             style={{ border: "3px solid #87D3F8" }}
           >
