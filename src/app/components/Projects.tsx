@@ -107,6 +107,8 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
             <img
             src={project.thumbnail || project.image}
             alt={project.title}
+            fetchPriority="high"
+            decoding="sync"
             className="w-full object-cover bg-white h-[140px] md:h-[210px]"
           />
           ) : (
@@ -152,6 +154,14 @@ export function Projects() {
       ? allProjects
       : projects[activeTab as keyof ProjectsData];
 
+      const preloadImage = (src: string) => {
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = src;
+        document.head.appendChild(link);
+      };
+
   return (
     <section id="projects" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "60px" }}>
       <div className="max-w-5xl md:max-w-[1300px] mx-auto px-0 md:px-16">
@@ -173,13 +183,18 @@ export function Projects() {
             : "lg:grid-cols-3"
         }`}>
           {activeProjects.map((project, index) => (
-            <div key={index} className="flex w-full">
-              <ProjectCard
-                project={project}
-                onClick={() => navigate(project.route)}
-              />
-            </div>
-          ))}
+  <div
+    key={index}
+    className="flex w-full"
+    onMouseEnter={() => preloadImage(project.thumbnail || project.image)}
+    onTouchStart={() => preloadImage(project.thumbnail || project.image)}
+  >
+    <ProjectCard
+      project={project}
+      onClick={() => navigate(project.route)}
+    />
+  </div>
+))}
         </div>
       </div>
     </section>

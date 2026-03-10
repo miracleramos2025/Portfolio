@@ -119,6 +119,7 @@ export function ExperienceDetail({
           src={coverPhoto}
           alt={company}
           fetchPriority="high"
+          decoding="sync"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: coverPosition }}
         />

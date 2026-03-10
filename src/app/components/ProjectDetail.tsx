@@ -110,6 +110,7 @@ export function ProjectDetail({
           src={coverPhoto}
           alt={title}
           fetchPriority="high"
+          decoding="sync"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: coverPosition }}
         />
