@@ -37,7 +37,15 @@ const projects: ProjectsData = {
       description: "Supervised machine learning pipeline comparing 6 models to predict NYC Airbnb rental prices using tidymodels in R.",
       thumbnail: stat301_2,
       image: "",
-      tags: ["R", "Machine Learning", "tidymodels", "Random Forest", "Predictive Modeling", "Data Science"],
+      tags: [
+        "Machine Learning",
+        "Feature Engineering",
+        "Model Evaluation",
+        "R",
+        "Data Cleaning",
+        "Hyperparameter Tuning",
+        "Resampling",
+      ],
       route: "/projects/nyc-airbnb-price-prediction",
     },
     {

@@ -4,6 +4,188 @@ import renderman from "../../assets/cs358/renderman.png";
 import hpc from "../../assets/cs358/hpc.png";
 import casestudy from "../../assets/cs358/casestudy.png";
 import { ProjectDetail } from "./ProjectDetail";
+import React, { useEffect, useRef, useState } from "react";
+import Typed from "typed.js";
+
+type LightboxProps = {
+  src: string;
+  alt: string;
+  isOpen: boolean;
+  onClose: () => void;
+};
+
+function PlotLightbox({ src, alt, isOpen, onClose }: LightboxProps) {
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center px-4 py-6"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={alt}
+    >
+      <div
+        className="relative w-full max-w-3xl flex items-center justify-center"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute -top-12 right-0 text-white/80 hover:text-white text-3xl leading-none transition-colors"
+          aria-label="Close expanded plot"
+          type="button"
+        >
+          ×
+        </button>
+
+        <div className="w-full rounded-2xl bg-[#F2F3F4] p-3 sm:p-4 shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
+          <img
+            src={src}
+            alt={alt}
+            className="w-full max-h-[80vh] object-contain rounded-xl"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+type ClickablePlotProps = {
+  src: string;
+  alt: string;
+  title: string;
+  description: string;
+  heightClassName?: string;
+  fit?: "contain" | "cover";
+  bgColor?: string;
+};
+
+function ClickablePlot({
+  src,
+  alt,
+  title,
+  description,
+  heightClassName = "h-[280px] md:h-[210px]",
+  fit = "cover",
+  bgColor = "#F2F3F4",
+}: ClickablePlotProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <div className="flex flex-col gap-1">
+        <button
+          type="button"
+          onClick={() => setIsOpen(true)}
+          className="text-left group cursor-zoom-in"
+          aria-label={`Expand ${title}`}
+        >
+          <img
+            src={src}
+            alt={alt}
+            className={`w-full ${heightClassName} rounded-2xl border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition-transform duration-200 group-hover:scale-[1.01] ${
+              fit === "cover" ? "object-cover" : "object-contain"
+            }`}
+            style={{
+              objectPosition: "center center",
+              backgroundColor: bgColor,
+              padding: fit === "cover" ? "0px" : "6px",
+            }}
+          />
+        </button>
+
+        <div className="px-1 mt-2 flex flex-col gap-1">
+          <p className="text-[#FFFFFF] text-sm sm:text-base tracking-wider text-center md:text-left">
+            {title}
+          </p>
+          <p className="text-white/60 text-xs sm:text-sm italic text-center md:text-left leading-relaxed">
+            {description}
+          </p>
+        </div>
+      </div>
+
+      <PlotLightbox
+        src={src}
+        alt={alt}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
+    </>
+  );
+}
+
+function TerminalBox() {
+  const typedRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const typedInstance = useRef<Typed | null>(null);
+
+  useEffect(() => {
+    const node = containerRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && typedRef.current && !typedInstance.current) {
+          typedInstance.current = new Typed(typedRef.current, {
+            strings: [
+              `<span style="opacity:0.4">// pseudocode (simplified)</span><br/>` + `<br/>` +
+              `<span style="opacity:0.4">// C++</span><br/>` +
+              `<span style="opacity:0.4">// One GPU thread per pixel</span><br/>` +
+              `<span style="display:block;height:6px"></span>` +
+              `<span style="color:#87D3F8">kernel void </span><span style="color:#ffffff">TraceFrame</span><span style="opacity:0.6">(Frame frame)</span> {<br/>` +
+              `&nbsp;&nbsp;int x = <span style="color:#87D3F8">get_global_id</span>(0);<br/>` +
+              `&nbsp;&nbsp;int y = <span style="color:#87D3F8">get_global_id</span>(1);<br/>` +
+              `<span style="display:block;height:6px"></span>` +
+              `&nbsp;&nbsp;Ray ray = <span style="color:#87D3F8">GeneratePrimaryRay</span>(x, y);<br/>` +
+              `&nbsp;&nbsp;Color color = <span style="color:#87D3F8">TracePath</span>(ray);<br/>` +
+              `&nbsp;&nbsp;frame.<span style="color:#87D3F8">setPixel</span>(x, y, color);<br/>` +
+              `}`
+            ],
+            typeSpeed: 22,
+            showCursor: false,
+            cursorChar: "▋",
+            loop: false,
+            contentType: "html",
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(node);
+    return () => {
+      observer.disconnect();
+      typedInstance.current?.destroy();
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="w-full rounded-2xl border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] p-5 font-mono text-xs md:text-sm leading-5 h-[280px] md:h-[360px] overflow-hidden"
+      style={{ backgroundColor: "#001233" }}
+    >
+      <div ref={typedRef} className="text-white/80" />
+    </div>
+  );
+}
 
 function PipelineDiagram() {
     const steps = [
@@ -82,37 +264,18 @@ function ProjectHighlights() {
       {/* Case study + pseudo code */}
       <div className="flex flex-col md:flex-row gap-6 items-start">
         <div className="flex flex-col gap-1 w-full md:w-2/3">
-          <img
+          <ClickablePlot
             src={casestudy}
             alt="Case study"
-            className="w-full rounded-2xl object-contain border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition-transform duration-200 hover:scale-[1.01] h-[220px] md:h-[360px]"
-            style={{ objectPosition: "center center", backgroundColor: "#001233" }}
+            title="Why Parallel Computing Matters"
+            description="A 90-minute animated film contains over 130,000 frames. As lighting, physics, and particle effects grow more complex, rendering becomes computationally intensive. Large-scale parallel computing allows studios like Pixar to render thousands of frames simultaneously."
+            heightClassName="h-[280px] md:h-[360px]"
+            fit="contain"
+            bgColor="#001233"
           />
-          <div className="px-1 mt-2 flex flex-col gap-1">
-            <p className="text-[#FFFFFF] text-base tracking-wider text-center md:text-left">
-              Why Parallel Computing Matters
-            </p>
-            <p className="text-white/60 text-sm italic text-center md:text-left">
-              A 90-minute animated film contains over 130,000 frames. As lighting, physics, and particle effects grow more complex, rendering becomes computationally intensive. Large-scale parallel computing allows studios like Pixar to render thousands of frames simultaneously.
-            </p>
-          </div>
         </div>
         <div className="w-full md:flex-1 flex flex-col gap-2">
-          <div
-            className="w-full rounded-2xl border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] p-5 font-mono text-sm leading-5 h-[220px] md:h-[360px] overflow-hidden"
-            style={{ backgroundColor: "#001233" }}
-          >
-            <p className="text-white/40">// pseudocode -- simplified for clarity</p>
-            <p className="text-white/40 mb-2">// C++ -- one GPU thread per pixel</p>
-            <p className="text-[#87D3F8]">kernel void <span className="text-white">TraceFrame</span><span className="text-white/60">(Frame frame)</span> {"{"}</p>
-            <p className="text-white/60 ml-4">int x = get_global_id(0);</p>
-            <p className="text-white/60 ml-4">int y = get_global_id(1);</p>
-            <p className="text-white/60 ml-4">&nbsp;</p>
-            <p className="text-white/60 ml-4">Ray ray = <span className="text-[#87D3F8]">GeneratePrimaryRay</span>(x, y);</p>
-            <p className="text-white/60 ml-4">Color color = <span className="text-[#87D3F8]">TracePath</span>(ray);</p>
-            <p className="text-white/60 ml-4">frame.<span className="text-[#87D3F8]">setPixel</span>(x, y, color);</p>
-            <p className="text-white/60">{"}"}</p>
-          </div>
+          <TerminalBox />
           <div className="px-1 flex flex-col gap-1">
             <p className="text-[#FFFFFF] text-base tracking-wider text-center md:text-left">
               GPU Parallelization
@@ -130,8 +293,8 @@ function ProjectHighlights() {
           <img
             src={hpc}
             alt="Mike Wazowski wireframe"
-            className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition-transform duration-200 hover:scale-[1.01]"
-            style={{ height: "200px", objectPosition: "center center" }}
+            className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[280px] md:h-[200px]"
+            style={{ objectPosition: "center center" }}
           />
           <div className="px-1 mt-2 flex flex-col gap-1">
             <p className="text-[#FFFFFF] text-base tracking-wider text-center md:text-left">
@@ -146,8 +309,8 @@ function ProjectHighlights() {
           <img
             src={renderman}
             alt="RenderMan"
-            className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition-transform duration-200 hover:scale-[1.01]"
-            style={{ height: "200px", objectPosition: "center center" }}
+            className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[280px] md:h-[200px]"
+            style={{ objectPosition: "center center" }}
           />
           <div className="px-1 mt-2 flex flex-col gap-1">
             <p className="text-[#FFFFFF] text-base tracking-wider text-center md:text-left">
@@ -162,15 +325,15 @@ function ProjectHighlights() {
           <img
             src={denoising}
             alt="Denoising"
-            className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition-transform duration-200 hover:scale-[1.01]"
-            style={{ height: "200px", objectPosition: "center center" }}
+            className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[280px] md:h-[200px]"
+            style={{ objectPosition: "center center" }}
           />
           <div className="px-1 mt-2 flex flex-col gap-1">
             <p className="text-[#FFFFFF] text-base tracking-wider text-center md:text-left">
               Intra-Frame Parallelism
             </p>
             <p className="text-white/60 text-sm italic text-center md:text-left">
-            Path tracing splits each frame into small tiles and launches hundreds of light rays per pixel, allowing GPUs to compute thousands of lighting calculations simultaneously.
+              Path tracing splits each frame into small tiles and launches hundreds of light rays per pixel, allowing GPUs to compute thousands of lighting calculations simultaneously.
             </p>
           </div>
         </div>
@@ -188,7 +351,7 @@ export function PixarProjectDetail() {
       title="Pixar & Parallel Computing"
       className="COMP_SCI 358: Intro to Parallel Computing"
       quarter="Spring 2025"
-      overview="This project explores how Pixar uses high-performance computing and parallel processing to bring animated films to life. The presentation breaks down the animation pipeline, from render farms to GPU-accelerated ray tracing, using examples from Finding Dory, Coco, and Inside Out. The goal was to connect parallel computing concepts with a real-world workflow."
+      overview="This project explores how Pixar uses high-performance computing and parallel processing to bring animated films to life. The presentation breaks down Pixar’s animation pipeline, showing how large render farms and GPU-accelerated ray tracing are used to render complex scenes. Examples from Finding Dory, Coco, and Inside Out illustrate how thousands of frames can be processed in parallel. The goal was to connect parallel computing concepts with a real-world workflow."
       presentationUrl="https://youtu.be/toNq7nj4ROk?si=b7YwZuh1SCw3139t"
       slidesUrl="/cs358-finalproject.pdf"
       customHighlights={<ProjectHighlights />}

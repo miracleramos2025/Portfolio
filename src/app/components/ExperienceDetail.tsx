@@ -141,12 +141,6 @@ export function ExperienceDetail({
           <div>
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest">Experience</h3>
-              <button
-                onClick={() => goHomeTo("experience")}
-                className="flex items-center gap-2 text-white font-semibold hover:text-[#87D3F8] transition-colors text-sm"
-              >
-                ← Back
-              </button>
             </div>
             <div className="h-px bg-white opacity-20 mb-5" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -164,8 +158,8 @@ export function ExperienceDetail({
                       {r.timeline}
                     </span>
                   </div>
-                  <h4 className="text-white font-bold text-lg">{r.title}</h4>
-                  <p className="text-white text-sm leading-7 opacity-90">{r.description}</p>
+                  <h4 className="text-white font-bold text-sm md:text-lg">{r.title}</h4>
+                  <p className="text-white text-xs md:text-sm leading-7 opacity-90">{r.description}</p>
                 </div>
               ))}
             </div>
@@ -175,12 +169,12 @@ export function ExperienceDetail({
             <div>
               <h3 className="text-[#87D3F8] text-xs font-semibold tracking-widest mb-4">My Role</h3>
               <div className="h-px bg-white opacity-20 mb-6" />
-              <p className="text-white text-lg leading-relaxed">{roleDescription}</p>
+              <p className="text-white text-xs md:text-sm leading-relaxed">{roleDescription}</p>
             </div>
             <div>
               <h3 className="text-[#87D3F8] text-xs font-semibold tracking-widest mb-4">Timeline</h3>
               <div className="h-px bg-white opacity-90 mb-6" />
-              <p className="text-white text-lg">{timeline}</p>
+              <p className="text-white text-xs md:text-sm">{timeline}</p>
             </div>
           </>
         )}
@@ -192,8 +186,8 @@ export function ExperienceDetail({
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
               <div key={i} className="flex flex-col items-center text-center">
-                <span className="text-white font-bold text-4xl mb-2">{stat.value}</span>
-                <span className="text-[#87D3F8] text-sm">{stat.label}</span>
+                <span className="text-white font-bold text-3xl md:text-4xl mb-2">{stat.value}</span>
+                <span className="text-[#87D3F8] text-sm md:text-sm">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -211,13 +205,13 @@ export function ExperienceDetail({
                   className="rounded-xl p-4 flex flex-col gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
                   style={{ backgroundColor: "#002147", border: "1px solid #87D3F8" }}
                 >
-                  <h4 className="text-white font-semibold text-lg tracking-wide">{t.title}</h4>
-                  <p className="text-white text-sm leading-relaxed opacity-90">{t.description}</p>
+                  <h4 className="text-white font-semibold text-sm md:text-lg tracking-wide">{t.title}</h4>
+                  <p className="text-white text-xs md:text-sm leading-relaxed opacity-90">{t.description}</p>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-white text-lg leading-relaxed">{team}</p>
+            <p className="text-white text-xs md:text-sm leading-relaxed">{team}</p>
           )}
         </div>
 
@@ -229,7 +223,7 @@ export function ExperienceDetail({
             {tools.map((tool, i) => (
               <span
                 key={i}
-                className="text-white text-sm font-semibold px-5 py-2 rounded-full"
+                className="text-white text-xs md:text-sm font-semibold px-5 py-2 rounded-full"
                 style={{ backgroundColor: "#002147", border: "1px solid #87D3F8" }}
               >
                 {tool}
@@ -267,10 +261,10 @@ export function ExperienceDetail({
                     </span>
 
                     <div className="flex flex-col gap-2 pt-1" style={{ maxWidth: "440px" }}>
-                      <h4 className="text-white font-semibold text-lg tracking-wide">
+                      <h4 className="text-white font-semibold text-sm md:text-lg tracking-wide">
                         {r.title}
                       </h4>
-                      <p className="text-white/90 text-sm leading-7">
+                      <p className="text-white/90 text-xs md:text-sm leading-7">
                         {r.description}
                       </p>
                       <div className="h-px bg-white/10 mt-4" />
@@ -278,7 +272,7 @@ export function ExperienceDetail({
                   </div>
                 ))
               ) : (
-                <p className="text-white text-lg leading-relaxed">{reflection}</p>
+                <p className="text-white text-xs md:text-sm leading-relaxed">{reflection}</p>
               )}
             </div>
 
@@ -289,6 +283,7 @@ export function ExperienceDetail({
                   key={i}
                   src={photo}
                   alt={`photo-${i}`}
+                  loading="lazy"
                   className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition-transform duration-200 hover:scale-[1.01]"
                   style={{
                     height: i === 0 ? "250px" : i === 1 ? "220px" : "190px",
@@ -313,6 +308,7 @@ export function ExperienceDetail({
                   key={i}
                   src={photo}
                   alt=""
+                  loading="lazy"
                   className="w-full h-64 object-cover rounded-2xl border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)]"
                   style={{ objectPosition: photoPositions[i] ?? "center center" }}
                 />

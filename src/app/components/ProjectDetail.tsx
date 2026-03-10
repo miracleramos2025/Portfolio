@@ -107,15 +107,16 @@ export function ProjectDetail({
         <img
           src={coverPhoto}
           alt={title}
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: coverPosition }}
         />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(15, 38, 86, 0.48)" }} />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-        <h2
-        className="text-white font-bold text-3xl md:text-5xl text-center px-4"
-        style={{ letterSpacing: "0.06em", textShadow: "0 2px 12px rgba(0,0,0,0.7)" }}
-        >
+          <h2
+            className="text-white font-bold text-3xl md:text-5xl text-center px-4"
+            style={{ letterSpacing: "0.06em", textShadow: "0 2px 12px rgba(0,0,0,0.7)" }}
+          >
             {title}
           </h2>
           {(className || quarter) && (
@@ -127,34 +128,28 @@ export function ProjectDetail({
       </div>
 
       {/* Content */}
-      <div className="max-w-5xl mx-auto px-8 py-12 flex flex-col gap-10 pb-28">
+      <div className="max-w-5xl mx-auto px-8 py-8 md:py-12 flex flex-col gap-8 md:gap-10 pb-28">
 
         {/* 1. Overview */}
         <div>
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-3 md:mb-4">
             <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest">Overview</h3>
-            <button
-              onClick={() => goHomeTo("projects")}
-              className="flex items-center gap-2 text-white font-semibold hover:text-[#87D3F8] transition-colors text-sm"
-            >
-              ← Back
-            </button>
           </div>
-          <div className="h-px bg-white opacity-20 mb-8" />
-          <div className="flex flex-col md:flex-row gap-10 items-start">
-            <div className="flex-1 max-w-[600px]">
-              <p className="text-white text-lg leading-relaxed">{overview}</p>
+          <div className="h-px bg-white opacity-20 mb-3 md:mb-6" />
+          <div className="flex flex-col md:flex-row gap-6 md:gap-20 items-start">
+            <div className="flex-1 max-w-[602px]">
+              <p className="text-white text-sm md:text-baseline leading-relaxed">{overview}</p>
             </div>
             {(presentationUrl || reportUrl || githubUrl || slidesUrl) && (
               <div className="w-full md:w-56 shrink-0">
-                <p className="text-[#87D3F8] text-sm font-semibold tracking-widest mb-3">PROJECT LINKS</p>
+                <p className="text-[#87D3F8] text-sm font-semibold tracking-widest mb-2">PROJECT LINKS</p>
                 <div className="flex flex-col gap-3">
                   {presentationUrl && (
                     <a
                       href={presentationUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-4 w-full rounded-lg font-semibold text-white transition-all whitespace-nowrap"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 w-full rounded-lg font-semibold text-white transition-all whitespace-nowrap"
                       style={{ backgroundColor: "#002147", border: "1px solid #87D3F8" }}
                       onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#87D3F8"; e.currentTarget.style.color = "#0F2656"; }}
                       onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#002147"; e.currentTarget.style.color = "#ffffff"; }}
@@ -171,7 +166,7 @@ export function ProjectDetail({
                       href={slidesUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-4 w-full rounded-lg font-semibold text-white transition-all whitespace-nowrap"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 w-full rounded-lg font-semibold text-white transition-all whitespace-nowrap"
                       style={{ backgroundColor: "#002147", border: "1px solid #87D3F8" }}
                       onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#87D3F8"; e.currentTarget.style.color = "#0F2656"; }}
                       onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#002147"; e.currentTarget.style.color = "#ffffff"; }}
@@ -189,7 +184,7 @@ export function ProjectDetail({
                       href={reportUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-4 w-full rounded-lg font-semibold text-white transition-all whitespace-nowrap"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 w-full rounded-lg font-semibold text-white transition-all whitespace-nowrap"
                       style={{ backgroundColor: "#002147", border: "1px solid #87D3F8" }}
                       onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#87D3F8"; e.currentTarget.style.color = "#0F2656"; }}
                       onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#002147"; e.currentTarget.style.color = "#ffffff"; }}
@@ -209,7 +204,7 @@ export function ProjectDetail({
                       href={githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-4 w-full rounded-lg font-semibold text-white transition-all whitespace-nowrap"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 w-full rounded-lg font-semibold text-white transition-all whitespace-nowrap"
                       style={{ backgroundColor: "#002147", border: "1px solid #87D3F8" }}
                       onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#87D3F8"; e.currentTarget.style.color = "#0F2656"; }}
                       onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#002147"; e.currentTarget.style.color = "#ffffff"; }}
@@ -229,8 +224,8 @@ export function ProjectDetail({
         {/* 2. Pipeline Diagram */}
         {pipelineDiagram && (
           <div>
-            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Animation Pipeline</h3>
-            <div className="h-px bg-white opacity-20 mb-8" />
+            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-3 md:mb-4">Animation Pipeline</h3>
+            <div className="h-px bg-white opacity-20 mb-3 md:mb-8" />
             {pipelineDiagram}
           </div>
         )}
@@ -238,8 +233,8 @@ export function ProjectDetail({
         {/* 3. Project Highlights */}
         {customHighlights && (
           <div>
-            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Project Highlights</h3>
-            <div className="h-px bg-white opacity-20 mb-8" />
+            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-3 md:mb-4">Project Highlights</h3>
+            <div className="h-px bg-white opacity-20 mb-3 md:mb-8" />
             {customHighlights}
           </div>
         )}
@@ -247,18 +242,19 @@ export function ProjectDetail({
         {/* Default images grid */}
         {images.length > 0 && (
           <div>
-            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Project Highlights</h3>
-            <div className="h-px bg-white opacity-20 mb-8" />
+            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-3 md:mb-4">Project Highlights</h3>
+            <div className="h-px bg-white opacity-20 mb-3 md:mb-8" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {images.map((img, i) => (
                 <div key={i} className="flex flex-col gap-3">
                   <img
                     src={img.src}
                     alt={img.caption}
+                    loading="lazy"
                     className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition-transform duration-200 hover:scale-[1.01]"
                     style={{ height: "240px", objectPosition: img.position ?? "center center" }}
                   />
-                  <p className="text-white/60 text-sm text-center italic">{img.caption}</p>
+                  <p className="text-white/60 text-xs md:text-sm text-center italic">{img.caption}</p>
                 </div>
               ))}
             </div>
@@ -268,32 +264,33 @@ export function ProjectDetail({
         {/* 4. Process & Methodology */}
         {process.length > 0 && (
           <div>
-            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Process & Methodology</h3>
-            <div className="h-px bg-white opacity-20 mb-10" />
+            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-3 md:mb-4">Process & Methodology</h3>
+            <div className="h-px bg-white opacity-20 mb-3 md:mb-10" />
             <div className="flex flex-col md:grid md:grid-cols-2 xl:grid-cols-4 gap-8">
-  {process.slice(0, 4).map((step, i) => (
-    <div key={i} className="flex md:flex-col gap-6 md:gap-2 items-start">
-      <span
-        className="font-bold shrink-0 leading-none"
-        style={{ fontSize: "3rem", color: "#87D3F8", opacity: 0.25, lineHeight: 1, minWidth: "60px", textAlign: "right" }}
-      >
-        {String(i + 1).padStart(2, "0")}
-      </span>
-      <div className="flex flex-col gap-2 flex-1">
-        <h4 className="text-white font-semibold text-base tracking-wide">{step.title}</h4>
-        <p className="text-white/75 text-sm leading-6">{step.description}</p>
-      </div>
-    </div>
-  ))}
-</div>
+              {process.slice(0, 4).map((step, i) => (
+                <div key={i} className="flex md:flex-col gap-6 md:gap-2 items-start">
+                  <span
+                    className="font-bold shrink-0 leading-none"
+                    style={{ fontSize: "3rem", color: "#87D3F8", opacity: 0.25, lineHeight: 1, minWidth: "60px", textAlign: "right" }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex flex-col gap-2 flex-1">
+                    <h4 className="text-white font-semibold text-sm md:text-base tracking-wide">{step.title}</h4>
+                    <p className="text-white/75 text-xs md:text-sm leading-6">{step.description}</p>
+                    <div className="h-px bg-white/10 mt-2" />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 
         {/* 5. Outcomes */}
         {outcomes.length > 0 && (
           <div>
-            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Outcomes</h3>
-            <div className="h-px bg-white opacity-20 mb-10" />
+            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-3 md:mb-4">Outcomes</h3>
+            <div className="h-px bg-white opacity-20 mb-3 md:mb-10" />
             <div className="flex flex-col gap-8">
               {outcomes.map((outcome, i) => (
                 <div key={i} className="flex gap-8 items-start">
@@ -304,7 +301,7 @@ export function ProjectDetail({
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="flex flex-col gap-2 pt-1 flex-1">
-                    <p className="text-white/90 text-sm leading-7">{outcome}</p>
+                    <p className="text-white/90 text-xs md:text-sm leading-7">{outcome}</p>
                     <div className="h-px bg-white/10 mt-4" />
                   </div>
                 </div>
@@ -316,8 +313,8 @@ export function ProjectDetail({
         {/* 6. Reflections */}
         {reflections.length > 0 && (
           <div>
-            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-4">Reflections & Takeaways</h3>
-            <div className="h-px bg-white opacity-20 mb-10" />
+            <h3 className="text-[#87D3F8] text-xl font-semibold tracking-widest mb-3 md:mb-4">Reflections & Takeaways</h3>
+            <div className="h-px bg-white opacity-20 mb-3 md:mb-10" />
             <div className="flex flex-col gap-8">
               {reflections.map((r, i) => (
                 <div key={i} className="flex gap-8 items-start">
@@ -328,8 +325,8 @@ export function ProjectDetail({
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="flex flex-col gap-2 pt-1" style={{ maxWidth: "440px" }}>
-                    <h4 className="text-white font-semibold text-lg tracking-wide">{r.title}</h4>
-                    <p className="text-white/90 text-sm leading-7">{r.description}</p>
+                    <h4 className="text-white font-semibold text-sm md:text-lg tracking-wide">{r.title}</h4>
+                    <p className="text-white/90 text-xs md:text-sm leading-7">{r.description}</p>
                     <div className="h-px bg-white/10 mt-4" />
                   </div>
                 </div>
