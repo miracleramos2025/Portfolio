@@ -24,18 +24,6 @@ function Home() {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Preload detail page cover images on mount
-  useLayoutEffect(() => {
-    const images = ["/chicago.jpg", "/campus.png"];
-    images.forEach((src) => {
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "image";
-      link.href = src;
-      document.head.appendChild(link);
-    });
-  }, []);
-
   // Smooth scroll for home nav buttons
   const scrollToId = (id: string) => {
     if (id === "top") {

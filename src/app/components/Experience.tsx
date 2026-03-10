@@ -12,7 +12,6 @@ export function Experience() {
     {
       image: huron,
       coverPhoto: "/chicago.jpg",
-      logoPath: "/src/assets/huron/huronlogo.svg",
       href: "/experience/huron",
       title: "Huron Consulting Group",
       roles: ["Digital Consulting Analyst", "Digital Consulting Intern"],
@@ -20,7 +19,6 @@ export function Experience() {
     {
       image: mudd,
       coverPhoto: "/campus.png",
-      logoPath: "../../assets/nuit/nuit5.png",
       href: "/experience/northwestern-it",
       title: "Northwestern IT",
       roles: ["Team Lead", "Technical Consultant"],
@@ -28,6 +26,10 @@ export function Experience() {
   ];
 
   const preloadImage = (src: string) => {
+    if (!src) return;
+    // Don't add duplicate preload tags
+    const existing = document.querySelector(`link[rel="preload"][href="${src}"]`);
+    if (existing) return;
     const link = document.createElement("link");
     link.rel = "preload";
     link.as = "image";
@@ -43,21 +45,15 @@ export function Experience() {
   <div
     key={i}
     onClick={() => navigate(card.href)}
-    onMouseEnter={() => {
-      preloadImage(card.coverPhoto);
-      if (card.logoPath) preloadImage(card.logoPath);
-    }}
-    onTouchStart={() => {
-      preloadImage(card.coverPhoto);
-      if (card.logoPath) preloadImage(card.logoPath);
-    }}
+    onMouseEnter={() => preloadImage(card.coverPhoto)}
+    onTouchStart={() => preloadImage(card.coverPhoto)}
     className="relative overflow-hidden rounded-xl block group cursor-pointer shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[260px] md:h-[400px]"
     style={{ border: "3px solid #87D3F8" }}
   >
             <img
               src={card.image}
               alt=""
-              fetchPriority="high"
+              {...{ fetchpriority: "high" }}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             {/* Base overlay */}

@@ -24,7 +24,7 @@ export function Hero() {
     <img
       src={heroImage}
       alt="Miracle Ramos overlooking Chicago skyline"
-      fetchPriority="high"
+      {...{ fetchpriority: "high" }}
       className="w-full h-full object-cover absolute inset-0"
       style={{ objectPosition: "70% center" }}
     />

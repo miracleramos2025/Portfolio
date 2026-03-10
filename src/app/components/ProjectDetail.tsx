@@ -109,7 +109,7 @@ export function ProjectDetail({
         <img
           src={coverPhoto}
           alt={title}
-          fetchPriority="high"
+          {...{ fetchpriority: "high" }}
           decoding="sync"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: coverPosition }}

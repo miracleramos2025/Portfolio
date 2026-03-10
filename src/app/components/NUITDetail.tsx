@@ -72,7 +72,7 @@ export function NUITDetail() {
   <img
     src={nuitLogo}
     alt="Northwestern IT"
-    fetchPriority="high"
+    {...{ fetchpriority: "high" }}
     decoding="sync"
     className="h-[100px] md:h-[130px]"
   />

@@ -107,7 +107,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
             <img
             src={project.thumbnail || project.image}
             alt={project.title}
-            fetchPriority="high"
+            {...{ fetchpriority: "high" }}
             decoding="sync"
             className="w-full object-cover bg-white h-[140px] md:h-[210px]"
           />
@@ -155,6 +155,10 @@ export function Projects() {
       : projects[activeTab as keyof ProjectsData];
 
       const preloadImage = (src: string) => {
+        if (!src) return;
+        // Don't add duplicate preload tags
+        const existing = document.querySelector(`link[rel="preload"][href="${src}"]`);
+        if (existing) return;
         const link = document.createElement("link");
         link.rel = "preload";
         link.as = "image";

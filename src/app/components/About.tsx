@@ -127,11 +127,12 @@ export function About() {
       style={{ scrollMarginTop: "60px" }}
     >
       {/* Preload hover images */}
-      <div className="hidden">
-        {loveItems.filter(item => !item.isVideo).map(item => (
-          <img key={item.label} src={item.img} alt="" fetchPriority="high" />
-        ))}
-      </div>
+      {/* Preload hover images */}
+<div className="hidden">
+  {loveItems.filter(item => !item.isVideo).map(item => (
+    <img key={item.label} src={item.img} alt="" {...{ fetchpriority: "high" }} />
+  ))}
+</div>
       <div className="max-w-6xl w-full">
         <h2 className="text-white text-4xl font-bold text-center mb-10" style={{ letterSpacing: "0.04em" }}>
           About Me
@@ -144,6 +145,8 @@ export function About() {
             <img
   src={aboutImage}
   alt="Miracle Ramos"
+  {...{ fetchpriority: "high" }}
+  decoding="sync"
   className="w-[220px] h-[280px] md:w-[320px] md:h-[430px] object-cover rounded-xl"
   style={{ objectPosition: "50% 20%" }}
 />

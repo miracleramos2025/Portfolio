@@ -73,7 +73,7 @@ export function HuronDetail() {
           <img
             src={huronLogo}
             alt="Huron Consulting Group"
-            fetchPriority="high"
+            {...{ fetchpriority: "high" }}
             decoding="sync"
             className="h-[45px] md:h-[60px]"
           />
