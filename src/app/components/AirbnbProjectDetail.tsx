@@ -247,6 +247,7 @@ function ProjectHighlights() {
           alt="Price distribution of NYC Airbnb listings"
           title="Price Distribution"
           description="Airbnb prices in NYC are highly right-skewed, with most listings under $500 and a small number of extreme outliers."
+          heightClassName="h-[220px] md:h-[210px]"
         />
 
         <ClickablePlot
@@ -254,6 +255,7 @@ function ProjectHighlights() {
           alt="Model performance comparison by RMSE"
           title="Model Performance"
           description="RMSE scores across six models show that linear regression outperformed more complex algorithms."
+          heightClassName="h-[220px] md:h-[210px]"
         />
 
         <ClickablePlot
@@ -261,6 +263,7 @@ function ProjectHighlights() {
           alt="Geographic pricing heatmap by borough and room type"
           title="Geographic Pricing Patterns"
           description="A heatmap of median listing prices highlights how location and room type influence Airbnb pricing."
+          heightClassName="h-[220px] md:h-[210px]"
         />
       </div>
     </div>

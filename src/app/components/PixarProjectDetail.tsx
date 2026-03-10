@@ -293,7 +293,7 @@ function ProjectHighlights() {
           <img
             src={hpc}
             alt="Mike Wazowski wireframe"
-            className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[280px] md:h-[200px]"
+            className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[260px] md:h-[200px]"
             style={{ objectPosition: "center center" }}
           />
           <div className="px-1 mt-2 flex flex-col gap-1">
@@ -309,7 +309,7 @@ function ProjectHighlights() {
           <img
             src={renderman}
             alt="RenderMan"
-            className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[280px] md:h-[200px]"
+            className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[260px] md:h-[200px]"
             style={{ objectPosition: "center center" }}
           />
           <div className="px-1 mt-2 flex flex-col gap-1">
@@ -325,7 +325,7 @@ function ProjectHighlights() {
           <img
             src={denoising}
             alt="Denoising"
-            className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[280px] md:h-[200px]"
+            className="w-full rounded-2xl object-cover border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[260px] md:h-[200px]"
             style={{ objectPosition: "center center" }}
           />
           <div className="px-1 mt-2 flex flex-col gap-1">
