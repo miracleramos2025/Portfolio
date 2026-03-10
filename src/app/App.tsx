@@ -53,11 +53,11 @@ function Home() {
         window.scrollTo({ top: 0, behavior: "instant" });
       } else {
         const offsets: Record<string, number> = {
-          experience: window.innerWidth < 768 ? 42 : 81,
-          projects: window.innerWidth < 768 ? 42 : 70,
-          about: window.innerWidth < 768 ? 42 : 81,
-          skills: window.innerWidth < 768 ? 42 : 81,
-          contact: window.innerWidth < 768 ? 42 : 81,
+          experience: window.innerWidth < 768 ? 34 : 81,
+          projects: window.innerWidth < 768 ? 34 : 70,
+          about: window.innerWidth < 768 ? 34 : 81,
+          skills: window.innerWidth < 768 ? 34 : 81,
+          contact: window.innerWidth < 768 ? 34 : 81,
         };
         const el = document.getElementById(id);
         if (el) {
@@ -113,19 +113,25 @@ function Home() {
 }
 
 export default function App() {
+  useLayoutEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/experience/huron" element={<HuronDetail />} />
         <Route path="/experience/northwestern-it" element={<NUITDetail />} />
         <Route path="/projects/pixar-parallel-computing" element={<PixarProjectDetail />} />
-        {<Route path="/projects/nyc-airbnb-price-prediction" element={<AirbnbProjectDetail />} />}
-        {<Route path="/projects/disney-box-office-analysis" element={<DisneyProjectDetail />} />}
-        {<Route path="/projects/cta-bus-tracker" element={<CTAProjectDetail />} />}
-        {/* <Route path="/projects/compost" element={<CompostProjectDetail />} /> */}
-        {<Route path="/projects/campus-connect" element={<CampusConnectProjectDetail />} />}
+        <Route path="/projects/nyc-airbnb-price-prediction" element={<AirbnbProjectDetail />} />
+        <Route path="/projects/disney-box-office-analysis" element={<DisneyProjectDetail />} />
+        <Route path="/projects/cta-bus-tracker" element={<CTAProjectDetail />} />
+        <Route path="/projects/campus-connect" element={<CampusConnectProjectDetail />} />
         <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
 }
+
