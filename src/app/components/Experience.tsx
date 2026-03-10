@@ -12,6 +12,7 @@ export function Experience() {
     {
       image: huron,
       coverPhoto: "/chicago.jpg",
+      logoPath: "/src/assets/huron/huronlogo.svg",
       href: "/experience/huron",
       title: "Huron Consulting Group",
       roles: ["Digital Consulting Analyst", "Digital Consulting Intern"],
@@ -19,6 +20,7 @@ export function Experience() {
     {
       image: mudd,
       coverPhoto: "/campus.png",
+      logoPath: "../../assets/nuit/nuit5.png",
       href: "/experience/northwestern-it",
       title: "Northwestern IT",
       roles: ["Team Lead", "Technical Consultant"],
@@ -37,15 +39,21 @@ export function Experience() {
     <section id="experience" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "81px" }}>
       <h2 className="text-white text-4xl font-bold text-center mb-12" style={{ letterSpacing: "0.04em" }}>Experience</h2>
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-        {cards.map((card, i) => (
-          <div
-            key={i}
-            onClick={() => navigate(card.href)}
-            onMouseEnter={() => preloadImage(card.coverPhoto)}
-            onTouchStart={() => preloadImage(card.coverPhoto)}
-            className="relative overflow-hidden rounded-xl block group cursor-pointer shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[260px] md:h-[400px]"
-            style={{ border: "3px solid #87D3F8" }}
-          >
+      {cards.map((card, i) => (
+  <div
+    key={i}
+    onClick={() => navigate(card.href)}
+    onMouseEnter={() => {
+      preloadImage(card.coverPhoto);
+      if (card.logoPath) preloadImage(card.logoPath);
+    }}
+    onTouchStart={() => {
+      preloadImage(card.coverPhoto);
+      if (card.logoPath) preloadImage(card.logoPath);
+    }}
+    className="relative overflow-hidden rounded-xl block group cursor-pointer shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[260px] md:h-[400px]"
+    style={{ border: "3px solid #87D3F8" }}
+  >
             <img
               src={card.image}
               alt=""

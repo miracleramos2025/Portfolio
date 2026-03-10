@@ -74,6 +74,7 @@ export function HuronDetail() {
             src={huronLogo}
             alt="Huron Consulting Group"
             fetchPriority="high"
+            decoding="sync"
             className="h-[45px] md:h-[60px]"
           />
         </div>

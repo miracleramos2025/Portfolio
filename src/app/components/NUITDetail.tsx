@@ -73,6 +73,7 @@ export function NUITDetail() {
     src={nuitLogo}
     alt="Northwestern IT"
     fetchPriority="high"
+    decoding="sync"
     className="h-[100px] md:h-[130px]"
   />
 </div>
