@@ -55,7 +55,7 @@ const projects: ProjectsData = {
       description: "Statistical analysis of Disney's box office history, quantifying how Pixar, Marvel, and Lucasfilm acquisitions reshaped revenue.",
       thumbnail: stat302,
       image: "",
-      tags: ["R", "Exploratory Data Analysis", "Data Visualization", "Quarto", "Statistical Analysis"],
+      tags: ["R", "Exploratory Data Analysis", "Data Visualization", "ggplot2", "Statistical Analysis", "Data Storytelling"],
       route: "/projects/disney-box-office-analysis",
     },
   ],
@@ -144,9 +144,6 @@ export function Projects() {
     projects.development[0],
     projects.data[0],
     projects.data[1],
-    projects.design[1],
-    projects.development[1],
-    projects.design[0],
   ];
 
   const activeProjects =
@@ -169,8 +166,8 @@ export function Projects() {
   return (
     <section id="projects" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "60px" }}>
       <div className="max-w-5xl md:max-w-[1300px] mx-auto px-0 md:px-16">
-        <h2 className="text-4xl font-bold text-white mb-6 text-center" style={{ letterSpacing: "0.04em" }}>Projects</h2>
-        <div className="flex justify-center gap-2 mb-5 md:mb-8">
+        <h2 className="text-4xl font-bold text-white mb-11 text-center" style={{ letterSpacing: "0.04em" }}>Projects</h2>
+       {/* <div className="flex justify-center gap-2 mb-5 md:mb-8">
           {tabs.map((tab) => (
             <button
               key={tab.key}
@@ -181,6 +178,7 @@ export function Projects() {
             </button>
           ))}
         </div>
+        </div> */}
         <div className={`grid gap-4 md:gap-8 items-stretch grid-cols-1 md:grid-cols-2 ${
           activeProjects.length === 2
             ? "md:max-w-2xl md:mx-auto"

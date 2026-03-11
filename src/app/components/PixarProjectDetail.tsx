@@ -8,6 +8,7 @@ import casestudy from "../../assets/cs358/casestudy.png";
 import { ProjectDetail } from "./ProjectDetail";
 import React, { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
+import { createPortal } from "react-dom";
 
 type LightboxProps = {
   src: string;
@@ -19,14 +20,11 @@ type LightboxProps = {
 function PlotLightbox({ src, alt, isOpen, onClose }: LightboxProps) {
   useEffect(() => {
     if (!isOpen) return;
-
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
-
     document.addEventListener("keydown", handleKeyDown);
     document.body.style.overflow = "hidden";
-
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
@@ -35,27 +33,50 @@ function PlotLightbox({ src, alt, isOpen, onClose }: LightboxProps) {
 
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center px-4 py-6"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: 9999,
+        backdropFilter: "blur(8px)",
+        WebkitBackdropFilter: "blur(8px)",
+        backgroundColor: "rgba(0,0,0,0.3)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "24px",
+      }}
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={alt}
     >
       <div
-        className="relative w-full max-w-3xl flex items-center justify-center"
+        style={{ position: "relative", width: "100%", maxWidth: "860px" }}
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute -top-12 right-0 text-white/80 hover:text-white text-3xl leading-none transition-colors"
-          aria-label="Close expanded plot"
+          style={{
+            position: "absolute",
+            top: "-40px",
+            right: 0,
+            color: "white",
+            background: "none",
+            border: "none",
+            fontSize: "32px",
+            cursor: "pointer",
+            lineHeight: 1,
+          }}
+          aria-label="Close"
           type="button"
         >
           ×
         </button>
-
         <div className="w-full rounded-2xl bg-[#F2F3F4] p-3 sm:p-4 shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
           <img
             src={src}
@@ -64,7 +85,8 @@ function PlotLightbox({ src, alt, isOpen, onClose }: LightboxProps) {
           />
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 

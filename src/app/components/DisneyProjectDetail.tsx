@@ -8,6 +8,7 @@ import top10 from "../../assets/stat302/top10_table.png";
 import revshare from "../../assets/stat302/film_vs_revenue_share.png";
 import React, { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
+import { createPortal } from "react-dom";
 
 function TerminalBox() {
   const typedRef = useRef<HTMLDivElement | null>(null);
@@ -99,14 +100,11 @@ type LightboxProps = {
 function PlotLightbox({ src, alt, isOpen, onClose }: LightboxProps) {
   useEffect(() => {
     if (!isOpen) return;
-
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
-
     document.addEventListener("keydown", handleKeyDown);
     document.body.style.overflow = "hidden";
-
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
@@ -115,27 +113,50 @@ function PlotLightbox({ src, alt, isOpen, onClose }: LightboxProps) {
 
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center px-4 py-6"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: 9999,
+        backdropFilter: "blur(8px)",
+        WebkitBackdropFilter: "blur(8px)",
+        backgroundColor: "rgba(0,0,0,0.3)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "24px",
+      }}
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={alt}
     >
       <div
-        className="relative w-full max-w-3xl flex items-center justify-center"
+        style={{ position: "relative", width: "100%", maxWidth: "860px" }}
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute -top-12 right-0 text-white/80 hover:text-white text-3xl leading-none transition-colors"
-          aria-label="Close expanded plot"
+          style={{
+            position: "absolute",
+            top: "-40px",
+            right: 0,
+            color: "white",
+            background: "none",
+            border: "none",
+            fontSize: "32px",
+            cursor: "pointer",
+            lineHeight: 1,
+          }}
+          aria-label="Close"
           type="button"
         >
           ×
         </button>
-
         <div className="w-full rounded-2xl bg-[#F2F3F4] p-3 sm:p-4 shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
           <img
             src={src}
@@ -144,7 +165,8 @@ function PlotLightbox({ src, alt, isOpen, onClose }: LightboxProps) {
           />
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
@@ -247,7 +269,7 @@ function ProjectHighlights() {
           alt="Revenue Growth After Major Acquisitions"
           title="Revenue Growth After Acquisitions"
           description="Average box office revenue per film increases noticeably after the mid-2000s, indicating a clear upward shift in performance over time."
-          heightClassName="h-[220px] md:h-[210px]"
+          heightClassName="h-[233px] md:h-[210px]"
         />
 
         <ClickablePlot
@@ -255,7 +277,7 @@ function ProjectHighlights() {
           alt="Top Box Office Performers"
           title="Top Box Office Performers"
           description="8 out of 10 of Disney’s highest-grossing films since 2006 come from acquired studios rather than the original Disney studio."
-          heightClassName="h-[220px] md:h-[210px]"
+          heightClassName="h-[175px] md:h-[210px]"
         />
 
         <ClickablePlot
@@ -284,24 +306,24 @@ export function DisneyProjectDetail() {
       customHighlights={<ProjectHighlights />}
       process={[
         {
-          title: "Data Cleaning & Exploration",
+          title: "Data Exploration",
           description:
-            "Cleaned the NYC Airbnb dataset, handled missing review-related fields, converted variable types, and prepared the target variable for modeling.",
+            "Loaded the Disney box office dataset, verified there were no missing values, and explored the structure of the variables and revenue distributions.",
         },
         {
-          title: "Feature Engineering",
+          title: "Studio-Level Aggregation",
           description:
-            "Built multiple preprocessing recipes with categorical encoding, normalization, interaction terms, and polynomial features tailored to different model types.",
+            "Grouped films by studio to calculate average inflation-adjusted revenue per film and compare financial performance across studios.",
         },
         {
-          title: "Model Training & Cross-Validation",
+          title: "Trend Analysis",
           description:
-            "Trained and compared six regression models, including linear regression, elastic net, KNN, random forest, and boosted trees.",
+            "Analyzed changes in Disney’s average film revenue over time to identify how the company’s box office performance evolved after major acquisitions.",
         },
         {
-          title: "Model Comparison & Selection",
+          title: "Data Visualization",
           description:
-            "Used cross-validation, resampling, and RMSE-based model comparison to evaluate performance and select the final model for test-set analysis.",
+            "Created ggplot2 visualizations to highlight differences in studio performance, top-grossing films, and the relationship between film output and revenue share.",
         },
       ]}
       images={[]}
