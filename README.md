@@ -1,6 +1,6 @@
 # Miracle Ramos — Personal Portfolio
 
-**Live Site:** miracleramos.com
+**Live Site:** [miracleramos.com](https://miracleramos.com)
 
 A personal portfolio website showcasing my projects, skills, and background as a computer scientist with expertise in data science, software development, and design.
 
