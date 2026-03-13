@@ -169,8 +169,8 @@ function TerminalBox() {
           typedInstance.current = new Typed(typedRef.current, {
             strings: [
               `<span style="opacity:0.4">// pseudocode (simplified)</span><br/>` + `<br/>` +
-              `<span style="opacity:0.4">// C++</span><br/>` +
-              `<span style="opacity:0.4">// One GPU thread per pixel</span><br/>` +
+              `<span style="opacity:0.4">// C with OpenMP</span><br/>` +
+              `<span style="opacity:0.4">// Pixels distributed across CPU threads</span><br/>` +
               `<span style="display:block;height:6px"></span>` +
               `<span style="color:#87D3F8">kernel void </span><span style="color:#ffffff">TraceFrame</span><span style="opacity:0.6">(Frame frame)</span> {<br/>` +
               `&nbsp;&nbsp;int x = <span style="color:#87D3F8">get_global_id</span>(0);<br/>` +
@@ -322,10 +322,10 @@ function ProjectHighlights() {
           <TerminalBox />
           <div className="px-1 flex flex-col gap-1">
             <p className="text-[#FFFFFF] text-base tracking-wider text-center md:text-left">
-              GPU Parallelization
+              CPU Parallelization
             </p>
             <p className="text-white/60 text-sm italic text-center md:text-left">
-              Each GPU thread computes the color of one pixel. Thousands of threads run at the same time to render the frame in parallel.
+              Each thread computes the color of one pixel. Multiple threads run at the same time to render the frame in parallel.
             </p>
           </div>
         </div>

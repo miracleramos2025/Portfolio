@@ -24,19 +24,20 @@ function TerminalBox() {
         if (entry.isIntersecting && typedRef.current && !typedInstance.current) {
           typedInstance.current = new Typed(typedRef.current, {
             strings: [
+              `<span style="opacity:0.4"># R</span><br/>` +
               `<span style="opacity:0.4"># favorite films by studio</span><br/>` +
-                `favorite_films <- list(<br/>` +
-                `&nbsp;&nbsp;disney = <span style="color:#87D3F8">"Tangled"</span>,<br/>` +
-                `&nbsp;&nbsp;pixar = <span style="color:#87D3F8">"Ratatouille"</span>,<br/>` +
-                `&nbsp;&nbsp;marvel = <span style="color:#87D3F8">"Iron Man"</span>,<br/>` +
-                `)<br/>` +
-                `<span style="display:block;height:10px"></span>` +
-                `<span style="opacity:0.4"># box office</span><br/>` +
-                `box_office <- c(<br/>` +
-                `&nbsp;&nbsp;Frozen = <span style="color:#87D3F8">1.28e9</span> <span style="opacity:0.4"># $1.28B</span>,<br/>` +
-                `&nbsp;&nbsp;Ratatouille = <span style="color:#87D3F8">6.23e8</span> <span style="opacity:0.4"># $623M</span>,<br/>` +
-                `&nbsp;&nbsp;Black_Panther = <span style="color:#87D3F8">1.34e9</span> <span style="opacity:0.4"># $1.34B</span>,<br/>` +
-                `)`
+              `favorite_films <- list(<br/>` +
+              `&nbsp;&nbsp;disney = <span style="color:#87D3F8">"Tangled"</span>,<br/>` +
+              `&nbsp;&nbsp;pixar = <span style="color:#87D3F8">"Ratatouille"</span>,<br/>` +
+              `&nbsp;&nbsp;marvel = <span style="color:#87D3F8">"Iron Man"</span>,<br/>` +
+              `)<br/>` +
+              `<span style="display:block;height:10px"></span>` +
+              `<span style="opacity:0.4"># box office</span><br/>` +
+              `box_office <- c(<br/>` +
+              `&nbsp;&nbsp;Tangled = <span style="color:#87D3F8">2.01e8</span> <span style="opacity:0.4"># $201M</span>,<br/>` +
+              `&nbsp;&nbsp;Ratatouille = <span style="color:#87D3F8">2.06e8</span> <span style="opacity:0.4"># $206M</span>,<br/>` +
+              `&nbsp;&nbsp;Iron_Man = <span style="color:#87D3F8">5.86e8</span> <span style="opacity:0.4"># $586M</span>,<br/>` +
+              `)`
             ],
             typeSpeed: 18,
             startDelay: 150,
@@ -252,11 +253,10 @@ function ProjectHighlights() {
           <TerminalBox />
           <div className="px-1 flex flex-col gap-1">
             <p className="text-[#FFFFFF] text-sm sm:text-base tracking-wider text-center md:text-left">
-              Machine Learning Pipeline
+            My Favorite Films by Studio
             </p>
             <p className="text-white/60 text-xs sm:text-sm italic text-center md:text-left leading-relaxed">
-              The dataset was cleaned, engineered, and split into training and
-              testing sets before evaluating six regression models.
+            Favorite films from each studio that sparked my curiosity about storytelling and the technology behind immersive experiences.
             </p>
           </div>
         </div>

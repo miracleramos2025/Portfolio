@@ -302,7 +302,7 @@ export function AirbnbProjectDetail() {
       title="NYC Airbnb Price Prediction"
       className="STAT 301-2: Data Science II"
       quarter="Winter 2025"
-      overview="This project explores how machine learning can be used to predict Airbnb rental prices in New York City. Six regression models were trained and compared using cross-validation and feature engineering, including linear regression, elastic net, KNN, random forest, and boosted trees. Linear regression achieved the best RMSE of 188.7, while location and room type emerged as the strongest predictors of price. The project resulted in a reproducible, end-to-end machine learning pipeline in R with full documentation and hyperparameter tuning."
+      overview="This project explores how machine learning can be used to predict Airbnb rental prices in New York City. Six regression models were trained and compared using cross-validation and feature engineering, including a baseline model, linear regression, elastic net, KNN, random forest, and boosted trees. Linear regression achieved the best RMSE value while location and room type emerged as the strongest predictors of price. The project resulted in a reproducible, end-to-end machine learning pipeline in R with full documentation and hyperparameter tuning."
       githubUrl="https://github.com/miracleramos2025/nyc-airbnb-price-prediction.git"
       reportUrl="/Ramos_Miracle_final_report.html"
       customHighlights={<ProjectHighlights />}
