@@ -9,7 +9,7 @@ export function Hero() {
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ["Designer", "Developer", "Strategist"],
+      strings: ["Strategist", "Developer", "Designer"],
       typeSpeed: 85,
       backSpeed: 50,
       backDelay: 1200,
