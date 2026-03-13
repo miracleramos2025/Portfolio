@@ -54,7 +54,7 @@ const projects: ProjectsData = {
         "Feature Engineering",
         "Model Evaluation",
         "R",
-        "Data Cleaning",
+        "Data Wrangling",
         "Hyperparameter Tuning",
         "Cross-Validation",
         "Resampling",
