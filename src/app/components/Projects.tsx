@@ -12,6 +12,7 @@ import dtc from "../../assets/dtc.jpeg";
 
 type Project = {
   title: string;
+  subtitle: string;
   thumbnail?: string;
   description: string;
   tags: string[];
@@ -35,41 +36,45 @@ const tabs = [
 const projects: ProjectsData = {
   data: [
     {
+      title: "Disney Box Office Analysis",
+      subtitle: "Data Visualization",
+      description: "Statistical analysis of Disney's box office history, quantifying how Pixar, Marvel, and Lucasfilm acquisitions reshaped revenue.",
+      thumbnail: stat302,
+      image: "",
+      tags: ["R", "Exploratory Data Analysis", "ggplot2", "Statistical Analysis", "Data Storytelling", "Data Cleaning", "Trend Analysis"],
+      route: "/projects/disney-box-office-analysis",
+    },
+    {
       title: "NYC Airbnb Price Prediction",
+      subtitle: "Machine Learning",
       description: "Supervised machine learning pipeline comparing 6 models to predict NYC Airbnb rental prices using tidymodels in R.",
       thumbnail: stat301_2,
       image: "",
       tags: [
-        "Machine Learning",
         "Feature Engineering",
         "Model Evaluation",
         "R",
         "Data Cleaning",
         "Hyperparameter Tuning",
+        "Cross-Validation",
         "Resampling",
       ],
       route: "/projects/nyc-airbnb-price-prediction",
-    },
-    {
-      title: "Disney Box Office Analysis",
-      description: "Statistical analysis of Disney's box office history, quantifying how Pixar, Marvel, and Lucasfilm acquisitions reshaped revenue.",
-      thumbnail: stat302,
-      image: "",
-      tags: ["R", "Exploratory Data Analysis", "Data Visualization", "ggplot2", "Statistical Analysis", "Data Storytelling"],
-      route: "/projects/disney-box-office-analysis",
     },
   ],
   development: [
     {
       title: "Pixar & Parallel Computing",
+      subtitle: "High-Performance Computing",
       description: "A technical deep-dive into how Pixar uses high-performance computing and parallel processing to render feature films.",
       thumbnail: cs358,
       image: "",
-      tags: ["Parallel Computing", "HPC", "Path Tracing", "RenderMan", "Frame-Level Parallelism", "GPU Architecture", "Research", "Presentation"],
+      tags: ["Concurrency", "Path Tracing", "RenderMan", "Frame-Level Parallelism", "GPU Architecture", "Research", "Presentation"],
       route: "/projects/pixar-parallel-computing",
     },
     {
       title: "CTA Bus Tracker",
+      subtitle: "",
       description: "Data science presentation created using R.",
       image: cs310,
       tags: ["R", "Data Science", "R Markdown", "Presentation", "Data Visualization"],
@@ -79,6 +84,7 @@ const projects: ProjectsData = {
   design: [
     {
       title: "Compost & Carry",
+      subtitle: "",
       description: "Designed a compact vermicompost bin for urban living with a drawer mechanism for easy harvesting and transport.",
       image: dtc,
       tags: ["Product Design", "Client Project", "Prototyping", "Human-Centered Design", "Iterative Testing"],
@@ -86,6 +92,7 @@ const projects: ProjectsData = {
     },
     {
       title: "Campus Connect",
+      subtitle: "",
       description: "Led UX research and design for a campus app consolidating scattered resources into one platform.",
       image: cs314,
       tags: ["UI/UX", "User Testing", "Figma", "Prototyping", "User Research"],
@@ -120,6 +127,11 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
       </div>
       <div className="px-4 pb-4 flex flex-col gap-3">
       <h3 className="text-base md:text-xl font-bold text-white text-center">{project.title}</h3>
+      {project.subtitle && (
+      <p className="text-xs md:text-base text-center font-medium tracking-wide -mt-2" style={{ color: "#87D3F8" }}>
+        {project.subtitle}
+        </p>
+      )}
         <div className="flex flex-wrap gap-2 justify-center">
           {project.tags.map((tag) => (
             <span
@@ -141,9 +153,9 @@ export function Projects() {
   const navigate = useNavigate();
 
   const allProjects = [
-    projects.development[0],
-    projects.data[0],
-    projects.data[1],
+    projects.data[1], // NYC Airbnb
+    projects.data[0], // Disney
+    projects.development[0], // Pixar
   ];
 
   const activeProjects =

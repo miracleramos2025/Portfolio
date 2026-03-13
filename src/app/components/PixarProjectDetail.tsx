@@ -404,7 +404,7 @@ export function PixarProjectDetail() {
         {
           title: "Research",
           description:
-            "Reviewed Pixar papers, SIGGRAPH talks, and RenderMan documentation to understand where parallelism appears in the rendering pipeline.",
+            "Reviewed Pixar papers, SIGGRAPH talks, and RenderMan docs to analyze parallelism in the rendering pipeline.",
         },
         {
           title: "Pipeline Breakdown",
