@@ -19,7 +19,7 @@ export function HuronDetail() {
         },
         {
           title: "Digital Consulting Analyst",
-          timeline: "Summer 2026 – Present",
+          timeline: "Starting Q4 2026",
           description: "Returning as a full-time Digital Consulting Analyst in Huron's Data Management & Analytics practice.",
         },
       ]}
