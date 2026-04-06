@@ -20,7 +20,7 @@ export function NUITDetail() {
         {
           title: "Team Lead",
           timeline: "Feb 2025 – Present",
-          description: "Promoted to lead daily operations, training, and scheduling while guiding a team of consultants through technical skill-building and professional development. Served as a primary point of contact for escalated technical issues and classroom support.",
+          description: "Promoted to lead daily operations, training, and scheduling while guiding a team of consultants through technical skill-building and professional development. Serve as a primary point of contact for escalated technical issues and classroom support.",
         },
       ]}
       teams={[
