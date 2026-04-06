@@ -73,7 +73,7 @@ function Home() {
     <div className="min-h-screen">
       <nav className="sticky top-0 z-50 bg-white py-3 md:py-6 px-8 flex items-center justify-between border-b border-gray-200">
         <button onClick={() => scrollToId("top")} className="text-left">
-          <h1 className="text-[#0F2656] text-2xl font-bold">Miracle Ramos</h1>
+        <h1 className="text-[#0F2656] text-2xl font-bold hover:text-[#87D3F8] transition-colors duration-200">Miracle Ramos</h1>
         </button>
         <div className="hidden md:flex gap-8">
           <button onClick={() => scrollToId("experience")} className="text-lg text-[#0F2656] font-semibold hover:text-[#87D3F8] transition-colors">Experience</button>
