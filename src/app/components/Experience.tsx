@@ -1,35 +1,46 @@
 // Experience.tsx
-
 import huron from "../../assets/huron/huron.jpg";
 import mudd from "../../assets/nuit/nuit.jpg";
+import salesforce from "../../assets/salesforce/salesforcetower2.jpg";
 import { useNavigate } from "react-router-dom";
-
-
 
 export function Experience() {
   const navigate = useNavigate();
+
   const cards = [
     {
-      image: huron,
-      coverPhoto: "/chicago.jpg",
-      href: "/experience/huron",
-      title: "Huron Consulting Group",
-      roles: ["Digital Consulting Analyst", "Digital Consulting Intern"],
+      image: salesforce,
+      coverPhoto: "/salesforcetower2.jpg",
+      href: "/experience/salesforce",
+      title: "Salesforce",
+      role: "Graduate Solution Engineer",
+      enabled: false,
     },
     {
       image: mudd,
       coverPhoto: "/campus.png",
       href: "/experience/northwestern-it",
       title: "Northwestern IT",
-      roles: ["Team Lead", "Technical Consultant"],
+      role: "Team Lead Technical Consultant",
+      enabled: true,
+    },
+    {
+      image: huron,
+      coverPhoto: "/chicago.jpg",
+      href: "/experience/huron",
+      title: "Huron Consulting Group",
+      role: "Digital Consulting Intern",
+      enabled: true,
     },
   ];
 
   const preloadImage = (src: string) => {
     if (!src) return;
-    // Don't add duplicate preload tags
-    const existing = document.querySelector(`link[rel="preload"][href="${src}"]`);
+    const existing = document.querySelector(
+      `link[rel="preload"][href="${src}"]`
+    );
     if (existing) return;
+
     const link = document.createElement("link");
     link.rel = "preload";
     link.as = "image";
@@ -38,95 +49,92 @@ export function Experience() {
   };
 
   return (
-    <section id="experience" className="bg-[#0F2656] py-16 px-8" style={{ scrollMarginTop: "81px" }}>
-      <h2 className="text-white text-4xl font-bold text-center mb-12" style={{ letterSpacing: "0.04em" }}>Experience</h2>
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-      {cards.map((card, i) => (
-  <div
-    key={i}
-    onClick={() => navigate(card.href)}
-    onMouseEnter={() => preloadImage(card.coverPhoto)}
-    onTouchStart={() => preloadImage(card.coverPhoto)}
-    className="relative overflow-hidden rounded-xl block group cursor-pointer shadow-[0_12px_30px_rgba(0,0,0,0.25)] h-[260px] md:h-[400px]"
-    style={{ border: "3px solid #87D3F8" }}
-  >
-            <img
-              src={card.image}
-              alt=""
-              {...{ fetchpriority: "high" }}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            {/* Base overlay */}
-            <div
-              className="absolute inset-0 transition-opacity duration-300"
-              style={{ backgroundColor: "rgba(15, 38, 86, 0.60)" }}
-            />
-            {/* Hover overlay */}
-            <div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              style={{ backgroundColor: "rgba(15, 38, 86, 0.45)" }}
-            />
+    <section
+      id="experience"
+      className="bg-[#0F2656] py-16 px-8"
+      style={{ scrollMarginTop: "81px" }}
+    >
+      <div className="max-w-5xl md:max-w-[1300px] mx-auto px-0 md:px-16">
+        <h2
+          className="text-white text-4xl font-bold text-center mb-11"
+          style={{ letterSpacing: "0.04em" }}
+        >
+          Experience
+        </h2>
 
-            {/* Title — top left */}
-            <div className="absolute top-4 md:top-8 left-0 p-6 md:p-8">
-            <h3
-            className="text-white font-bold text-lg md:text-2xl mb-6 tracking-wide"
+        <div
+          className={`grid gap-4 md:gap-8 items-stretch grid-cols-1 md:grid-cols-2 ${
+            cards.length === 2 ? "md:max-w-2xl md:mx-auto" : "lg:grid-cols-3"
+          }`}
+        >
+          {cards.map((card, i) => (
+            <div
+              key={i}
+              className="flex w-full"
+              onMouseEnter={() => preloadImage(card.coverPhoto)}
+              onTouchStart={() => preloadImage(card.coverPhoto)}
             >
-                {card.title}
-              </h3>
-            </div>
+              <div
+                onClick={() => {
+                  if (card.enabled) {
+                    navigate(card.href);
+                  }
+                }}
+                className={`relative overflow-hidden rounded-lg transition-all flex flex-col h-full w-full shadow-[0_12px_30px_rgba(0,0,0,0.25)] min-h-[400px] group ${
+                  card.enabled
+                    ? "cursor-pointer hover:-translate-y-1"
+                    : "cursor-default"
+                }`}
+                style={{
+                  backgroundColor: "#002147",
+                  border: "2px solid #87D3F8",
+                }}
+              >
+                <div className="absolute inset-0">
+                  <img
+                    src={card.image}
+                    alt=""
+                    {...{ fetchpriority: "high" }}
+                    className={`w-full h-full object-cover transition-transform duration-500 ${
+                      card.enabled ? "group-hover:scale-105" : ""
+                    }`}
+                  />
 
-            {/* Progression — bottom left */}
-            <div className="absolute bottom-16 md:bottom-39 left-0 p-6 md:p-8 flex items-center gap-4">
-              <div className="flex flex-col items-center">
-                {card.roles.map((_, j) => (
-                  <div key={j} className="flex flex-col items-center">
-                    <div
-                      className="rounded-full"
-                      style={{
-                        width: "10px",
-                        height: "10px",
-                        backgroundColor: j === card.roles.length - 1 ? "#fff" : "#87D3F8",
-                        border: "1px solid #fff",
-                      }}
-                    />
-                    {j < card.roles.length - 1 && (
-                      <div className="w-px bg-white opacity-90" style={{ height: "51px" }} />
-                    )}
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-col ">
-                {card.roles.map((role, j) => (
                   <div
-                    key={j}
-                    style={{ height: j < card.roles.length - 1 ? "56px" : "auto" }}
-                    className="flex items-start"
-                  >
-                    <span
-                    className="text-white font-semibold text-sm md:text-lg"
-                    style={{ opacity: j === card.roles.length - 1 ? 0.67 : 1 }}
-                    >
-                      {role}
+                    className="absolute inset-0 transition-opacity duration-300"
+                    style={{
+                      backgroundColor: "rgba(15, 38, 86, 0.65)",
+                    }}
+                  />
+                </div>
+
+                <div className="relative z-10 p-6 pt-12 flex flex-col h-full items-center justify-between text-center">
+                  <div className="flex flex-col gap-2 mt-auto mb-12">
+                    <h3 className="text-white font-bold text-xl md:text-2xl tracking-wide">
+                      {card.title}
+                    </h3>
+
+                    <span className="text-white font-semibold text-base md:text-lg block tracking-wide opacity-95">
+                      {card.role}
                     </span>
                   </div>
-                ))}
+
+                  <div className="mb-20">
+                    <span
+                      className={`text-xs md:text-sm font-semibold px-6 py-2 rounded-full border backdrop-blur-md transition-all duration-200 ${
+                        card.enabled
+                          ? "text-[#0F2656] bg-white border-white/25 hover:bg-[#0F2656] hover:text-white hover:border-[#87D3F8]"
+                          : "text-white bg-[#0F2656]/60 border-[#87D3F8]"
+                      }`}
+                    >
+                      {card.enabled ? "View My Impact" : "Coming Soon"}
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-
-            {/* CTA button — bottom center */}
-            <div className="absolute bottom-2 md:bottom-6 left-0 p-6 md:p-8">
-  <span
-    className="text-[#0F2656] text-sm font-semibold px-6 py-2 rounded-full
-    bg-white border border-white/25 backdrop-blur-md
-    hover:bg-[#87D3F8] hover:text-[#0F2656] hover:border-[#0F2656]
-    transition-all duration-200"
-  >
-    View My Impact
-  </span>
-</div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

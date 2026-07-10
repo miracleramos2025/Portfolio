@@ -111,12 +111,12 @@ type LoveItem = {
 };
 
 const loveItems: LoveItem[] = [
+  { label: "Pizza (ask me about the best spots in Chicago)", img: pizzaImg, alt: "Chicago pizza" },
+  { label: "Running", img: runningImg, alt: "Running" },
   { label: "Making Bagels", img: bagelsImg, alt: "Homemade bagels" },
   { label: "Disney Parks", img: disneyVideo, alt: "Disney Parks", isVideo: true },
-  { label: "Running", img: runningImg, alt: "Running" },
   { label: "LEGO", img: legoImg, alt: "Lego sets" },
   { label: "Musicals", img: musicalImg, alt: "Musicals" },
-  { label: "Pizza (ask me about the best spots in Chicago)", img: pizzaImg, alt: "Chicago pizza" },
 ];
 
 export function About() {
@@ -164,16 +164,20 @@ I’m a computer scientist interested in how technology, data, and design come t
   <p>
   Innovation, curiosity, and collaboration are at the core of what I do, and I'm always
   looking to create work that has real <span className="text-[#87D3F8] font-semibold">impact</span>. 
-  I'm starting my professional journey in consulting and excited to keep building from here.
+  I'm starting my professional journey at Salesforce and I'm excited to keep building from here.
 </p>
 
 {/* Education Box */}
 <div className="mt-3 pt-3 border-t border-[#87D3F8]/25">
 <h3 className="text-white font-semibold tracking-wide mb-1">Education</h3>
 <p className="text-[#87D3F8] font-semibold">Northwestern University</p>
-  <p className="text-[#FFFFFF] text-[13px]">
-    BA Computer Science · Minor in Data Science · Segal Design Certificate
-  </p>
+<p className="text-[#FFFFFF] text-[13px]">
+  Bachelor’s: Computer Science | Concentration: HCI 
+  <br /> 
+  Minor: Data Science | Segal Design Certificate
+</p>
+
+
 
   {/* Things I Love */}
   <div className="mt-4">

@@ -18,9 +18,9 @@ export function HuronDetail() {
           description: "Contributed to data strategy and cloud implementation across multiple client engagements. Supported database migration and environment setup to deliver scalable, long-term data solutions.",
         },
         {
-          title: "Digital Consulting Analyst",
-          timeline: "Starting Q3/Q4 2026",
-          description: "Returning as a Digital Consulting Analyst.",
+          title: "Digital Consulting Analyst (Offered)",
+          timeline: "Aug 2025",
+          description: "Received a formal full-time return offer to join Huron's digital consulting practice upon graduation.",
         },
       ]}
       teams={[

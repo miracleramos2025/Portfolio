@@ -8,6 +8,7 @@ import { Skills } from "./components/Skills";
 import { Experience } from "./components/Experience";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
+import { SalesforceDetail } from "./components/SalesforceDetail";
 import { HuronDetail } from "./components/HuronDetail";
 import { NUITDetail } from "./components/NUITDetail";
 import { PixarProjectDetail } from "./components/PixarProjectDetail";
@@ -122,6 +123,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/experience/salesforce" element={<SalesforceDetail />} />
         <Route path="/experience/huron" element={<HuronDetail />} />
         <Route path="/experience/northwestern-it" element={<NUITDetail />} />
         <Route path="/projects/pixar-parallel-computing" element={<PixarProjectDetail />} />
