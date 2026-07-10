@@ -9,7 +9,7 @@ export function Hero() {
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ["Strategist", "Developer", "Designer"],
+      strings: ["a Strategist", "an Engineer", "a Designer"],
       typeSpeed: 85,
       backSpeed: 50,
       backDelay: 1200,
@@ -37,7 +37,7 @@ export function Hero() {
         Miracle Ramos
       </h2>
       <p style={{ color: "#0F2656" }} className="text-2xl font-light">
-        I'm a <span ref={typedRef}></span>
+        I'm <span ref={typedRef}></span>
       </p>
       <button
   onClick={() => {
