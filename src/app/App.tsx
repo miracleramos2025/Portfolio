@@ -8,16 +8,15 @@ import { Skills } from "./components/Skills";
 import { Experience } from "./components/Experience";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
-import { SalesforceDetail } from "./components/SalesforceDetail";
-import { HuronDetail } from "./components/HuronDetail";
-import { NUITDetail } from "./components/NUITDetail";
-import { PixarProjectDetail } from "./components/PixarProjectDetail";
-import { AirbnbProjectDetail } from "./components/AirbnbProjectDetail";
-import { DisneyProjectDetail } from "./components/DisneyProjectDetail";
-import { CTAProjectDetail } from "./components/CTAProjectDetail";
-// import { CompostProjectDetail } from "./components/CompostProjectDetail";
-import { CampusConnectProjectDetail } from "./components/CampusConnectProjectDetail";
-
+import { lazy, Suspense } from "react";
+const SalesforceDetail = lazy(() => import("./components/SalesforceDetail").then(m => ({ default: m.SalesforceDetail })));
+const HuronDetail = lazy(() => import("./components/HuronDetail").then(m => ({ default: m.HuronDetail })));
+const NUITDetail = lazy(() => import("./components/NUITDetail").then(m => ({ default: m.NUITDetail })));
+const PixarProjectDetail = lazy(() => import("./components/PixarProjectDetail").then(m => ({ default: m.PixarProjectDetail })));
+const AirbnbProjectDetail = lazy(() => import("./components/AirbnbProjectDetail").then(m => ({ default: m.AirbnbProjectDetail })));
+const DisneyProjectDetail = lazy(() => import("./components/DisneyProjectDetail").then(m => ({ default: m.DisneyProjectDetail })));
+const CTAProjectDetail = lazy(() => import("./components/CTAProjectDetail").then(m => ({ default: m.CTAProjectDetail })));
+const CampusConnectProjectDetail = lazy(() => import("./components/CampusConnectProjectDetail").then(m => ({ default: m.CampusConnectProjectDetail })));
 
 
 function Home() {
@@ -122,18 +121,20 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/experience/salesforce" element={<SalesforceDetail />} />
-        <Route path="/experience/huron" element={<HuronDetail />} />
-        <Route path="/experience/northwestern-it" element={<NUITDetail />} />
-        <Route path="/projects/pixar-parallel-computing" element={<PixarProjectDetail />} />
-        <Route path="/projects/nyc-airbnb-price-prediction" element={<AirbnbProjectDetail />} />
-        <Route path="/projects/disney-box-office-analysis" element={<DisneyProjectDetail />} />
-        <Route path="/projects/cta-bus-tracker" element={<CTAProjectDetail />} />
-        <Route path="/projects/campus-connect" element={<CampusConnectProjectDetail />} />
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
+  <Suspense fallback={null}>
+    <Routes>
+      <Route path="/experience/salesforce" element={<SalesforceDetail />} />
+      <Route path="/experience/huron" element={<HuronDetail />} />
+      <Route path="/experience/northwestern-it" element={<NUITDetail />} />
+      <Route path="/projects/pixar-parallel-computing" element={<PixarProjectDetail />} />
+      <Route path="/projects/nyc-airbnb-price-prediction" element={<AirbnbProjectDetail />} />
+      <Route path="/projects/disney-box-office-analysis" element={<DisneyProjectDetail />} />
+      <Route path="/projects/cta-bus-tracker" element={<CTAProjectDetail />} />
+      <Route path="/projects/campus-connect" element={<CampusConnectProjectDetail />} />
+      <Route path="/" element={<Home />} />
+    </Routes>
+  </Suspense>
+</BrowserRouter>
   );
 }
 
